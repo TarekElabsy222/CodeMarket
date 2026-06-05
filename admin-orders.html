@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>كودساينون | سجل الطلبيات والمبيعات</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/dashboards.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/forms.css">
+
+  <!-- E-commerce Store State Engine -->
+  <script src="js/store-engine.js"></script>
+</head>
+<body class="dark-theme role-admin-theme">
+
+  <!-- Header Navigation -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="logo-area">
+        <a href="index.html" class="logo">
+          <svg class="logo-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 10L16 4L26 10V22L16 28L6 22V10Z" stroke="var(--primary)" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M16 4V28" stroke="var(--primary)" stroke-width="1.5" stroke-dasharray="3 3"/>
+            <path d="M11 11L16 14L21 11" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="16" cy="19" r="3" fill="var(--primary)" />
+          </svg>
+          <span class="logo-text">كودساينون<span class="logo-dot">.</span></span>
+        </a>
+      </div>
+
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+          <li><a href="store.html" class="nav-link">المتجر</a></li>
+          <li><a href="admin-portal.html" class="nav-link active">لوحة الإدارة</a></li>
+          <li><a href="downloads.html" class="nav-link">مركز التحميل</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Wishlist Button -->
+        <a href="cart.html#wishlist" class="icon-btn" style="position:relative; margin-left: 14px; font-size:1.3rem; text-decoration:none;" title="المفضلة">
+          ❤️
+          <span class="badge-count en-nums" id="header-fav-count" style="position:absolute; top:-8px; left:-8px; background-color:var(--danger); color:white; font-size:0.7rem; font-weight:800; border-radius:50%; width:18px; height:18px; display:none; align-items:center; justify-content:center;">0</span>
+        </a>
+        
+        <!-- Cart Button -->
+        <a href="cart.html" class="icon-btn" style="position:relative; margin-left: 20px; font-size:1.3rem; text-decoration:none;" title="سلة المشتريات">
+          🛒
+          <span class="badge-count en-nums" id="header-cart-count" style="position:absolute; top:-8px; left:-8px; background-color:var(--primary); color:white; font-size:0.7rem; font-weight:800; border-radius:50%; width:18px; height:18px; display:none; align-items:center; justify-content:center;">0</span>
+        </a>
+
+        <a href="submit-request.html" class="btn btn-primary" style="margin-left: 12px;">
+          اطلب مشروعك الخاص
+        </a>
+
+        <div class="user-profile-menu"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Shell Layout -->
+  <main id="app-root">
+    <div class="dashboard-shell fade-in">
+      
+      <!-- Sidebar Navigation -->
+      <aside class="dashboard-sidebar">
+        <div class="sidebar-header-info">
+          <div class="role-indicator admin" style="width:44px; height:44px; border-radius:var(--radius-md); display:flex; align-items:center; justify-content:center; background-color: var(--primary); color:white; font-size:1.4rem;">
+            ⚙️
+          </div>
+          <div class="sidebar-avatar-info">
+            <h4>إدارة كودساينون</h4>
+            <p>لوحة التحكم العامة</p>
+          </div>
+        </div>
+        <ul class="sidebar-menu">
+          <li>
+            <a href="admin-portal.html" class="sidebar-menu-item">
+              <span style="margin-left: 8px;">📊</span>
+              لوحة التحكم والأرباح
+            </a>
+          </li>
+          <li>
+            <a href="admin-products.html" class="sidebar-menu-item">
+              <span style="margin-left: 8px;">📦</span>
+              المنتجات وإدارتها
+            </a>
+          </li>
+          <li>
+            <a href="admin-categories.html" class="sidebar-menu-item">
+              <span style="margin-left: 8px;">📂</span>
+              إدارة التصنيفات
+            </a>
+          </li>
+          <li>
+            <a href="admin-orders.html" class="sidebar-menu-item active">
+              <span style="margin-left: 8px;">📜</span>
+              سجل الطلبيات
+            </a>
+          </li>
+          <li>
+            <a href="admin-users.html" class="sidebar-menu-item">
+              <span style="margin-left: 8px;">👥</span>
+              إدارة المستخدمين
+            </a>
+          </li>
+        </ul>
+      </aside>
+
+      <!-- Main Dashboard Content -->
+      <section class="dashboard-content">
+        <div class="dashboard-title-area">
+          <div>
+            <h2 id="tab-headline">سجل الطلبيات وتراخيص الشراء</h2>
+            <p class="dashboard-subtitle" id="tab-subtitle">متابعة كافة العمليات المالية الناجحة وتراخيص الكود المصدر الصادرة للعملاء.</p>
+          </div>
+        </div>
+
+        <div id="subtab-content-root">
+          <!-- Mini Metrics Specific for Orders -->
+          <div class="metrics-grid" style="margin-bottom: 24px;">
+            <div class="metric-card">
+              <div class="metric-info">
+                <span class="metric-label">إجمالي إيرادات المبيعات</span>
+                <span class="metric-value en-nums" id="metric-orders-revenue">$0</span>
+              </div>
+              <div class="metric-icon-box" style="background-color: var(--success-glow); color: var(--success);">💰</div>
+            </div>
+            
+            <div class="metric-card">
+              <div class="metric-info">
+                <span class="metric-label">إجمالي الطلبيات الناجحة</span>
+                <span class="metric-value en-nums" id="metric-orders-total">0</span>
+              </div>
+              <div class="metric-icon-box" style="background-color: var(--primary-light); color: var(--primary);">📈</div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-info">
+                <span class="metric-label">متوسط قيمة الطلبية (AOV)</span>
+                <span class="metric-value en-nums" id="metric-orders-aov">$0</span>
+              </div>
+              <div class="metric-icon-box" style="background-color: var(--warning-glow); color: var(--warning);">🛍️</div>
+            </div>
+          </div>
+
+          <!-- Orders Log Table -->
+          <div class="dashboard-card">
+            <div class="dashboard-card-header" style="flex-wrap: wrap; gap: 16px;">
+              <h3>تفاصيل حركات الشراء والتراخيص</h3>
+              
+              <!-- Search filter input -->
+              <div style="position: relative; width: 280px;">
+                <input type="text" class="form-control" id="order-search-input" placeholder="🔍 ابحث بالعميل، البريد، أو الرمز..." style="padding: 8px 12px 8px 36px; margin-bottom:0; font-size: 0.85rem;">
+              </div>
+            </div>
+            <div class="dashboard-card-body" style="padding:0; overflow-x: auto;">
+              <table class="project-table">
+                <thead>
+                  <tr>
+                    <th>رمز العملية</th>
+                    <th>التاريخ</th>
+                    <th>المنتج المطلوب</th>
+                    <th>العميل</th>
+                    <th>نوع الترخيص</th>
+                    <th>مفتاح ترخيص الكود</th>
+                    <th>المبلغ</th>
+                  </tr>
+                </thead>
+                <tbody id="orders-table-body">
+                  <!-- Filled dynamically -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div class="footer-bottom">
+      <div class="footer-bottom-container" style="text-align:center;">
+        <p>© 2026 كودساينون (Codecynon) لوحة الإدارة العامة. جميع الحقوق محفوظة لشركة التميز الرقمي.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ==========================================
+    // ORDERS HISTORY LOG
+    // ==========================================
+    const orderSearchInput = document.getElementById('order-search-input');
+    const ordersTableBody = document.getElementById('orders-table-body');
+
+    // Render metrics and list table
+    function renderOrders(filterQuery = "") {
+      const orders = window.StoreEngine.getOrders();
+      
+      // Calculate general sales statistics
+      const totalRevenue = orders.reduce((sum, o) => sum + o.price, 0);
+      const ordersCount = orders.length;
+      const averageOrderVal = ordersCount > 0 ? (totalRevenue / ordersCount) : 0;
+
+      // Update metrics
+      document.getElementById('metric-orders-revenue').textContent = `$${totalRevenue.toLocaleString()}`;
+      document.getElementById('metric-orders-total').textContent = ordersCount;
+      document.getElementById('metric-orders-aov').textContent = `$${Math.round(averageOrderVal).toLocaleString()}`;
+
+      // Filter orders based on query
+      const query = filterQuery.toLowerCase().trim();
+      const filteredOrders = orders.filter(o => {
+        if (!query) return true;
+        return (
+          o.id.toLowerCase().includes(query) ||
+          o.productTitle.toLowerCase().includes(query) ||
+          o.name.toLowerCase().includes(query) ||
+          o.email.toLowerCase().includes(query) ||
+          (o.licenseKey && o.licenseKey.toLowerCase().includes(query))
+        );
+      });
+
+      if (filteredOrders.length === 0) {
+        ordersTableBody.innerHTML = `<tr><td colspan="7" style="text-align:center; padding: 20px;">لا توجد عمليات شراء تطابق بحثك حالياً.</td></tr>`;
+        return;
+      }
+
+      ordersTableBody.innerHTML = filteredOrders.map(o => {
+        const licenseBadgeClass = o.license === 'extended' ? 'new' : 'prog';
+        const licenseText = o.license === 'extended' ? 'ممتد (Extended)' : 'عادي (Regular)';
+        
+        return `
+          <tr>
+            <td><code class="en-nums" style="font-weight:700; color:var(--primary);">${o.id}</code></td>
+            <td class="en-nums">${o.date}</td>
+            <td><strong>${o.productTitle}</strong></td>
+            <td>
+              <div class="project-name-cell">
+                <strong>${o.name}</strong>
+                <span>${o.email}</span>
+              </div>
+            </td>
+            <td><span class="badge-status ${licenseBadgeClass}">${licenseText}</span></td>
+            <td><code style="font-size:0.775rem; background:rgba(255,255,255,0.05); padding:4px 8px; border-radius:var(--radius-sm);" class="en-nums">${o.licenseKey || 'N/A'}</code></td>
+            <td class="en-nums" style="font-weight:800; color:var(--text-primary);">$${o.price}</td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    // Search filter listener
+    orderSearchInput.addEventListener('input', (e) => {
+      renderOrders(e.target.value);
+    });
+
+    // INITIALIZATION
+    document.addEventListener('DOMContentLoaded', () => {
+      renderOrders();
+      
+      // Sync badges counts if any
+      window.StoreEngine.updateHeaderBadges();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>كودساينون | سلة المشتريات والمفضلة</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/landing.css">
+  <link rel="stylesheet" href="css/components.css">
+
+  <!-- Shared Store Engine -->
+  <script src="js/store-engine.js"></script>
+</head>
+<body class="role-client-theme">
+
+  <!-- Header Navigation -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="logo-area">
+        <a href="index.html" class="logo">
+          <svg class="logo-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 10L16 4L26 10V22L16 28L6 22V10Z" stroke="var(--primary)" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M16 4V28" stroke="var(--primary)" stroke-width="1.5" stroke-dasharray="3 3"/>
+            <path d="M11 11L16 14L21 11" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="16" cy="19" r="3" fill="var(--primary)" />
+          </svg>
+          <span class="logo-text">كودساينون<span class="logo-dot">.</span></span>
+        </a>
+      </div>
+
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+          <li><a href="store.html" class="nav-link">المتجر</a></li>
+          <li><a href="admin-portal.html" class="nav-link">لوحة الإدارة</a></li>
+          <li><a href="downloads.html" class="nav-link">مركز التحميل</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Wishlist Button -->
+        <a href="cart.html#wishlist" class="icon-btn" style="position:relative; margin-left: 14px; font-size:1.3rem; text-decoration:none;" title="المفضلة">
+          ❤️
+          <span class="badge-count en-nums" id="header-fav-count" style="position:absolute; top:-8px; left:-8px; background-color:var(--danger); color:white; font-size:0.7rem; font-weight:800; border-radius:50%; width:18px; height:18px; display:none; align-items:center; justify-content:center;">0</span>
+        </a>
+        
+        <!-- Cart Button -->
+        <a href="cart.html" class="icon-btn" style="position:relative; margin-left: 20px; font-size:1.3rem; text-decoration:none;" title="سلة المشتريات">
+          🛒
+          <span class="badge-count en-nums" id="header-cart-count" style="position:absolute; top:-8px; left:-8px; background-color:var(--primary); color:white; font-size:0.7rem; font-weight:800; border-radius:50%; width:18px; height:18px; display:none; align-items:center; justify-content:center;">0</span>
+        </a>
+
+        <a href="submit-request.html" class="btn btn-primary" style="margin-left: 12px;">
+          اطلب مشروعك الخاص
+        </a>
+
+        <div class="user-profile-menu"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Cart Shell -->
+  <main class="landing-wrapper fade-in" style="margin-top: 40px; margin-bottom: 60px;">
+    
+    <div style="border-bottom: 1px solid var(--border-light); padding-bottom: 20px; margin-bottom: 30px;">
+      <h1 style="font-size: 2rem; font-weight: 900; color: var(--text-primary);">سلة المشتريات والمفضلة</h1>
+      <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 4px;">راجع الأكواد التي ترغب في شرائها وأكمل الدفع الفوري للحصول على ملفاتك.</p>
+    </div>
+
+    <!-- Main Content layout -->
+    <div class="product-details-container" style="grid-template-columns: 2fr 1.1fr;">
+      
+      <!-- Cart Items Section -->
+      <section class="product-info-panel">
+        <div class="dashboard-card">
+          <div class="dashboard-card-header">
+            <h3>المنتجات في عربة التسوق</h3>
+            <button id="clear-cart-btn" style="background:none; border:none; color:var(--danger); font-size:0.75rem; font-weight:700; cursor:pointer;">إفراغ العربة</button>
+          </div>
+          <div class="dashboard-card-body" id="cart-items-container" style="padding: 0;">
+            <!-- Loaded dynamically from JS -->
+          </div>
+        </div>
+
+        <!-- Wishlist / Bookmarked Items Section -->
+        <div class="dashboard-card" id="wishlist" style="margin-top: 24px;">
+          <div class="dashboard-card-header" style="background-color: var(--primary-light);">
+            <h3 style="color: var(--primary);">قائمة المفضلة الخاصة بك (الwishlist)</h3>
+          </div>
+          <div class="dashboard-card-body" id="wishlist-items-container" style="padding: 0;">
+            <!-- Loaded dynamically from JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Cart totals summary (Sticky panel) -->
+      <aside class="product-sidebar-panel">
+        <div class="purchase-card">
+          <h3 style="font-weight: 800; color: var(--text-primary); font-size: 1.15rem; border-bottom: 1px solid var(--border-light); padding-bottom: 12px; margin-bottom:16px;">ملخص الحساب</h3>
+          
+          <!-- Promo Code -->
+          <div style="margin-bottom: 20px;">
+            <label style="font-size:0.775rem; font-weight:700; color:var(--text-secondary); display:block; margin-bottom:6px;">هل لديك كوبون خصم؟</label>
+            <div style="display:flex; gap:8px;">
+              <input type="text" class="form-control" id="cart-coupon-input" placeholder="ادخل الكود (مثال: ARABIA10)" style="padding: 8px 12px; font-size:0.8rem; font-family:var(--font-english); text-transform:uppercase;">
+              <button class="btn btn-outline" id="cart-coupon-apply" style="padding: 0 16px; font-size:0.8rem; font-weight:800;">تطبيق</button>
+            </div>
+            <div id="cart-coupon-feedback" style="font-size:0.725rem; margin-top:6px; font-weight:700; display:none;"></div>
+          </div>
+
+          <!-- Checkout pricing table -->
+          <div style="display:flex; flex-direction:column; gap:10px; font-size:0.825rem; color:var(--text-secondary); border-top:1px solid var(--border-light); padding-top:16px;">
+            <div style="display:flex; justify-content:space-between;">
+              <span>المجموع الفرعي:</span>
+              <strong id="cart-subtotal" class="en-nums">$0</strong>
+            </div>
+            <div style="display:flex; justify-content:space-between; color:var(--success); display:none;" id="cart-discount-row">
+              <span>خصم الكوبون (%10):</span>
+              <strong id="cart-discount" class="en-nums">-$0</strong>
+            </div>
+            <div style="display:flex; justify-content:space-between;">
+              <span>الضرائب والرسوم:</span>
+              <span style="color:var(--text-muted);">0.00$</span>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--border-light); padding-top:14px; margin-top:4px;">
+              <span style="font-size:0.9rem; color:var(--text-primary); font-weight:800;">المجموع النهائي:</span>
+              <strong class="product-price" id="cart-total" style="font-size:1.6rem;">$0</strong>
+            </div>
+          </div>
+
+          <button id="checkout-redirect-btn" class="btn btn-primary btn-lg" style="width: 100%; text-align: center; justify-content: center; font-weight: 800; font-size:1.05rem; margin-top: 24px;">الانتقال لصفحة الدفع</button>
+        </div>
+      </aside>
+
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div class="footer-bottom">
+      <div class="footer-bottom-container" style="text-align:center;">
+        <p>© 2026 كودساينون (Codecynon). جميع الحقوق محفوظة.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const cartContainer = document.getElementById("cart-items-container");
+      const wishlistContainer = document.getElementById("wishlist-items-container");
+      const subtotalLabel = document.getElementById("cart-subtotal");
+      const discountRow = document.getElementById("cart-discount-row");
+      const discountLabel = document.getElementById("cart-discount");
+      const totalLabel = document.getElementById("cart-total");
+      const checkoutBtn = document.getElementById("checkout-redirect-btn");
+      const clearBtn = document.getElementById("clear-cart-btn");
+      const couponInput = document.getElementById("cart-coupon-input");
+      const couponBtn = document.getElementById("cart-coupon-apply");
+      const couponFeedback = document.getElementById("cart-coupon-feedback");
+
+      let discountPercentage = 0;
+
+      function renderCart() {
+        const cart = window.StoreEngine.getCart();
+        
+        if (cart.length === 0) {
+          cartContainer.innerHTML = `
+            <div style="padding: 40px; text-align: center; color: var(--text-muted); font-size: 0.95rem;">
+              عربة التسوق فارغة حالياً. <a href="store.html" style="color:var(--primary); font-weight:700;">تصفح المتجر</a> لإضافة بعض الأكواد.
+            </div>
+          `;
+          subtotalLabel.textContent = "$0";
+          discountRow.style.display = "none";
+          totalLabel.textContent = "$0";
+          checkoutBtn.disabled = true;
+          return;
+        }
+
+        checkoutBtn.disabled = false;
+        
+        let subtotal = 0;
+
+        cartContainer.innerHTML = cart.map((item, index) => {
+          const p = window.StoreEngine.getProductById(item.id);
+          if (!p) return '';
+
+          const itemTotal = item.price * item.qty;
+          subtotal += itemTotal;
+
+          return `
+            <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border-light); padding:16px 20px; flex-wrap:wrap; gap:16px;">
+              <div style="display:flex; align-items:center; gap:12px; min-width:240px;">
+                <span style="font-size:1.8rem;">${p.techIcon || '💻'}</span>
+                <div>
+                  <h4 style="font-size:0.9rem; font-weight:800; color:var(--text-primary); margin:0;">${p.title}</h4>
+                  <span style="font-size:0.725rem; color:var(--text-muted);">${item.license === 'regular' ? 'رخصة عادية (Regular)' : 'رخصة ممتدة (Extended)'}</span>
+                </div>
+              </div>
+              
+              <div style="display:flex; align-items:center; gap:12px;">
+                <div style="display:flex; align-items:center; border:1px solid var(--border-medium); border-radius:var(--radius-sm); overflow:hidden; background:white;">
+                  <button onclick="changeQty('${item.id}', '${item.license}', ${item.qty - 1})" style="border:none; padding:4px 10px; background:none; cursor:pointer; font-weight:bold;">-</button>
+                  <span class="en-nums" style="padding:4px 12px; font-size:0.85rem; font-weight:700;">${item.qty}</span>
+                  <button onclick="changeQty('${item.id}', '${item.license}', ${item.qty + 1})" style="border:none; padding:4px 10px; background:none; cursor:pointer; font-weight:bold;">+</button>
+                </div>
+                
+                <span class="en-nums" style="font-size:1rem; font-weight:800; color:var(--text-primary); width:80px; text-align:left;">$${itemTotal}</span>
+                
+                <button onclick="removeItem('${item.id}', '${item.license}')" style="background:none; border:none; color:var(--danger); font-size:1.15rem; cursor:pointer; font-weight:bold; margin-right:8px;" title="إزالة">×</button>
+              </div>
+            </div>
+          `;
+        }).join('');
+
+        // Calculate Totals
+        const discountAmount = subtotal * discountPercentage;
+        const totalAmount = subtotal - discountAmount;
+
+        subtotalLabel.textContent = `$${subtotal.toFixed(0)}`;
+        if (discountAmount > 0) {
+          discountRow.style.display = "flex";
+          discountLabel.textContent = `-$${discountAmount.toFixed(0)}`;
+        } else {
+          discountRow.style.display = "none";
+        }
+        totalLabel.textContent = `$${totalAmount.toFixed(0)}`;
+      }
+
+      function renderWishlist() {
+        const favs = window.StoreEngine.getFavorites();
+
+        if (favs.length === 0) {
+          wishlistContainer.innerHTML = `
+            <div style="padding: 30px; text-align: center; color: var(--text-muted); font-size: 0.85rem;">
+              لا توجد منتجات في قائمة المفضلة حالياً.
+            </div>
+          `;
+          return;
+        }
+
+        wishlistContainer.innerHTML = favs.map(id => {
+          const p = window.StoreEngine.getProductById(id);
+          if (!p) return '';
+
+          return `
+            <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border-light); padding:16px 20px; flex-wrap:wrap; gap:16px;">
+              <div style="display:flex; align-items:center; gap:12px;">
+                <span style="font-size:1.6rem;">${p.techIcon || '💻'}</span>
+                <div>
+                  <h4 style="font-size:0.9rem; font-weight:800; color:var(--text-primary); margin:0;">${p.title}</h4>
+                  <span style="font-size:0.725rem; color:var(--text-muted);">${p.subtitle.substring(0, 70)}...</span>
+                </div>
+              </div>
+              
+              <div style="display:flex; align-items:center; gap:12px;">
+                <span class="en-nums" style="font-size:1rem; font-weight:800; color:var(--primary); font-family:var(--font-english);">$${p.priceRegular}</span>
+                <button onclick="moveFavToCart('${p.id}')" class="btn btn-sm btn-primary" style="padding:4px 12px; font-size:0.75rem;">إضافة للعربة 🛒</button>
+                <button onclick="removeFav('${p.id}')" style="background:none; border:none; color:var(--danger); font-size:0.75rem; font-weight:700; cursor:pointer; margin-right:8px;">إزالة</button>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      // Action Handlers
+      window.changeQty = function(id, license, qty) {
+        if (qty <= 0) {
+          window.removeItem(id, license);
+        } else {
+          window.StoreEngine.updateCartQty(id, license, qty);
+          renderCart();
+        }
+      };
+
+      window.removeItem = function(id, license) {
+        window.StoreEngine.removeFromCart(id, license);
+        renderCart();
+      };
+
+      window.removeFav = function(id) {
+        window.StoreEngine.toggleFavorite(id);
+        renderWishlist();
+      };
+
+      window.moveFavToCart = function(id) {
+        const p = window.StoreEngine.getProductById(id);
+        if (p) {
+          window.StoreEngine.addToCart(id, 'regular', p.priceRegular);
+          window.StoreEngine.toggleFavorite(id); // remove from wishlist
+          renderCart();
+          renderWishlist();
+          alert('تم نقل المنتج البرمجي إلى عربة المشتريات!');
+        }
+      };
+
+      clearBtn.addEventListener("click", () => {
+        if (confirm("هل ترغب فعلاً في إفراغ سلة المشتريات بالكامل؟")) {
+          window.StoreEngine.clearCart();
+          renderCart();
+        }
+      });
+
+      // Coupon validation logic
+      couponBtn.addEventListener("click", () => {
+        const code = couponInput.value.toUpperCase().trim();
+        if (code === "ARABIA10") {
+          discountPercentage = 0.10;
+          couponFeedback.textContent = "✓ تم تطبيق خصم الكوبون بنجاح (10%)";
+          couponFeedback.style.color = "var(--success)";
+          couponFeedback.style.display = "block";
+          renderCart();
+        } else if (code === "") {
+          couponFeedback.textContent = "يرجى إدخال رمز الكوبون.";
+          couponFeedback.style.color = "var(--danger)";
+          couponFeedback.style.display = "block";
+        } else {
+          couponFeedback.textContent = "رمز الكوبون هذا غير صالح.";
+          couponFeedback.style.color = "var(--danger)";
+          couponFeedback.style.display = "block";
+        }
+      });
+
+      // Redirect to Checkout Page
+      checkoutBtn.addEventListener("click", () => {
+        const cart = window.StoreEngine.getCart();
+        if (cart.length > 0) {
+          // Just checkout the first item in the simplified mock checkout (or pass params)
+          const first = cart[0];
+          const finalPrice = first.price - (first.price * discountPercentage);
+          window.location.href = `checkout.html?id=${first.id}&license=${first.license}&price=${finalPrice}`;
+        }
+      });
+
+      // Initial page renders
+      renderCart();
+      renderWishlist();
+    });
+  </script>
+
+</body>
+</html>

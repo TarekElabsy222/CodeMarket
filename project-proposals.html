@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>كودساينون | عروض المطورين</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/dashboards.css">
+  <link rel="stylesheet" href="css/components.css">
+
+  <!-- E-commerce Store State Engine -->
+  <script src="js/store-engine.js"></script>
+</head>
+<body class="role-client-theme">
+
+  <!-- Header Navigation -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="logo-area">
+        <a href="index.html" class="logo">
+          <svg class="logo-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 10L16 4L26 10V22L16 28L6 22V10Z" stroke="var(--primary)" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M16 4V28" stroke="var(--primary)" stroke-width="1.5" stroke-dasharray="3 3"/>
+            <path d="M11 11L16 14L21 11" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="16" cy="19" r="3" fill="var(--primary)" />
+          </svg>
+          <span class="logo-text">كودساينون<span class="logo-dot">.</span></span>
+        </a>
+      </div>
+
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+          <li><a href="store.html" class="nav-link">المتجر</a></li>
+          <li><a href="admin-portal.html" class="nav-link">لوحة الإدارة</a></li>
+          <li><a href="downloads.html" class="nav-link active">مركز التحميل</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Wishlist Button -->
+        <a href="cart.html#wishlist" class="icon-btn" style="position:relative; margin-left: 14px; font-size:1.3rem; text-decoration:none;" title="المفضلة">
+          ❤️
+          <span class="badge-count en-nums" id="header-fav-count" style="position:absolute; top:-8px; left:-8px; background-color:var(--danger); color:white; font-size:0.7rem; font-weight:800; border-radius:50%; width:18px; height:18px; display:none; align-items:center; justify-content:center;">0</span>
+        </a>
+        
+        <!-- Cart Button -->
+        <a href="cart.html" class="icon-btn" style="position:relative; margin-left: 20px; font-size:1.3rem; text-decoration:none;" title="سلة المشتريات">
+          🛒
+          <span class="badge-count en-nums" id="header-cart-count" style="position:absolute; top:-8px; left:-8px; background-color:var(--primary); color:white; font-size:0.7rem; font-weight:800; border-radius:50%; width:18px; height:18px; display:none; align-items:center; justify-content:center;">0</span>
+        </a>
+
+        <div class="user-profile-menu"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Content Container -->
+  <main id="app-root">
+    <div class="landing-wrapper fade-in">
+      
+      <!-- Project Meta Header -->
+      <div class="benefit-card" style="padding: 24px; margin-bottom: 24px; border: 1px solid var(--border-light); background-color: var(--bg-primary); border-radius: var(--radius-lg);">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:16px;">
+          <div>
+            <div style="display:flex; gap:10px; align-items:center; margin-bottom:8px;">
+              <span class="badge-status proposal">تم طرح العروض</span>
+              <span class="en-nums" style="font-size: 0.775rem; color:var(--text-muted);">#proj-101</span>
+            </div>
+            <h2 style="font-size: 1.45rem; font-weight:800; color:var(--text-primary);">نظام إدارة الموارد للمؤسسات المتوسطة (ERP)</h2>
+            <p style="font-size:0.8rem; color:var(--text-muted); margin-top:4px;">تاريخ التقديم: 2026-05-28 • نطاق ميزانية العميل المقترحة: <strong class="en-nums">$5,000 - $7,000</strong></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Proposals List -->
+      <div class="dashboard-card">
+        <div class="dashboard-card-header">
+          <h3>عروض المطورين المعتمدين لتنفيذ مشروعك (عروض الأسعار)</h3>
+          <span>إجمالي العروض المستلمة: <strong>2</strong></span>
+        </div>
+        <div class="dashboard-card-body">
+          <div class="proposals-comparison-grid">
+            
+            <!-- Proposal 1 -->
+            <div class="proposal-comparison-card">
+              <div class="proposal-dev-details">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&h=100&q=80" class="dev-avatar" alt="Saleem">
+                <div class="dev-info">
+                  <h4>م. سليم الهاشمي</h4>
+                  <span class="dev-rating">★ 4.92 (148 مراجعة)</span>
+                </div>
+              </div>
+              
+              <div class="proposal-metric">
+                <span class="prop-lbl">قيمة العرض المالي:</span>
+                <strong class="prop-val en-nums" style="color: var(--primary); font-size: 1.15rem;">$5,200</strong>
+              </div>
+
+              <div class="proposal-metric">
+                <span class="prop-lbl">فترة التسليم:</span>
+                <strong class="prop-val en-nums">40 يوم</strong>
+              </div>
+
+              <div style="text-align: left;">
+                <button class="btn btn-primary btn-sm accept-btn" data-dev="م. سليم الهاشمي">
+                  قبول العرض وبدء العمل
+                </button>
+              </div>
+
+              <div style="grid-column: 1 / -1; border-top: 1px solid var(--border-light); padding-top: 14px; margin-top: 4px;">
+                <strong style="display:block; font-size:0.8rem; margin-bottom:6px; color:var(--text-primary);">تفاصيل الخطة الفنية المقترحة:</strong>
+                <p style="font-size:0.825rem; line-height:1.6; color:var(--text-secondary); white-space:pre-wrap;">أهلاً بك يا أخي أحمد، لقد قرأت تفاصيل مشروعك بدقة. قمت مسبقاً ببناء 3 أنظمة ERP متوافقة مع متطلبات الفوترة الإلكترونية السعودية. يمكنني توفير لوحة تحكم سريعة للغاية مبنية بـ React و Node.js مع استضافة آمنة على AWS.</p>
+              </div>
+            </div>
+
+            <!-- Proposal 2 -->
+            <div class="proposal-comparison-card">
+              <div class="proposal-dev-details">
+                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&h=100&q=80" class="dev-avatar" alt="Yasser">
+                <div class="dev-info">
+                  <h4>م. ياسر الحربي</h4>
+                  <span class="dev-rating">★ 4.79 (65 مراجعة)</span>
+                </div>
+              </div>
+              
+              <div class="proposal-metric">
+                <span class="prop-lbl">قيمة العرض المالي:</span>
+                <strong class="prop-val en-nums" style="color: var(--primary); font-size: 1.15rem;">$4,900</strong>
+              </div>
+
+              <div class="proposal-metric">
+                <span class="prop-lbl">فترة التسليم:</span>
+                <strong class="prop-val en-nums">45 يوم</strong>
+              </div>
+
+              <div style="text-align: left;">
+                <button class="btn btn-primary btn-sm accept-btn" data-dev="م. ياسر الحربي">
+                  قبول العرض وبدء العمل
+                </button>
+              </div>
+
+              <div style="grid-column: 1 / -1; border-top: 1px solid var(--border-light); padding-top: 14px; margin-top: 4px;">
+                <strong style="display:block; font-size:0.8rem; margin-bottom:6px; color:var(--text-primary);">تفاصيل الخطة الفنية المقترحة:</strong>
+                <p style="font-size:0.825rem; line-height:1.6; color:var(--text-secondary); white-space:pre-wrap;">مرحباً أحمد. أنا خبير في قواعد البيانات والأنظمة الخلفية. يمكنني تصميم نظام ERP متين للغاية باستخدام Go وبنية قواعد بيانات مرنة تتحمل الضغط العالي. سأضمن لك سرعة فائقة في معالجة العمليات الحسابية وتوليد التقارير وتصدير الجداول.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script>
+    // Mock Acceptance actions
+    const acceptBtns = document.querySelectorAll('.accept-btn');
+    acceptBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const devName = btn.getAttribute('data-dev');
+        if (confirm(`هل أنت متأكد من رغبتك في قبول العرض الفني للمطور ${devName}؟ سيتم تجميد مبلغ العقد في الضمان وبدء التنفيذ فوراً.`)) {
+          alert('تم قبول العرض بنجاح! تم ربط المطور بالمشروع وبدأ العمل الفعلي. تم توجيهك لشاشة المشروع التفاعلية.');
+          window.location.href = 'project-details.html';
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

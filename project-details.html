@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>كودساينون | تفاصيل المشروع والملفات</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/dashboards.css">
+  <link rel="stylesheet" href="css/components.css">
+
+  <!-- E-commerce Store State Engine -->
+  <script src="js/store-engine.js"></script>
+</head>
+<body class="role-client-theme">
+
+  <!-- Header Navigation -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="logo-area">
+        <a href="index.html" class="logo">
+          <svg class="logo-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 10L16 4L26 10V22L16 28L6 22V10Z" stroke="var(--primary)" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M16 4V28" stroke="var(--primary)" stroke-width="1.5" stroke-dasharray="3 3"/>
+            <path d="M11 11L16 14L21 11" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="16" cy="19" r="3" fill="var(--primary)" />
+          </svg>
+          <span class="logo-text">كودساينون<span class="logo-dot">.</span></span>
+        </a>
+      </div>
+
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+          <li><a href="store.html" class="nav-link">المتجر</a></li>
+          <li><a href="admin-portal.html" class="nav-link">لوحة الإدارة</a></li>
+          <li><a href="downloads.html" class="nav-link active">مركز التحميل</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Wishlist Button -->
+        <a href="cart.html#wishlist" class="icon-btn" style="position:relative; margin-left: 14px; font-size:1.3rem; text-decoration:none;" title="المفضلة">
+          ❤️
+          <span class="badge-count en-nums" id="header-fav-count" style="position:absolute; top:-8px; left:-8px; background-color:var(--danger); color:white; font-size:0.7rem; font-weight:800; border-radius:50%; width:18px; height:18px; display:none; align-items:center; justify-content:center;">0</span>
+        </a>
+        
+        <!-- Cart Button -->
+        <a href="cart.html" class="icon-btn" style="position:relative; margin-left: 20px; font-size:1.3rem; text-decoration:none;" title="سلة المشتريات">
+          🛒
+          <span class="badge-count en-nums" id="header-cart-count" style="position:absolute; top:-8px; left:-8px; background-color:var(--primary); color:white; font-size:0.7rem; font-weight:800; border-radius:50%; width:18px; height:18px; display:none; align-items:center; justify-content:center;">0</span>
+        </a>
+
+        <div class="user-profile-menu"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Workspace Shell -->
+  <main id="app-root">
+    <div class="landing-wrapper fade-in">
+      
+      <!-- Top Project Meta Info & Status Timeline -->
+      <div class="benefit-card" style="padding: 24px; margin-bottom: 24px; border: 1px solid var(--border-light); background-color: var(--bg-primary); border-radius: var(--radius-lg);">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:16px;">
+          <div>
+            <div style="display:flex; gap:10px; align-items:center; margin-bottom:8px;">
+              <span class="badge-status development" id="timeline-current-status-lbl">قيد التنفيذ</span>
+              <span class="en-nums" style="font-size: 0.775rem; color:var(--text-muted);">#proj-102</span>
+            </div>
+            <h2 style="font-size: 1.45rem; font-weight:800; color:var(--text-primary);">تطبيق الهواتف لمتجر توصيل المنتجات الرقمية</h2>
+            <p style="font-size:0.8rem; color:var(--text-muted); margin-top:4px;">تاريخ بدء التطوير: 2026-05-15 • تصنيف التطبيق: هواتف ذكية (Flutter)</p>
+          </div>
+          
+          <div style="display:flex; gap:12px; align-items:center;">
+            <a href="downloads.html" class="btn btn-secondary">
+              تحميل تسليمات المطور
+            </a>
+          </div>
+        </div>
+
+        <!-- 9-State Project Progress Timeline Component -->
+        <div style="border-top:1px solid var(--border-light); margin-top:20px; padding-top:20px;">
+          <div class="status-timeline">
+            <!-- Timeline connection progress line -->
+            <div class="status-timeline-progress" style="width: 57.14%;" id="timeline-fill-bar"></div>
+            
+            <div class="timeline-step completed">
+              <div class="timeline-dot">1</div>
+              <span class="timeline-text">جديد</span>
+            </div>
+            <div class="timeline-step completed">
+              <div class="timeline-dot">2</div>
+              <span class="timeline-text">مراجعة</span>
+            </div>
+            <div class="timeline-step completed">
+              <div class="timeline-dot">3</div>
+              <span class="timeline-text">العروض</span>
+            </div>
+            <div class="timeline-step completed">
+              <div class="timeline-dot">4</div>
+              <span class="timeline-text">موافقة</span>
+            </div>
+            <div class="timeline-step active" id="timeline-step-dev">
+              <div class="timeline-dot">5</div>
+              <span class="timeline-text">التطوير</span>
+            </div>
+            <div class="timeline-step" id="timeline-step-test">
+              <div class="timeline-dot">6</div>
+              <span class="timeline-text">الاختبار</span>
+            </div>
+            <div class="timeline-step" id="timeline-step-ready">
+              <div class="timeline-dot">7</div>
+              <span class="timeline-text">التسليم</span>
+            </div>
+            <div class="timeline-step">
+              <div class="timeline-dot">8</div>
+              <span class="timeline-text">مكتمل</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab Buttons Navigation -->
+      <div style="display:flex; border-bottom: 1.5px solid var(--border-light); margin-bottom: 24px; gap: 20px;">
+        <button class="nav-link btn-tab active" data-tab="specs" style="padding-bottom:12px;">المواصفات والمتطلبات</button>
+        <button class="nav-link btn-tab" data-tab="chat" style="padding-bottom:12px;">قناة الرسائل والمحادثة</button>
+        <button class="nav-link btn-tab" data-tab="files" style="padding-bottom:12px;">ملفات المشروع السحابية</button>
+      </div>
+
+      <!-- Tab Content Panels -->
+      <div id="project-workspace-root">
+        
+        <!-- Specs Tab PANEL -->
+        <div class="tab-panel active" id="tab-panel-specs">
+          <div class="two-col-grid">
+            <div style="display: flex; flex-direction: column; gap: 24px;">
+              <div class="dashboard-card">
+                <div class="dashboard-card-header">
+                  <h3>الوصف الفني ومتطلبات المشروع</h3>
+                </div>
+                <div class="dashboard-card-body" style="display: flex; flex-direction: column; gap: 16px;">
+                  <div>
+                    <h4 style="font-size: 0.9rem; font-weight: 700; color: var(--text-primary); margin-bottom: 6px;">الفكرة العامة:</h4>
+                    <p style="font-size: 0.875rem; line-height: 1.6; color: var(--text-secondary);">تطوير تطبيق توصيل يعمل على نظامي أندرويد وآي أو إس لطلب وتحميل المنتجات الرقمية تلقائياً بمجرد إتمام الدفع مع نظام محادثة فورية للدعم الفني.</p>
+                  </div>
+                  
+                  <div style="border-top: 1px solid var(--border-light); padding-top: 16px;">
+                    <h4 style="font-size: 0.9rem; font-weight: 700; color: var(--text-primary); margin-bottom: 6px;">الميزات المطلوب تطويرها:</h4>
+                    <ul style="display: flex; flex-direction: column; gap: 8px; list-style-type: disc; padding-right: 20px; font-size: 0.85rem; color: var(--text-secondary);">
+                      <li>تحميل تلقائي للملفات المشتراة بعد إتمام الدفع.</li>
+                      <li>تكامل وربط كلي مع بوابة الدفع الإلكتروني Stripe.</li>
+                      <li>تفعيل إرسال إشعارات فورية عبر خوادم Firebase Cloud Messaging.</li>
+                      <li>تصميم واجهات ناعمة وسهلة الاستخدام بالاعتماد على Flutter.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sidebar Info -->
+            <div style="display: flex; flex-direction: column; gap: 24px;">
+              <!-- Developer bio card -->
+              <div class="dashboard-card">
+                <div class="dashboard-card-header">
+                  <h3>المطور المعين</h3>
+                </div>
+                <div class="dashboard-card-body" style="text-align: center;">
+                  <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&h=150&q=80" style="width: 64px; height: 64px; border-radius: var(--radius-full); border: 2.5px solid var(--primary-light); object-fit: cover; margin-bottom: 12px;">
+                  <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--text-primary);">م. منيرة القحطاني</h4>
+                  <p style="font-size: 0.775rem; color: var(--text-muted); margin-top: 4px;">أخصائية تطبيقات الجوال وتصميم UI/UX Expert</p>
+                  <div style="display: flex; justify-content: center; gap: 4px; color: var(--warning); font-size: 0.8rem; margin: 8px 0;">
+                    ★ 4.88 (96 مراجعة)
+                  </div>
+                  <div style="border-top: 1px solid var(--border-light); padding-top: 12px; margin-top: 12px; display: flex; gap: 10px; justify-content: center;">
+                    <button class="btn btn-sm btn-outline" id="shortcut-msg-btn">إرسال رسالة</button>
+                    <button class="btn btn-sm btn-outline" id="shortcut-files-btn">تصفح الأكواد</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Budget & deadline summary -->
+              <div class="dashboard-card">
+                <div class="dashboard-card-header">
+                  <h3>الضمان والجدول المالي</h3>
+                </div>
+                <div class="dashboard-card-body" style="display: flex; flex-direction: column; gap: 12px;">
+                  <div style="display: flex; justify-content: space-between; font-size: 0.85rem; padding-bottom: 8px; border-bottom: 1px solid var(--bg-tertiary);">
+                    <span style="color: var(--text-secondary);">قيمة عقد التطوير:</span>
+                    <strong class="en-nums" style="color: var(--primary); font-size: 1rem;">$2,800</strong>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; font-size: 0.85rem; padding-bottom: 8px; border-bottom: 1px solid var(--bg-tertiary);">
+                    <span style="color: var(--text-secondary);">مدة المشروع الكلية:</span>
+                    <strong class="en-nums">28 يوم</strong>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; font-size: 0.85rem;">
+                    <span style="color: var(--text-secondary);">الدفعة المستحقة:</span>
+                    <strong class="en-nums" style="color:var(--success);">معلقة في الضمان 🔐</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chat Tab PANEL -->
+        <div class="tab-panel" id="tab-panel-chat">
+          <div class="dashboard-card">
+            <div class="dashboard-card-header">
+              <h3>محادثة المشروع</h3>
+            </div>
+            <div class="dashboard-card-body" style="padding: 0;">
+              <div class="chat-pane" style="height: 440px;">
+                <div class="chat-messages-container" id="details-chat-messages">
+                  <div class="chat-bubble-wrapper received">
+                    <div class="chat-bubble">بالتأكيد أخي أحمد. سأقوم بمشاركة تصاميم Figma الأولية لك بحلول مساء الغد لمراجعتها واعتمادها.</div>
+                    <span class="chat-meta">م. منيرة القحطاني • 03:10 PM</span>
+                  </div>
+                  <div class="chat-bubble-wrapper received">
+                    <div class="chat-bubble">لقد أضفت شاشات الدفع والتحميل أيضاً. يرجى مراجعة الرابط المرفق في تبويب ملفات المشروع.</div>
+                    <span class="chat-meta">م. منيرة القحطاني • 08:45 PM</span>
+                  </div>
+                </div>
+                <div class="chat-footer">
+                  <input type="text" class="chat-input" id="details-chat-input-text" placeholder="اكتب رسالة للتنسيق وتبادل الملاحظات...">
+                  <button class="btn btn-primary btn-sm" id="details-chat-send-btn">إرسال الرسالة</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Files Tab PANEL -->
+        <div class="tab-panel" id="tab-panel-files">
+          <div class="file-manager">
+            <!-- Sidebar folders -->
+            <div class="file-manager-sidebar">
+              <h5 style="margin-bottom:12px; font-weight:700; font-size:0.85rem;">المجلدات السحابية</h5>
+              <div class="file-folder-menu">
+                <button class="folder-btn active" data-folder="src">📁 الأكواد المصدرية</button>
+                <button class="folder-btn" data-folder="db">📁 قواعد البيانات</button>
+                <button class="folder-btn" data-folder="docs">📁 المستندات والكتيبات</button>
+                <button class="folder-btn" data-folder="assets">📁 الأصول والتصميمات</button>
+              </div>
+              
+              <div style="border-top:1px solid var(--border-light); margin-top:20px; padding-top:16px;">
+                <h6 style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">التخزين السحابي</h6>
+                <div style="width:100%; height:6px; background-color:var(--border-light); border-radius:3px; margin:8px 0 4px 0; overflow:hidden;">
+                  <div style="width:15%; height:100%; background-color:var(--primary);"></div>
+                </div>
+                <span class="en-nums" style="font-size:0.7rem; color:var(--text-muted);">12.6 MB من 10 GB</span>
+              </div>
+            </div>
+
+            <!-- Explorer Window -->
+            <div class="file-manager-main">
+              <div class="file-manager-actions">
+                <div>
+                  <h4 style="font-size:1rem; font-weight:700;">الملفات في المجلد: <span style="color:var(--primary);" id="active-folder-title">الأكواد المصدرية (Source Code)</span></h4>
+                </div>
+                <div style="display:flex; gap:10px;">
+                  <button class="btn btn-sm btn-outline" onclick="alert('جاري ضغط الملفات وتحميل المجلد بالكامل (.zip)...')">تحميل المجلد بالكامل</button>
+                  <button class="btn btn-sm btn-primary" id="upload-mock-file-btn">رفع ملف جديد</button>
+                </div>
+              </div>
+
+              <!-- Files grids -->
+              <div class="file-grid" id="explorer-files-grid">
+                <!-- Source Files (Default) -->
+                <div class="file-card file-item src-file">
+                  <div class="file-card-icon zip">📄</div>
+                  <div class="file-card-name">Source_Code_Draft.zip</div>
+                  <div class="file-card-size en-nums">8.4 MB</div>
+                  <div style="font-size:0.7rem; color:var(--text-muted); margin-top:-4px;">الإصدار: <strong class="en-nums">v0.1.0</strong></div>
+                  <div class="file-card-actions">
+                    <button class="btn btn-sm btn-outline" style="padding: 2px 8px; font-size: 0.7rem;" onclick="alert('جاري التحميل...')">تحميل</button>
+                  </div>
+                </div>
+                
+                <!-- Assets Files (Hidden at first) -->
+                <div class="file-card file-item asset-file" style="display:none;">
+                  <div class="file-card-icon asset">📄</div>
+                  <div class="file-card-name">UI_Design_Prototypes.pdf</div>
+                  <div class="file-card-size en-nums">4.2 MB</div>
+                  <div style="font-size:0.7rem; color:var(--text-muted); margin-top:-4px;">الإصدار: <strong class="en-nums">v1.0.0</strong></div>
+                  <div class="file-card-actions">
+                    <button class="btn btn-sm btn-outline" style="padding: 2px 8px; font-size: 0.7rem;" onclick="alert('جاري التحميل...')">تحميل</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Activity Log -->
+              <div style="border-top:1px solid var(--border-light); padding-top:20px; margin-top:20px;">
+                <h5 style="margin-bottom: 12px; font-weight:700;">سجل العمليات الأخير للمجلد</h5>
+                <div class="activity-log" id="explorer-activity-log">
+                  <div class="activity-item">
+                    <div class="activity-meta">
+                      <span>⚡</span>
+                      <span>قامت المطور م. منيرة القحطاني برفع الملف <strong class="en-nums" style="color:var(--primary); font-size:0.8rem;">Source_Code_Draft.zip</strong></span>
+                    </div>
+                    <span class="en-nums" style="color:var(--text-muted); font-size:0.75rem;">2026-05-25</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <script>
+    // Tab switcher logic
+    const tabs = document.querySelectorAll('.btn-tab');
+    const panels = document.querySelectorAll('.tab-panel');
+
+    tabs.forEach(t => {
+      t.addEventListener('click', () => {
+        tabs.forEach(x => x.classList.remove('active'));
+        panels.forEach(p => p.classList.remove('active'));
+
+        t.classList.add('active');
+        const activeTab = t.getAttribute('data-tab');
+        document.getElementById(`tab-panel-${activeTab}`).classList.add('active');
+      });
+    });
+
+    // Shortcuts in specs tab pointing to other tabs
+    document.getElementById('shortcut-msg-btn').addEventListener('click', () => {
+      document.querySelector('[data-tab="chat"]').click();
+    });
+    document.getElementById('shortcut-files-btn').addEventListener('click', () => {
+      document.querySelector('[data-tab="files"]').click();
+    });
+
+    // Chat room send message
+    const sendBtn = document.getElementById('details-chat-send-btn');
+    const chatInput = document.getElementById('details-chat-input-text');
+    const chatList = document.getElementById('details-chat-messages');
+
+    sendBtn.addEventListener('click', () => {
+      const text = chatInput.value.trim();
+      if (text) {
+        const wrap = document.createElement('div');
+        wrap.className = 'chat-bubble-wrapper sent';
+        wrap.innerHTML = `
+          <div class="chat-bubble">${text}</div>
+          <span class="chat-meta">أنت • الآن</span>
+        `;
+        chatList.appendChild(wrap);
+        chatInput.value = '';
+        chatList.scrollTop = chatList.scrollHeight;
+      }
+    });
+
+    chatInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') sendBtn.click();
+    });
+
+    // File Explorer folder changes
+    const folderBtns = document.querySelectorAll('.folder-btn');
+    const folderTitle = document.getElementById('active-folder-title');
+    const filesGrid = document.getElementById('explorer-files-grid');
+
+    folderBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        folderBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        const folder = btn.getAttribute('data-folder');
+        
+        // Show folder titles and simulate files filtering
+        if (folder === 'src') {
+          folderTitle.textContent = "الأكواد المصدرية (Source Code)";
+          filesGrid.innerHTML = `
+            <div class="file-card">
+              <div class="file-card-icon zip">📄</div>
+              <div class="file-card-name">Source_Code_Draft.zip</div>
+              <div class="file-card-size en-nums">8.4 MB</div>
+              <div style="font-size:0.7rem; color:var(--text-muted); margin-top:-4px;">الإصدار: <strong class="en-nums">v0.1.0</strong></div>
+              <div class="file-card-actions">
+                <button class="btn btn-sm btn-outline" style="padding: 2px 8px; font-size: 0.7rem;" onclick="alert('جاري التحميل...')">تحميل</button>
+              </div>
+            </div>
+          `;
+        } else if (folder === 'assets') {
+          folderTitle.textContent = "الأصول والتصميمات (Assets)";
+          filesGrid.innerHTML = `
+            <div class="file-card">
+              <div class="file-card-icon asset">📄</div>
+              <div class="file-card-name">UI_Design_Prototypes.pdf</div>
+              <div class="file-card-size en-nums">4.2 MB</div>
+              <div style="font-size:0.7rem; color:var(--text-muted); margin-top:-4px;">الإصدار: <strong class="en-nums">v1.0.0</strong></div>
+              <div class="file-card-actions">
+                <button class="btn btn-sm btn-outline" style="padding: 2px 8px; font-size: 0.7rem;" onclick="alert('جاري التحميل...')">تحميل</button>
+              </div>
+            </div>
+          `;
+        } else {
+          folderTitle.textContent = btn.textContent.replace('📁 ', '');
+          filesGrid.innerHTML = `<div style="padding:20px; text-align:center; color:var(--text-muted); grid-column:1/-1;">المجلد فارغ</div>`;
+        }
+      });
+    });
+
+    // Mock Upload File action
+    document.getElementById('upload-mock-file-btn').addEventListener('click', () => {
+      const name = prompt('أدخل اسم الملف المراد رفعه (مثال: database.sql, config.json):');
+      if (name) {
+        const div = document.createElement('div');
+        div.className = 'file-card';
+        div.innerHTML = `
+          <div class="file-card-icon zip">📄</div>
+          <div class="file-card-name">${name}</div>
+          <div class="file-card-size en-nums">1.2 MB</div>
+          <div style="font-size:0.7rem; color:var(--text-muted); margin-top:-4px;">الإصدار: <strong class="en-nums">v1.0.0</strong></div>
+          <div class="file-card-actions">
+            <button class="btn btn-sm btn-outline" style="padding: 2px 8px; font-size: 0.7rem;" onclick="alert('جاري التحميل...')">تحميل</button>
+          </div>
+        `;
+        filesGrid.appendChild(div);
+        
+        // Append log item
+        const log = document.getElementById('explorer-activity-log');
+        const logItem = document.createElement('div');
+        logItem.className = 'activity-item';
+        logItem.innerHTML = `
+          <div class="activity-meta">
+            <span>⚡</span>
+            <span>قام العميل برفع الملف <strong class="en-nums" style="color:var(--primary); font-size:0.8rem;">${name}</strong></span>
+          </div>
+          <span class="en-nums" style="color:var(--text-muted); font-size:0.75rem;">الآن</span>
+        `;
+        log.insertBefore(logItem, log.firstChild);
+        alert(`تم محاكاة رفع الملف ${name} بنجاح!`);
+      }
+    });
+  </script>
+
+</body>
+</html>

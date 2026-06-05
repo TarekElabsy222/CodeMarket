@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>كودساينون | إدارة المستخدمين والصلاحيات</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/dashboards.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/forms.css">
+
+  <!-- E-commerce Store State Engine -->
+  <script src="js/store-engine.js"></script>
+</head>
+<body class="dark-theme role-admin-theme">
+
+  <!-- Header Navigation -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="logo-area">
+        <a href="index.html" class="logo">
+          <svg class="logo-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 10L16 4L26 10V22L16 28L6 22V10Z" stroke="var(--primary)" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M16 4V28" stroke="var(--primary)" stroke-width="1.5" stroke-dasharray="3 3"/>
+            <path d="M11 11L16 14L21 11" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="16" cy="19" r="3" fill="var(--primary)" />
+          </svg>
+          <span class="logo-text">كودساينون<span class="logo-dot">.</span></span>
+        </a>
+      </div>
+
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+          <li><a href="store.html" class="nav-link">المتجر</a></li>
+          <li><a href="admin-portal.html" class="nav-link active">لوحة الإدارة</a></li>
+          <li><a href="downloads.html" class="nav-link">مركز التحميل</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Wishlist Button -->
+        <a href="cart.html#wishlist" class="icon-btn" style="position:relative; margin-left: 14px; font-size:1.3rem; text-decoration:none;" title="المفضلة">
+          ❤️
+          <span class="badge-count en-nums" id="header-fav-count" style="position:absolute; top:-8px; left:-8px; background-color:var(--danger); color:white; font-size:0.7rem; font-weight:800; border-radius:50%; width:18px; height:18px; display:none; align-items:center; justify-content:center;">0</span>
+        </a>
+        
+        <!-- Cart Button -->
+        <a href="cart.html" class="icon-btn" style="position:relative; margin-left: 20px; font-size:1.3rem; text-decoration:none;" title="سلة المشتريات">
+          🛒
+          <span class="badge-count en-nums" id="header-cart-count" style="position:absolute; top:-8px; left:-8px; background-color:var(--primary); color:white; font-size:0.7rem; font-weight:800; border-radius:50%; width:18px; height:18px; display:none; align-items:center; justify-content:center;">0</span>
+        </a>
+
+        <a href="submit-request.html" class="btn btn-primary" style="margin-left: 12px;">
+          اطلب مشروعك الخاص
+        </a>
+
+        <div class="user-profile-menu"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Shell Layout -->
+  <main id="app-root">
+    <div class="dashboard-shell fade-in">
+      
+      <!-- Sidebar Navigation -->
+      <aside class="dashboard-sidebar">
+        <div class="sidebar-header-info">
+          <div class="role-indicator admin" style="width:44px; height:44px; border-radius:var(--radius-md); display:flex; align-items:center; justify-content:center; background-color: var(--primary); color:white; font-size:1.4rem;">
+            ⚙️
+          </div>
+          <div class="sidebar-avatar-info">
+            <h4>إدارة كودساينون</h4>
+            <p>لوحة التحكم العامة</p>
+          </div>
+        </div>
+        <ul class="sidebar-menu">
+          <li>
+            <a href="admin-portal.html" class="sidebar-menu-item">
+              <span style="margin-left: 8px;">📊</span>
+              لوحة التحكم والأرباح
+            </a>
+          </li>
+          <li>
+            <a href="admin-products.html" class="sidebar-menu-item">
+              <span style="margin-left: 8px;">📦</span>
+              المنتجات وإدارتها
+            </a>
+          </li>
+          <li>
+            <a href="admin-categories.html" class="sidebar-menu-item">
+              <span style="margin-left: 8px;">📂</span>
+              إدارة التصنيفات
+            </a>
+          </li>
+          <li>
+            <a href="admin-orders.html" class="sidebar-menu-item">
+              <span style="margin-left: 8px;">📜</span>
+              سجل الطلبيات
+            </a>
+          </li>
+          <li>
+            <a href="admin-users.html" class="sidebar-menu-item active">
+              <span style="margin-left: 8px;">👥</span>
+              إدارة المستخدمين
+            </a>
+          </li>
+        </ul>
+      </aside>
+
+      <!-- Main Dashboard Content -->
+      <section class="dashboard-content">
+        <div class="dashboard-title-area">
+          <div>
+            <h2 id="tab-headline">إدارة المستخدمين وصلاحيات النظام</h2>
+            <p class="dashboard-subtitle" id="tab-subtitle">إضافة حسابات عملاء أو مسؤولين جدد، تعديل كلمات المرور والصلاحيات، أو حذف الحسابات.</p>
+          </div>
+        </div>
+
+        <div id="subtab-content-root">
+          <div class="two-col-grid">
+            
+            <!-- Table View: Registered Accounts (2fr) -->
+            <div class="dashboard-card">
+              <div class="dashboard-card-header">
+                <h3>الحسابات المسجلة بقاعدة البيانات</h3>
+              </div>
+              <div class="dashboard-card-body" style="padding:0; overflow-x: auto;">
+                <table class="project-table">
+                  <thead>
+                    <tr>
+                      <th>الاسم</th>
+                      <th>البريد الإلكتروني</th>
+                      <th>الصلاحية</th>
+                      <th>كلمة المرور</th>
+                      <th style="text-align:left;">إجراءات</th>
+                    </tr>
+                  </thead>
+                  <tbody id="users-table-body">
+                    <!-- Loaded dynamically -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Form View: Add/Edit User (1fr) -->
+            <div class="dashboard-card">
+              <div class="dashboard-card-header">
+                <h3 id="user-form-title">إضافة مستخدم جديد</h3>
+              </div>
+              <div class="dashboard-card-body">
+                <form id="user-crud-form" onsubmit="return false;">
+                  <!-- State tracker -->
+                  <input type="hidden" id="user-edit-mode" value="false">
+                  <input type="hidden" id="user-original-email" value="">
+
+                  <div class="form-group">
+                    <label>الاسم الكامل</label>
+                    <input type="text" class="form-control" id="u-name" placeholder="مثال: صالح القحطاني" required>
+                  </div>
+                  <div class="form-group">
+                    <label>البريد الإلكتروني (معرف الدخول)</label>
+                    <input type="email" class="form-control" id="u-email" placeholder="مثal: saleh@gmail.com" required>
+                  </div>
+                  <div class="form-group">
+                    <label>كلمة المرور</label>
+                    <input type="text" class="form-control" id="u-password" placeholder="أدخل كلمة مرور قوية" required>
+                  </div>
+                  <div class="form-group">
+                    <label>صلاحية الحساب</label>
+                    <select class="form-control" id="u-role" required>
+                      <option value="client">عميل (Client)</option>
+                      <option value="admin">مسؤول إدارة (Admin)</option>
+                    </select>
+                  </div>
+                  
+                  <div style="display:flex; flex-direction:column; gap:10px; margin-top:20px;">
+                    <button type="submit" id="btn-save-user" class="btn btn-primary" style="width:100%; justify-content:center; font-weight:700;">
+                      ➕ إنشاء الحساب
+                    </button>
+                    <button type="button" id="btn-cancel-user-edit" class="btn btn-outline" style="width:100%; justify-content:center; display:none;">
+                      🔙 إلغاء التعديل والعودة للإنشاء
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div class="footer-bottom">
+      <div class="footer-bottom-container" style="text-align:center;">
+        <p>© 2026 كودساينون (Codecynon) لوحة الإدارة العامة. جميع الحقوق محفوظة لشركة التميز الرقمي.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ==========================================
+    // USERS CRUD MANAGEMENT
+    // ==========================================
+    const userCrudForm = document.getElementById('user-crud-form');
+    const usersTableBody = document.getElementById('users-table-body');
+    const userFormTitle = document.getElementById('user-form-title');
+    const userEditMode = document.getElementById('user-edit-mode');
+    const userOriginalEmail = document.getElementById('user-original-email');
+    const btnSaveUser = document.getElementById('btn-save-user');
+    const btnCancelUserEdit = document.getElementById('btn-cancel-user-edit');
+    const uEmailInput = document.getElementById('u-email');
+
+    // Render Users Table
+    function renderUsers() {
+      const users = window.StoreEngine.getUsers();
+      const currentUser = window.StoreEngine.getCurrentUser();
+
+      usersTableBody.innerHTML = users.map(u => {
+        const roleBadgeClass = u.role === 'admin' ? 'new' : 'prog';
+        const roleText = u.role === 'admin' ? 'مسؤول (Admin)' : 'عميل (Client)';
+        
+        // Show indicator if this is the currently logged in admin session
+        const selfIndicator = (currentUser && u.email === currentUser.email) 
+          ? ' <span style="font-size:0.75rem; color:var(--primary); font-weight:700;">(حسابك الحالي)</span>' 
+          : '';
+
+        return `
+          <tr>
+            <td>
+              <div class="project-name-cell">
+                <strong>${u.name}</strong>
+                <span>${roleText}</span>
+              </div>
+            </td>
+            <td><code class="en-nums">${u.email}</code>${selfIndicator}</td>
+            <td><span class="badge-status ${roleBadgeClass}">${u.role}</span></td>
+            <td><code class="en-nums">${u.password}</code></td>
+            <td>
+              <div style="display:flex; gap:8px;">
+                <button class="btn btn-sm btn-outline" onclick="editUser('${u.email}')">تعديل</button>
+                <button class="btn btn-sm btn-outline" style="color:var(--danger); border-color:var(--danger);" onclick="deleteUser('${u.email}')">حذف</button>
+              </div>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    // Enter Edit Mode
+    window.editUser = function(email) {
+      const users = window.StoreEngine.getUsers();
+      const u = users.find(user => user.email === email);
+      if (!u) return;
+
+      userEditMode.value = "true";
+      userOriginalEmail.value = u.email;
+      userFormTitle.textContent = `تعديل بيانات: ${u.name}`;
+      btnSaveUser.textContent = "💾 حفظ تعديلات الحساب";
+      btnCancelUserEdit.style.display = "flex";
+
+      document.getElementById('u-name').value = u.name;
+      uEmailInput.value = u.email;
+      // Disable email field during edit since email is the primary key
+      uEmailInput.disabled = true;
+      document.getElementById('u-password').value = u.password;
+      document.getElementById('u-role').value = u.role;
+    };
+
+    // Exit Edit Mode / Reset Form
+    function resetUserForm() {
+      userCrudForm.reset();
+      userEditMode.value = "false";
+      userOriginalEmail.value = "";
+      userFormTitle.textContent = "إضافة مستخدم جديد";
+      btnSaveUser.textContent = "➕ إنشاء الحساب";
+      btnCancelUserEdit.style.display = "none";
+      uEmailInput.disabled = false;
+    }
+
+    btnCancelUserEdit.addEventListener('click', resetUserForm);
+
+    // Add/Update User Submit
+    userCrudForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById('u-name').value.trim();
+      const email = uEmailInput.value.trim().toLowerCase();
+      const password = document.getElementById('u-password').value.trim();
+      const role = document.getElementById('u-role').value;
+
+      const currentUser = window.StoreEngine.getCurrentUser();
+      const isEdit = userEditMode.value === "true";
+      const origEmail = userOriginalEmail.value;
+
+      // Safeguard: Do not downgrade yourself from Admin to Client
+      if (isEdit && currentUser && origEmail === currentUser.email && role !== 'admin') {
+        alert('تحذير أمني: لا يمكنك تغيير دورك من مسؤول (Admin) إلى عميل (Client) لحسابك النشط الحالي، لتجنب قفل لوحة الإدارة عليك!');
+        return;
+      }
+
+      if (isEdit) {
+        // Edit Mode
+        const success = window.StoreEngine.updateUser(origEmail, { name, password, role });
+        if (success) {
+          alert(`تم تحديث بيانات الحساب "${name}" بنجاح! 💾`);
+          resetUserForm();
+          renderUsers();
+        } else {
+          alert('فشل في تعديل بيانات المستخدم.');
+        }
+      } else {
+        // Add Mode
+        // Check duplicate email in local database
+        const users = window.StoreEngine.getUsers();
+        if (users.some(u => u.email === email)) {
+          alert('خطأ: البريد الإلكتروني المدخل مسجل لحساب آخر بالفعل. يرجى استخدام بريد إلكتروني فريد.');
+          return;
+        }
+
+        const success = window.StoreEngine.addUser({ name, email, password, role });
+        if (success) {
+          alert(`تم إنشاء حساب المستخدم "${name}" بنجاح! 🎉`);
+          resetUserForm();
+          renderUsers();
+        } else {
+          alert('فشل في إنشاء الحساب.');
+        }
+      }
+    });
+
+    // Delete User with safeguards
+    window.deleteUser = function(email) {
+      const currentUser = window.StoreEngine.getCurrentUser();
+
+      // Safeguard: Self-deletion prevention
+      if (currentUser && email === currentUser.email) {
+        alert('خطأ أمني: لا يمكنك حذف الحساب النشط الحالي الذي تستخدمه لإدارة المنصة الآن!');
+        return;
+      }
+
+      if (confirm(`هل أنت متأكد من حذف حساب المستخدم (${email}) نهائياً من قاعدة البيانات؟`)) {
+        const success = window.StoreEngine.deleteUser(email);
+        if (success) {
+          alert('تم حذف الحساب بنجاح! 👥');
+          renderUsers();
+        } else {
+          alert('فشل في حذف حساب المستخدم.');
+        }
+      }
+    };
+
+    // INITIALIZATION
+    document.addEventListener('DOMContentLoaded', () => {
+      renderUsers();
+      
+      // Sync badges counts if any
+      window.StoreEngine.updateHeaderBadges();
+    });
+  </script>
+</body>
+</html>

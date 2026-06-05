@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>كودساينون | تفاصيل المنتج البرمجي</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/landing.css">
+
+  <!-- E-commerce Store State Engine -->
+  <script src="js/store-engine.js"></script>
+  <!-- Slider Custom CSS -->
+  <style>
+    .detail-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.4s ease-in-out;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .detail-slide.active {
+      opacity: 1;
+      z-index: 1;
+    }
+    .detail-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .slider-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.4);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .slider-dot.active {
+      background: var(--primary);
+      width: 24px;
+      border-radius: 5px;
+    }
+    #slider-prev-btn:hover, #slider-next-btn:hover {
+      background: var(--primary) !important;
+    }
+    
+    /* Tabs Layout Custom CSS */
+    .tab-panel {
+      display: none;
+    }
+    .tab-panel.active {
+      display: block;
+      animation: fadeIn var(--transition-normal) forwards;
+    }
+    .btn-tab {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body class="role-client-theme">
+
+  <!-- Header Navigation -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="logo-area">
+        <a href="index.html" class="logo">
+          <svg class="logo-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 10L16 4L26 10V22L16 28L6 22V10Z" stroke="var(--primary)" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M16 4V28" stroke="var(--primary)" stroke-width="1.5" stroke-dasharray="3 3"/>
+            <path d="M11 11L16 14L21 11" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="16" cy="19" r="3" fill="var(--primary)" />
+          </svg>
+          <span class="logo-text">كودساينون<span class="logo-dot">.</span></span>
+        </a>
+      </div>
+
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+          <li><a href="store.html" class="nav-link active">المتجر</a></li>
+          <li><a href="admin-portal.html" class="nav-link">لوحة الإدارة</a></li>
+          <li><a href="downloads.html" class="nav-link">مركز التحميل</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Wishlist Button -->
+        <a href="cart.html#wishlist" class="icon-btn" style="position:relative; margin-left: 14px; font-size:1.3rem; text-decoration:none;" title="المفضلة">
+          ❤️
+          <span class="badge-count en-nums" id="header-fav-count" style="position:absolute; top:-8px; left:-8px; background-color:var(--danger); color:white; font-size:0.7rem; font-weight:800; border-radius:50%; width:18px; height:18px; display:none; align-items:center; justify-content:center;">0</span>
+        </a>
+        
+        <!-- Cart Button -->
+        <a href="cart.html" class="icon-btn" style="position:relative; margin-left: 20px; font-size:1.3rem; text-decoration:none;" title="سلة المشتريات">
+          🛒
+          <span class="badge-count en-nums" id="header-cart-count" style="position:absolute; top:-8px; left:-8px; background-color:var(--primary); color:white; font-size:0.7rem; font-weight:800; border-radius:50%; width:18px; height:18px; display:none; align-items:center; justify-content:center;">0</span>
+        </a>
+
+        <a href="submit-request.html" class="btn btn-primary" style="margin-left: 12px;">
+          اطلب مشروعك الخاص
+        </a>
+
+        <div class="user-profile-menu"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="landing-wrapper fade-in" style="margin-top: 40px; margin-bottom: 60px;">
+    
+    <!-- Breadcrumbs -->
+    <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px; display: flex; gap: 8px;">
+      <a href="index.html" style="color: var(--primary); font-weight:700;">الرئيسية</a> &gt;
+      <a href="store.html" style="color: var(--primary); font-weight:700;" id="breadcrumb-category">المنتجات البرمجية</a> &gt;
+      <span id="breadcrumb-title" style="color: var(--text-primary);">تفاصيل المنتج</span>
+    </div>
+
+    <!-- Product Title Layout -->
+    <div style="border-bottom: 1px solid var(--border-light); padding-bottom: 24px; margin-bottom: 30px;">
+      <span class="badge-status new" id="detail-category-badge" style="background-color: var(--primary-light); color: var(--primary); font-weight:800; font-size:0.8rem;">فئة المنتج</span>
+      <h1 id="detail-title" style="font-size: 2.25rem; font-weight: 900; color: var(--text-primary); margin-top: 10px; line-height: 1.3;">-</h1>
+      <p id="detail-subtitle" style="font-size: 1.05rem; color: var(--text-secondary); margin-top: 8px;">-</p>
+    </div>
+
+    <!-- Details Main Grid -->
+    <div class="product-details-container">
+      
+      <!-- Left Column: Details, Preview, Features, Changelog -->
+      <div class="product-info-panel">
+        
+        <!-- Product Image Slider -->
+        <div id="detail-slider-card" style="position: relative; border-radius: var(--radius-xl); border: 1px solid var(--border-light); overflow: hidden; background: var(--bg-primary); box-shadow: var(--shadow-md); height: 420px; margin-bottom: 24px;">
+          <div id="detail-slides-wrapper" style="width: 100%; height: 100%; position: relative;">
+            <!-- Slides dynamically rendered here -->
+          </div>
+          <!-- Navigation buttons -->
+          <button id="slider-prev-btn" style="position: absolute; right: 16px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; cursor: pointer; z-index: 10; border: none; transition: background 0.2s;">❯</button>
+          <button id="slider-next-btn" style="position: absolute; left: 16px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; cursor: pointer; z-index: 10; border: none; transition: background 0.2s;">❮</button>
+          <!-- Dots -->
+          <div id="slider-dots" style="position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 10;"></div>
+        </div>
+
+        <!-- Simple Description Card -->
+        <div class="dashboard-card" style="margin-top: 10px; margin-bottom: 24px;">
+          <div class="dashboard-card-header">
+            <h3>نبذة عن المشروع</h3>
+          </div>
+          <div class="dashboard-card-body" id="detail-simple-description" style="line-height: 1.8; font-size: 0.95rem; color: var(--text-secondary);">
+            -
+          </div>
+        </div>
+
+        <!-- Tabbed Project Details -->
+        <div class="dashboard-card" style="margin-bottom: 24px;">
+          <!-- Tab Buttons Navigation -->
+          <div style="display:flex; border-bottom: 1.5px solid var(--border-light); padding: 12px 24px 0 24px; gap: 20px; background-color: var(--bg-primary);">
+            <button class="nav-link btn-tab active" data-tab="desc" style="padding-bottom:12px; font-weight:700;">الوصف التفصيلي</button>
+            <button class="nav-link btn-tab" data-tab="features" style="padding-bottom:12px; font-weight:700;">الميزات والتقنيات</button>
+            <button class="nav-link btn-tab" data-tab="changelog" style="padding-bottom:12px; font-weight:700;">سجل التحديثات</button>
+          </div>
+
+          <!-- Tab Content Panels -->
+          <div class="dashboard-card-body">
+            <!-- Panel 1: Detailed Description -->
+            <div class="tab-panel active" id="tab-panel-desc">
+              <div id="detail-description" style="line-height: 1.8; font-size: 0.95rem; color: var(--text-secondary);">
+                -
+              </div>
+            </div>
+
+            <!-- Panel 2: Features -->
+            <div class="tab-panel" id="tab-panel-features">
+              <ul id="detail-features-list" style="display:grid; grid-template-columns: repeat(2, 1fr); gap: 14px; font-size: 0.9rem; color: var(--text-secondary);">
+                <!-- Populated dynamically -->
+              </ul>
+            </div>
+
+            <!-- Panel 3: Changelog -->
+            <div class="tab-panel" id="tab-panel-changelog">
+              <div id="detail-changelog" style="display: flex; flex-direction: column; gap: 16px;">
+                <!-- Populated dynamically -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Sidebar (Purchase Panel, Stack, Meta Info) -->
+      <div class="product-sidebar-panel">
+        
+        <!-- Purchase selector card -->
+        <div class="purchase-card">
+          <div style="margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--border-light); display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-size: 1.05rem; color: var(--text-secondary); font-weight: 700;">سعر المشروع الكود المصدري:</span>
+            <strong class="product-price" id="total-price-display" style="font-size: 2.25rem; font-weight: 900; color: var(--primary);">$0</strong>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            
+            <button id="add-to-cart-btn" class="btn btn-primary btn-lg" style="width: 100%; text-align: center; justify-content: center; font-weight: 800; font-size:1.05rem;">🛒 إضافة إلى السلة</button>
+            
+            <div style="display: flex; gap: 8px;">
+              <button id="buy-now-btn" class="btn btn-outline btn-lg" style="flex: 1; text-align: center; justify-content: center; font-weight: 800; font-size:0.95rem; border-color: var(--primary); color: var(--primary);">شراء الآن</button>
+              
+              <button id="fav-btn" class="btn btn-outline btn-lg" style="width: 50px; padding: 0; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; cursor: pointer; border-color: var(--border-light);" title="أضف للمفضلة">
+                🤍
+              </button>
+            </div>
+          </div>
+
+          <div style="display:flex; justify-content:center; gap:16px; margin-top:16px; font-size:0.725rem; color:var(--text-muted);">
+            <span>🛡️ حماية وضمان مالي 100%</span>
+            <span>⚡ تسليم آلي فوري</span>
+          </div>
+        </div>
+
+        <!-- Specifications & Developer Card -->
+        <div class="dashboard-card">
+          <div class="dashboard-card-header">
+            <h3>بيانات الكود المصدري</h3>
+          </div>
+          <div class="dashboard-card-body" style="padding: 20px; display:flex; flex-direction:column; gap:12px; font-size:0.8rem; color:var(--text-secondary);">
+            <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border-light); padding-bottom:8px;">
+              <span>الإصدار الحالي:</span>
+              <strong id="spec-version" class="en-nums">-</strong>
+            </div>
+            <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border-light); padding-bottom:8px;">
+              <span>تاريخ النشر الأول:</span>
+              <strong id="spec-published" class="en-nums">-</strong>
+            </div>
+            <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border-light); padding-bottom:8px;">
+              <span>آخر تحديث معتمد:</span>
+              <strong id="spec-updated" class="en-nums">-</strong>
+            </div>
+            <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border-light); padding-bottom:8px;">
+              <span>حجم حزمة التنزيل:</span>
+              <strong id="spec-size" class="en-nums">-</strong>
+            </div>
+            <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border-light); padding-bottom:8px;">
+              <span>نوع الملف المرفق:</span>
+              <strong>كود مصدري كامل (.zip)</strong>
+            </div>
+            <div style="display:flex; justify-content:space-between; padding-top:4px;">
+              <span>مطور الكود:</span>
+              <span id="spec-author" style="color:var(--primary); font-weight:700;">-</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <svg class="logo-icon" width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 10L16 4L26 10V22L16 28L6 22V10Z" stroke="var(--primary)" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M16 4V28" stroke="var(--primary)" stroke-width="1.5" stroke-dasharray="3 3"/>
+            <path d="M11 11L16 14L21 11" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="logo-text">كودساينون<span class="logo-dot">.</span></span>
+        </a>
+        <p class="brand-desc">المنصة المتكاملة لشراء البرمجيات الجاهزة وطلب المشاريع المخصصة بجودة وأمان لا مثيل لهما.</p>
+      </div>
+      
+      <div class="footer-links-grid">
+        <div class="footer-col">
+          <h5>المشاريع البرمجية</h5>
+          <ul>
+            <li><a href="submit-request.html">طلب مشروع خاص</a></li>
+            <li><a href="store.html">متجر الأكواد البرمجية</a></li>
+            <li><a href="admin-portal.html">لوحة الإدارة للتحكم</a></li>
+            <li><a href="index.html">معرض أعمال المنصة</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>المنتجات الرقمية</h5>
+          <ul>
+            <li><a href="store.html?cat=templates">قوالب ويب جاهزة</a></li>
+            <li><a href="store.html?cat=mobile">تطبيقات جوال كاملة</a></li>
+            <li><a href="store.html?cat=php">أنظمة إدارة شركات</a></li>
+            <li><a href="downloads.html">تحديثات وإصدارات المنتجات</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>الضمان والدعم</h5>
+          <ul>
+            <li><a href="index.html">سياسة الضمان والمستندات</a></li>
+            <li><a href="index.html">مركز المساعدة والتعليمات</a></li>
+            <li><a href="index.html">شروط الاستخدام والخصوصية</a></li>
+            <li><a href="index.html">تذكرة دعم فني</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-container">
+        <p>© 2026 كودساينون (Codecynon). جميع الحقوق محفوظة لشركة التميز الرقمي.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Get Product ID from Query Parameter
+      const urlParams = new URLSearchParams(window.location.search);
+      const prodId = urlParams.get('id') || 'store-nextjs'; // Fallback to store-nextjs
+
+      // 2. Fetch data from DB
+      const product = window.StoreEngine.getProductById(prodId);
+
+      if (!product) {
+        document.getElementById('detail-title').textContent = "المنتج غير موجود";
+        return;
+      }
+
+      // Resolve category names dynamically
+      const categoryObj = window.StoreEngine.getCategories().find(c => c.id === product.category);
+      const categoryName = categoryObj ? categoryObj.name : product.category;
+      const categoryBadge = categoryObj ? `${categoryObj.icon} ${categoryObj.name}` : product.category;
+
+      // 3. Update DOM Elements
+      document.title = `كودساينون | ${product.title}`;
+      document.getElementById('breadcrumb-category').textContent = categoryName;
+      document.getElementById('breadcrumb-title').textContent = product.title;
+
+      document.getElementById('detail-category-badge').textContent = categoryBadge;
+      document.getElementById('detail-title').textContent = product.title;
+      document.getElementById('detail-subtitle').textContent = product.subtitle;
+      
+      const techIconEl = document.getElementById('detail-tech-icon');
+      if (techIconEl) techIconEl.textContent = product.techIcon || "📦";
+      
+      const previewHeadlineEl = document.getElementById('detail-preview-headline');
+      if (previewHeadlineEl) previewHeadlineEl.textContent = `واجهات ${categoryName} نظيفة وتصميم ناعم 100%`;
+      
+      document.getElementById('detail-description').innerHTML = `<p>${product.description}</p>`;
+      document.getElementById('detail-simple-description').textContent = product.subtitle || product.title;
+
+      // Render features list with fallback
+      const featuresList = product.features && product.features.length > 0 ? product.features : [
+        "تصميم نظيف بالكامل ومتجاوب مع الهواتف والحواسب.",
+        "كود مصدري منظم بالكامل وسهل التعديل والتخصيص.",
+        "متوافق بالكامل مع معايير محركات البحث السريعة SEO.",
+        "توثيق شامل لطريقة التشغيل وتثبيت السكربت خطوة بخطوة."
+      ];
+      const featuresUl = document.getElementById('detail-features-list');
+      featuresUl.innerHTML = featuresList.map(f => `
+        <li style="display:flex; align-items:center; gap:8px;">
+          <span style="color:var(--success); font-weight:bold; font-size:1.1rem;">✓</span>
+          <span>${f}</span>
+        </li>
+      `).join('');
+
+      // Render changelog with fallback
+      const changelogList = product.changelog && product.changelog.length > 0 ? product.changelog : [
+        { ver: product.version || "v1.0.0", date: product.updated || product.published || "2026-06-01", note: "الإطلاق الأساسي للمنتج البرمجي على المتجر." }
+      ];
+      const changelogDiv = document.getElementById('detail-changelog');
+      changelogDiv.innerHTML = changelogList.map(log => `
+        <div style="border-right: 3px solid var(--primary); padding-right:12px; margin-right:4px;">
+          <strong class="en-nums" style="color:var(--text-primary); font-size:0.9rem;">الإصدار ${log.ver}</strong>
+          <span class="en-nums" style="font-size:0.75rem; color:var(--text-muted); margin-right:10px;">(${log.date})</span>
+          <p style="font-size:0.825rem; color:var(--text-secondary); margin-top:4px;">${log.note}</p>
+        </div>
+      `).join('');
+
+      // Set sidebar price labels
+      document.getElementById('total-price-display').textContent = `$${product.priceRegular}`;
+
+      // Update sidebar spec metadata
+      document.getElementById('spec-version').textContent = product.version || "v1.0.0";
+      document.getElementById('spec-published').textContent = product.published || "2026-06-01";
+      document.getElementById('spec-updated').textContent = product.updated || "2026-06-01";
+      document.getElementById('spec-size').textContent = product.size || "10.0 MB";
+      document.getElementById('spec-author').textContent = product.author || "مطور معتمد بالمنصة";
+
+      // Render images slider
+      const slidesWrapper = document.getElementById('detail-slides-wrapper');
+      const dotsContainer = document.getElementById('slider-dots');
+      const prevBtn = document.getElementById('slider-prev-btn');
+      const nextBtn = document.getElementById('slider-next-btn');
+
+      let currentSlideIdx = 0;
+      let slides = [];
+      let dots = [];
+
+      if (product.images && product.images.length > 0) {
+        // Render Slides
+        slidesWrapper.innerHTML = product.images.map((imgUrl, index) => `
+          <div class="detail-slide ${index === 0 ? 'active' : ''}">
+            <img src="${imgUrl}" alt="${product.title} Slide ${index + 1}">
+          </div>
+        `).join('');
+
+        // Render Dots
+        dotsContainer.innerHTML = product.images.map((_, index) => `
+          <div class="slider-dot ${index === 0 ? 'active' : ''}" data-idx="${index}"></div>
+        `).join('');
+
+        slides = document.querySelectorAll('.detail-slide');
+        dots = document.querySelectorAll('.slider-dot');
+
+        function showSlide(idx) {
+          if (slides.length === 0) return;
+          slides[currentSlideIdx].classList.remove('active');
+          dots[currentSlideIdx].classList.remove('active');
+          
+          currentSlideIdx = (idx + slides.length) % slides.length;
+          
+          slides[currentSlideIdx].classList.add('active');
+          dots[currentSlideIdx].classList.add('active');
+        }
+
+        prevBtn.onclick = () => showSlide(currentSlideIdx - 1);
+        nextBtn.onclick = () => showSlide(currentSlideIdx + 1);
+
+        dots.forEach(dot => {
+          dot.onclick = () => {
+            const idx = parseInt(dot.getAttribute('data-idx'));
+            showSlide(idx);
+          };
+        });
+
+        // Auto-play sliding every 5 seconds
+        setInterval(() => {
+          showSlide(currentSlideIdx + 1);
+        }, 5000);
+      } else {
+        document.getElementById('detail-slider-card').style.display = 'none';
+      }
+
+      // 4. Handle Cart & Purchase Actions
+      const buyNowBtn = document.getElementById('buy-now-btn');
+      const addToCartBtn = document.getElementById('add-to-cart-btn');
+      const favBtn = document.getElementById('fav-btn');
+
+      const selectedLicense = 'regular';
+      const selectedPrice = product.priceRegular;
+
+      buyNowBtn.onclick = () => {
+        window.StoreEngine.addToCart(product.id, selectedLicense, selectedPrice);
+        window.location.href = 'checkout.html';
+      };
+
+      // Update Favorite Button icon state
+      function updateFavBtnState() {
+        const isFaved = window.StoreEngine.isFavorite(prodId);
+        favBtn.textContent = isFaved ? '❤️' : '🤍';
+        favBtn.title = isFaved ? 'حذف من المفضلة' : 'إضافة للمفضلة';
+      }
+      updateFavBtnState();
+
+      addToCartBtn.addEventListener('click', () => {
+        window.StoreEngine.addToCart(product.id, selectedLicense, selectedPrice);
+        alert('تمت إضافة المنتج إلى سلة المشتريات بنجاح! 🎉');
+      });
+
+      favBtn.addEventListener('click', () => {
+        const added = window.StoreEngine.toggleFavorite(product.id);
+        updateFavBtnState();
+        if (added) {
+          alert('تم إضافة المنتج إلى المفضلة! ❤️');
+        } else {
+          alert('تم إزالة المنتج من المفضلة.');
+        }
+      });
+
+      // 5. Handle Tab Switching Action
+      const tabBtns = document.querySelectorAll('.btn-tab');
+      const tabPanels = document.querySelectorAll('.tab-panel');
+
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          tabBtns.forEach(b => b.classList.remove('active'));
+          tabPanels.forEach(p => p.classList.remove('active'));
+
+          btn.classList.add('active');
+          const tabId = btn.getAttribute('data-tab');
+          document.getElementById(`tab-panel-${tabId}`).classList.add('active');
+        });
+      });
+    });
+  </script>
+</body>
+</html>

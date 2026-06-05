@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>كودساينون | تسجيل الدخول</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/landing.css">
+  <link rel="stylesheet" href="css/forms.css">
+
+  <!-- E-commerce Store State Engine -->
+  <script src="js/store-engine.js"></script>
+</head>
+<body class="role-client-theme">
+
+  <!-- Header Navigation -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="logo-area">
+        <a href="index.html" class="logo">
+          <svg class="logo-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 10L16 4L26 10V22L16 28L6 22V10Z" stroke="var(--primary)" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M16 4V28" stroke="var(--primary)" stroke-width="1.5" stroke-dasharray="3 3"/>
+            <path d="M11 11L16 14L21 11" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="16" cy="19" r="3" fill="var(--primary)" />
+          </svg>
+          <span class="logo-text">كودساينون<span class="logo-dot">.</span></span>
+        </a>
+      </div>
+
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+          <li><a href="store.html" class="nav-link">المتجر</a></li>
+          <li><a href="downloads.html" class="nav-link">مركز التحميل</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Wishlist Button -->
+        <a href="cart.html#wishlist" class="icon-btn" style="position:relative; margin-left: 14px; font-size:1.3rem; text-decoration:none;" title="المفضلة">
+          ❤️
+          <span class="badge-count en-nums" id="header-fav-count" style="position:absolute; top:-8px; left:-8px; background-color:var(--danger); color:white; font-size:0.7rem; font-weight:800; border-radius:50%; width:18px; height:18px; display:none; align-items:center; justify-content:center;">0</span>
+        </a>
+        
+        <!-- Cart Button -->
+        <a href="cart.html" class="icon-btn" style="position:relative; margin-left: 20px; font-size:1.3rem; text-decoration:none;" title="سلة المشتريات">
+          🛒
+          <span class="badge-count en-nums" id="header-cart-count" style="position:absolute; top:-8px; left:-8px; background-color:var(--primary); color:white; font-size:0.7rem; font-weight:800; border-radius:50%; width:18px; height:18px; display:none; align-items:center; justify-content:center;">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Login Form Container -->
+  <main class="landing-wrapper fade-in" style="margin-top: 60px; margin-bottom: 80px; max-width: 500px;">
+    
+    <div class="form-wrapper" style="padding: 30px;">
+      <div style="text-align: center; margin-bottom: 24px;">
+        <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--text-primary);">تسجيل الدخول</h2>
+        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 6px;">ادخل حسابك للوصول للتحميلات والمفضلة وسلة المشتريات.</p>
+      </div>
+
+      <form id="login-form" onsubmit="return false;">
+        <div class="form-group">
+          <label for="login-email">البريد الإلكتروني</label>
+          <input type="email" id="login-email" class="form-control" placeholder="name@domain.com" required style="font-family:var(--font-english);">
+        </div>
+        
+        <div class="form-group">
+          <label for="login-password">كلمة المرور</label>
+          <input type="password" id="login-password" class="form-control" placeholder="••••••••" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; font-weight: 800; font-size: 1rem; margin-top: 10px;">دخول آمن للمنصة</button>
+      </form>
+
+      <div style="margin-top: 24px; text-align: center; font-size: 0.85rem;">
+        <span style="color: var(--text-muted);">ليس لديك حساب؟</span>
+        <a href="register.html" style="color: var(--primary); font-weight: 700; text-decoration: none; margin-right: 4px;">إنشاء حساب جديد</a>
+      </div>
+
+      <!-- Testing Credentials Box -->
+      <div style="margin-top: 30px; background-color: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 16px; font-size: 0.775rem; text-align: right;">
+        <strong style="color: var(--primary); display: block; margin-bottom: 8px;">🔐 حسابات تجريبية سريعة:</strong>
+        <div style="margin-bottom: 8px;">
+          <strong>حساب المسؤول (Admin):</strong>
+          <div style="font-family:var(--font-english); margin-top: 2px;">Email: admin@codecynon.com / Pass: admin</div>
+        </div>
+        <div>
+          <strong>حساب العميل (Client):</strong>
+          <div style="font-family:var(--font-english); margin-top: 2px;">Email: ahmad@gmail.com / Pass: ahmad</div>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div class="footer-bottom">
+      <div class="footer-bottom-container" style="text-align:center;">
+        <p>© 2026 كودساينون (Codecynon). جميع الحقوق محفوظة لشركة التميز الرقمي.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('login-form');
+      const urlParams = new URLSearchParams(window.location.search);
+      const redirect = urlParams.get('redirect') || 'index.html';
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = document.getElementById('login-email').value.trim();
+        const pass = document.getElementById('login-password').value;
+
+        const success = window.StoreEngine.login(email, pass);
+        if (success) {
+          sessionStorage.setItem('pending_toast', JSON.stringify({
+            message: 'تم تسجيل الدخول بنجاح! مرحباً بك.',
+            type: 'success'
+          }));
+          window.location.href = redirect;
+        } else {
+          alert('خطأ: البريد الإلكتروني أو كلمة المرور غير صحيحة.');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

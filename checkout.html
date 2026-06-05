@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>كودساينون | إتمام الدفع والشراء</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/landing.css">
+  <link rel="stylesheet" href="css/forms.css">
+
+  <!-- E-commerce Store State Engine -->
+  <script src="js/store-engine.js"></script>
+</head>
+<body class="role-client-theme">
+
+  <!-- Header Navigation -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="logo-area">
+        <a href="index.html" class="logo">
+          <svg class="logo-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 10L16 4L26 10V22L16 28L6 22V10Z" stroke="var(--primary)" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M16 4V28" stroke="var(--primary)" stroke-width="1.5" stroke-dasharray="3 3"/>
+            <path d="M11 11L16 14L21 11" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="16" cy="19" r="3" fill="var(--primary)" />
+          </svg>
+          <span class="logo-text">كودساينون<span class="logo-dot">.</span></span>
+        </a>
+      </div>
+
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+          <li><a href="store.html" class="nav-link">المتجر</a></li>
+          <li><a href="admin-portal.html" class="nav-link">لوحة الإدارة</a></li>
+          <li><a href="downloads.html" class="nav-link">مركز التحميل</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Wishlist Button -->
+        <a href="cart.html#wishlist" class="icon-btn" style="position:relative; margin-left: 14px; font-size:1.3rem; text-decoration:none;" title="المفضلة">
+          ❤️
+          <span class="badge-count en-nums" id="header-fav-count" style="position:absolute; top:-8px; left:-8px; background-color:var(--danger); color:white; font-size:0.7rem; font-weight:800; border-radius:50%; width:18px; height:18px; display:none; align-items:center; justify-content:center;">0</span>
+        </a>
+        
+        <!-- Cart Button -->
+        <a href="cart.html" class="icon-btn" style="position:relative; margin-left: 20px; font-size:1.3rem; text-decoration:none;" title="سلة المشتريات">
+          🛒
+          <span class="badge-count en-nums" id="header-cart-count" style="position:absolute; top:-8px; left:-8px; background-color:var(--primary); color:white; font-size:0.7rem; font-weight:800; border-radius:50%; width:18px; height:18px; display:none; align-items:center; justify-content:center;">0</span>
+        </a>
+
+        <a href="submit-request.html" class="btn btn-primary" style="margin-left: 12px;">
+          اطلب مشروعك الخاص
+        </a>
+
+        <div class="user-profile-menu"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Checkout Main Container -->
+  <main class="landing-wrapper fade-in" style="margin-top: 40px; margin-bottom: 60px;">
+    
+    <div style="border-bottom: 1px solid var(--border-light); padding-bottom: 20px; margin-bottom: 30px;">
+      <h1 style="font-size: 2rem; font-weight: 900; color: var(--text-primary);">إتمام الدفع الآمن وشراء الأكواد</h1>
+      <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 4px;">املأ الفاتورة وأكمل الدفع للحصول على رابط التحميل الفوري ومفتاح الترخيص.</p>
+    </div>
+
+    <div class="product-details-container">
+      
+      <!-- Left Column: Billing Details & Payment Methods -->
+      <div class="product-info-panel">
+        
+        <!-- Billing Address -->
+        <div class="dashboard-card">
+          <div class="dashboard-card-header">
+            <h3>تفاصيل فاتورة المشتري</h3>
+          </div>
+          <div class="dashboard-card-body" style="padding: 24px;">
+            <form id="billing-form" onsubmit="return false;">
+              <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;">
+                <div class="form-group" style="margin-bottom:0;">
+                  <label>الاسم الكامل</label>
+                  <input type="text" class="form-control" id="billing-name" value="أحمد العتيبي" required>
+                </div>
+                <div class="form-group" style="margin-bottom:0;">
+                  <label>البريد الإلكتروني للتحميل</label>
+                  <input type="email" class="form-control" id="billing-email" value="ahmad.otaibi@gmail.com" required>
+                </div>
+              </div>
+
+              <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+                <div class="form-group" style="margin-bottom:0;">
+                  <label>رقم الجوال (مع رمز الدولة)</label>
+                  <input type="text" class="form-control" id="billing-phone" value="+966 50 123 4567" style="direction:ltr; text-align:right;" required>
+                </div>
+                <div class="form-group" style="margin-bottom:0;">
+                  <label>البلد / المنطقة</label>
+                  <select class="form-control" id="billing-country">
+                    <option value="SA" selected>المملكة العربية السعودية</option>
+                    <option value="AE">الإمارات العربية المتحدة</option>
+                    <option value="EG">جمهورية مصر العربية</option>
+                    <option value="KW">الكويت</option>
+                    <option value="JO">الأردن</option>
+                  </select>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+
+
+      </div>
+
+      <!-- Right Column: Order Summary -->
+      <div class="product-sidebar-panel">
+        
+        <div class="purchase-card">
+          <h3 style="font-weight: 800; color: var(--text-primary); font-size: 1.15rem; border-bottom: 1px solid var(--border-light); padding-bottom: 12px; margin-bottom:16px;">ملخص طلبك البرمجي</h3>
+          
+          <div id="checkout-items-list" style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px;">
+            <!-- Render items here dynamically -->
+          </div>
+
+          <!-- Coupon code input -->
+          <div style="margin-bottom: 20px;">
+            <label style="font-size:0.775rem; font-weight:700; color:var(--text-secondary); display:block; margin-bottom:6px;">كوبون خصم إضافي (تلميح: ARABIA10)</label>
+            <div style="display:flex; gap:8px;">
+              <input type="text" class="form-control" id="coupon-input" placeholder="ادخل رمز الكوبون..." style="padding: 8px 12px; font-size:0.8rem; font-family:var(--font-english); text-transform:uppercase;">
+              <button class="btn btn-outline" id="coupon-apply-btn" style="padding: 0 16px; font-size:0.8rem; font-weight:800;">تطبيق</button>
+            </div>
+            <div id="coupon-feedback" style="font-size:0.725rem; margin-top:6px; font-weight:700; display:none;"></div>
+          </div>
+
+          <!-- Checkout pricing table -->
+          <div style="display:flex; flex-direction:column; gap:10px; font-size:0.825rem; color:var(--text-secondary); border-top:1px solid var(--border-light); padding-top:16px;">
+            <div style="display:flex; justify-content:space-between;">
+              <span>سعر حزم الأكواد المشتراة:</span>
+              <strong id="summary-subtotal" class="en-nums">$0</strong>
+            </div>
+            <div style="display:flex; justify-content:space-between; color:var(--success); display:none;" id="summary-discount-row">
+              <span>خصم الكوبون (%10):</span>
+              <strong id="summary-discount" class="en-nums">-$0</strong>
+            </div>
+            <div style="display:flex; justify-content:space-between;">
+              <span>عمولة البوابات والضريبة (%0):</span>
+              <span style="color:var(--text-muted);">مشمولة مجاناً</span>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--border-light); padding-top:14px; margin-top:4px;">
+              <span style="font-size:0.9rem; color:var(--text-primary); font-weight:800;">إجمالي المطلوب سداده:</span>
+              <strong class="product-price" id="summary-total" style="font-size:1.6rem;">$0</strong>
+            </div>
+          </div>
+
+          <button id="pay-complete-btn" class="btn btn-primary btn-lg" style="width: 100%; text-align: center; justify-content: center; font-weight: 800; font-size:1.05rem; margin-top: 24px;">تأكيد ودفع أتعاب الكود</button>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Interactive Processing Overlay -->
+  <div class="modal-overlay" id="checkout-loading-overlay" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(15, 23, 42, 0.85); z-index: 1000; display: none; align-items: center; justify-content: center; backdrop-filter: blur(4px);">
+    <div style="text-align: center; color: white;">
+      <div style="width: 60px; height: 60px; border: 4px solid var(--primary-light); border-top-color: var(--primary); border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 20px auto;"></div>
+      <h3 style="font-weight: 800; font-size: 1.25rem;">جاري معالجة المعاملة المالية بامتثال أمني...</h3>
+      <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 6px;">يرجى عدم إغلاق هذه الصفحة.</p>
+    </div>
+  </div>
+
+  <!-- Checkout Success Modal Overlay -->
+  <div class="modal-overlay" id="checkout-success-overlay" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(15, 23, 42, 0.85); z-index: 1001; display: none; align-items: center; justify-content: center; backdrop-filter: blur(4px);">
+    <div class="form-wrapper" style="width: 550px; padding: 40px 30px; text-align: center; border-radius: var(--radius-lg); background-color: var(--bg-primary); border: 1px solid var(--border-medium);">
+      <div style="width: 64px; height: 64px; border-radius: 50%; background-color: var(--success-glow); color: var(--success); display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto 20px auto;">✓</div>
+      <h3 style="font-weight: 900; font-size: 1.6rem; color: var(--text-primary);">اكتملت عملية الشراء بنجاح!</h3>
+      <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin: 12px 0 24px 0;">أهلاً بك، تم إصدار رخص تنشيط الكود وفوترته بنجاح. حزم الكود المصدري (.zip) متوفرة الآن للتحميل الفوري عبر مركز التحميل الموحد الخاص بك.</p>
+      
+      <div id="success-orders-info" style="max-height: 160px; overflow-y: auto; background-color: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 14px 20px; text-align: right; margin-bottom: 24px; display: flex; flex-direction: column; gap: 10px;">
+        <!-- Filled dynamically -->
+      </div>
+
+      <a id="go-downloads-link" href="downloads.html" class="btn btn-primary" style="width: 100%; justify-content: center; font-weight: 800;">الانتقال إلى مركز التنزيلات والتحميل</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <svg class="logo-icon" width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 10L16 4L26 10V22L16 28L6 22V10Z" stroke="var(--primary)" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M16 4V28" stroke="var(--primary)" stroke-width="1.5" stroke-dasharray="3 3"/>
+            <path d="M11 11L16 14L21 11" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="logo-text">كودساينون<span class="logo-dot">.</span></span>
+        </a>
+        <p class="brand-desc">المنصة المتكاملة لشراء البرمجيات الجاهزة وطلب المشاريع المخصصة بجودة وأمان لا مثيل لهما.</p>
+      </div>
+      <div class="footer-links-grid">
+        <div class="footer-col">
+          <h5>المشاريع البرمجية</h5>
+          <ul>
+            <li><a href="submit-request.html">طلب مشروع خاص</a></li>
+            <li><a href="store.html">متجر الأكواد البرمجية</a></li>
+            <li><a href="admin-portal.html">لوحة الإدارة للتحكم</a></li>
+            <li><a href="index.html">معرض أعمال المنصة</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>المنتجات الرقمية</h5>
+          <ul>
+            <li><a href="store.html?cat=templates">قوالب ويب جاهزة</a></li>
+            <li><a href="store.html?cat=mobile">تطبيقات جوال كاملة</a></li>
+            <li><a href="store.html?cat=php">أنظمة إدارة شركات</a></li>
+            <li><a href="downloads.html">تحديثات وإصدارات المنتجات</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-container">
+        <p>© 2026 كودساينون (Codecynon). جميع الحقوق محفوظة لشركة التميز الرقمي.</p>
+      </div>
+    </div>
+  </footer>
+
+  <style>
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Get query parameters or check cart
+      const urlParams = new URLSearchParams(window.location.search);
+      const prodId = urlParams.get('id');
+      const license = urlParams.get('license') || 'regular';
+      const priceParam = parseFloat(urlParams.get('price'));
+
+      let itemsToCheckout = [];
+
+      if (prodId) {
+        // Single Product Direct Checkout Mode
+        const product = window.StoreEngine.getProductById(prodId);
+        if (product) {
+          itemsToCheckout.push({
+            id: product.id,
+            title: product.title,
+            license: license,
+            price: isNaN(priceParam) ? product.priceRegular : priceParam,
+            techIcon: product.techIcon || "📦"
+          });
+        }
+      } else {
+        // Shopping Cart Checkout Mode
+        const cartItems = window.StoreEngine.getCart();
+        cartItems.forEach(cartItem => {
+          const product = window.StoreEngine.getProductById(cartItem.id);
+          if (product) {
+            itemsToCheckout.push({
+              id: product.id,
+              title: product.title,
+              license: cartItem.license,
+              price: cartItem.price,
+              techIcon: product.techIcon || "📦",
+              qty: cartItem.qty
+            });
+          }
+        });
+      }
+
+      // Check if there is anything to purchase
+      if (itemsToCheckout.length === 0) {
+        alert('سلة المشتريات فارغة أو لم يتم تحديد منتج للشراء. جاري إعادتك للمتجر.');
+        window.location.href = 'store.html';
+        return;
+      }
+
+      // 2. Render Checkout Summary Cards
+      const container = document.getElementById('checkout-items-list');
+      container.innerHTML = itemsToCheckout.map(item => `
+        <div style="display:flex; gap:12px; align-items:center; background-color:var(--bg-secondary); padding:12px; border-radius:var(--radius-md); border:1px solid var(--border-light);">
+          <div style="font-size:1.8rem;">${item.techIcon}</div>
+          <div style="flex-grow:1;">
+            <h4 style="font-size:0.85rem; font-weight:800; color:var(--text-primary);">${item.title}</h4>
+            <span style="font-size:0.725rem; color:var(--text-muted);">${item.license === 'regular' ? "رخصة عادية (Regular)" : "رخصة ممتدة (Extended)"} ${item.qty ? `× ${item.qty}` : ''}</span>
+          </div>
+          <strong class="en-nums" style="font-size: 0.95rem; color: var(--primary);">$${(item.price * (item.qty || 1)).toFixed(0)}</strong>
+        </div>
+      `).join('');
+
+      // 3. Price Calculations
+      let subtotal = itemsToCheckout.reduce((sum, item) => sum + (item.price * (item.qty || 1)), 0);
+      let discount = 0;
+      let total = subtotal;
+
+      function updatePricesDisplay() {
+        document.getElementById('summary-subtotal').textContent = `$${subtotal.toFixed(0)}`;
+        document.getElementById('summary-total').textContent = `$${total.toFixed(0)}`;
+        
+        if (discount > 0) {
+          document.getElementById('summary-discount-row').style.display = 'flex';
+          document.getElementById('summary-discount').textContent = `-$${discount.toFixed(0)}`;
+        } else {
+          document.getElementById('summary-discount-row').style.display = 'none';
+        }
+      }
+
+      updatePricesDisplay();
+
+      // 4. Coupon Apply Code
+      const couponInput = document.getElementById('coupon-input');
+      const couponBtn = document.getElementById('coupon-apply-btn');
+      const couponFeedback = document.getElementById('coupon-feedback');
+
+      couponBtn.addEventListener('click', () => {
+        const couponVal = couponInput.value.toUpperCase().trim();
+        
+        if (couponVal === 'ARABIA10') {
+          discount = subtotal * 0.10; // 10% discount
+          total = subtotal - discount;
+          
+          couponFeedback.textContent = "✓ تم تطبيق الكوبون بنجاح! تم خصم 10%";
+          couponFeedback.style.color = "var(--success)";
+          couponFeedback.style.display = 'block';
+          updatePricesDisplay();
+        } else if (couponVal === '') {
+          couponFeedback.textContent = "يرجى إدخال رمز كوبون أولاً.";
+          couponFeedback.style.color = "var(--danger)";
+          couponFeedback.style.display = 'block';
+        } else {
+          couponFeedback.textContent = "⚠️ عذراً، هذا الكوبون غير صالح أو انتهت صلاحيته.";
+          couponFeedback.style.color = "var(--danger)";
+          couponFeedback.style.display = 'block';
+        }
+      });
+
+
+
+      // 6. Complete Purchase Submission
+      const payBtn = document.getElementById('pay-complete-btn');
+      const loadingOverlay = document.getElementById('checkout-loading-overlay');
+      const successOverlay = document.getElementById('checkout-success-overlay');
+      const successOrdersInfo = document.getElementById('success-orders-info');
+
+      payBtn.addEventListener('click', () => {
+        // Validate billing details
+        const billingName = document.getElementById('billing-name').value.trim();
+        const billingEmail = document.getElementById('billing-email').value.trim();
+        const billingPhone = document.getElementById('billing-phone').value.trim();
+        
+        if (!billingName || !billingEmail || !billingPhone) {
+          alert('يرجى ملء كافة تفاصيل الفاتورة المطلوبة قبل الدفع.');
+          return;
+        }
+
+        // Show processing loading overlay
+        loadingOverlay.style.display = 'flex';
+
+        setTimeout(() => {
+          loadingOverlay.style.display = 'none';
+          successOverlay.style.display = 'flex';
+
+          const generatedOrders = [];
+
+          itemsToCheckout.forEach(item => {
+            const orderId = "TXN-" + Math.floor(1000000 + Math.random() * 9000000);
+            const licenseKey = (item.license === 'regular' ? "CC-REG-" : "CC-EXT-") + Math.floor(1000 + Math.random() * 9000) + "-XXXX";
+            const newOrder = {
+              id: orderId,
+              date: new Date().toISOString().split('T')[0],
+              productTitle: item.title,
+              productId: item.id,
+              price: item.price,
+              license: item.license,
+              licenseKey: licenseKey,
+              name: billingName,
+              email: billingEmail
+            };
+            window.StoreEngine.addOrder(newOrder);
+            generatedOrders.push(newOrder);
+          });
+
+          // Clear cart if needed
+          if (!prodId) {
+            window.StoreEngine.clearCart();
+          }
+
+          // Populate success modal info
+          successOrdersInfo.innerHTML = generatedOrders.map(ord => `
+            <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px dashed var(--border-light); padding-bottom:8px; margin-bottom:8px; font-size:0.8rem;">
+              <div>
+                <strong style="color:var(--text-primary); display:block;">${ord.productTitle}</strong>
+                <span style="font-size:0.7rem; color:var(--text-muted); font-family:var(--font-english);">رقم العملية: ${ord.id} | مفتاح الترخيص: ${ord.licenseKey}</span>
+              </div>
+              <strong style="color:var(--success); font-family:var(--font-english);">$${ord.price}</strong>
+            </div>
+          `).join('');
+
+          // Construct Arabic WhatsApp message details
+          let message = `مرحباً كودساينون،\n\nلقد قمت بإتمام عملية شراء جديدة من المتجر:\n`;
+          message += `👤 اسم العميل: ${billingName}\n`;
+          message += `📧 البريد الإلكتروني: ${billingEmail}\n`;
+          message += `📞 رقم الجوال: ${billingPhone}\n\n`;
+          message += `📦 المنتجات المشتراة:\n`;
+          
+          generatedOrders.forEach((ord, index) => {
+            message += `${index + 1}. ${ord.productTitle} (${ord.license === 'regular' ? 'رخصة عادية' : 'رخصة ممتدة'}) - $${ord.price}\n`;
+            message += `   🔑 ترخيص: ${ord.licenseKey}\n`;
+          });
+          
+          message += `\n💵 إجمالي المدفوع: $${total.toFixed(0)}\n`;
+          message += `📅 تاريخ الطلب: ${new Date().toLocaleDateString('ar-EG')}\n\n`;
+          message += `يرجى مراجعة وتأكيد عملية التحميل. شكراً لكم!`;
+
+          const encodedText = encodeURIComponent(message);
+          const whatsappUrl = `https://wa.me/201026342592?text=${encodedText}`;
+
+          // Open WhatsApp link in new tab
+          window.open(whatsappUrl, '_blank');
+
+        }, 2000);
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>كودساينون | مركز التحميل البرمجي</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/landing.css">
+  <link rel="stylesheet" href="css/dashboards.css">
+  <link rel="stylesheet" href="css/components.css">
+
+  <!-- E-commerce Store State Engine -->
+  <script src="js/store-engine.js"></script>
+</head>
+<body class="role-client-theme">
+
+  <!-- Header Navigation -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="logo-area">
+        <a href="index.html" class="logo">
+          <svg class="logo-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 10L16 4L26 10V22L16 28L6 22V10Z" stroke="var(--primary)" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M16 4V28" stroke="var(--primary)" stroke-width="1.5" stroke-dasharray="3 3"/>
+            <path d="M11 11L16 14L21 11" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="16" cy="19" r="3" fill="var(--primary)" />
+          </svg>
+          <span class="logo-text">كودساينون<span class="logo-dot">.</span></span>
+        </a>
+      </div>
+
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+          <li><a href="store.html" class="nav-link">المتجر</a></li>
+          <li><a href="admin-portal.html" class="nav-link">لوحة الإدارة</a></li>
+          <li><a href="downloads.html" class="nav-link active">مركز التحميل</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Wishlist Button -->
+        <a href="cart.html#wishlist" class="icon-btn" style="position:relative; margin-left: 14px; font-size:1.3rem; text-decoration:none;" title="المفضلة">
+          ❤️
+          <span class="badge-count en-nums" id="header-fav-count" style="position:absolute; top:-8px; left:-8px; background-color:var(--danger); color:white; font-size:0.7rem; font-weight:800; border-radius:50%; width:18px; height:18px; display:none; align-items:center; justify-content:center;">0</span>
+        </a>
+        
+        <!-- Cart Button -->
+        <a href="cart.html" class="icon-btn" style="position:relative; margin-left: 20px; font-size:1.3rem; text-decoration:none;" title="سلة المشتريات">
+          🛒
+          <span class="badge-count en-nums" id="header-cart-count" style="position:absolute; top:-8px; left:-8px; background-color:var(--primary); color:white; font-size:0.7rem; font-weight:800; border-radius:50%; width:18px; height:18px; display:none; align-items:center; justify-content:center;">0</span>
+        </a>
+
+        <a href="submit-request.html" class="btn btn-primary" style="margin-left: 12px;">
+          اطلب مشروعك الخاص
+        </a>
+
+        <div class="user-profile-menu"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Downloads Main Shell -->
+  <main class="landing-wrapper fade-in" style="margin-top: 40px; margin-bottom: 60px;">
+    
+    <div class="dashboard-title-area" style="margin-bottom:30px;">
+      <div>
+        <h2>مركز التحميل البرمجي الموحد</h2>
+        <p class="dashboard-subtitle">حمل أكوادك المشتراة، وتابع تراخيصك، وراجع تسليمات مشاريعك المخصصة.</p>
+      </div>
+    </div>
+
+    <!-- Section 1: Purchased scripts catalog items -->
+    <div class="dashboard-card" style="margin-bottom: 35px;">
+      <div class="dashboard-card-header">
+        <h3>المنتجات الرقمية والأكواد الجاهزة المشتراة</h3>
+      </div>
+      <div class="dashboard-card-body" style="padding: 24px;">
+        <div class="delivery-grid" id="purchased-scripts-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;">
+          <!-- Loaded dynamically -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 2: Completed Custom Projects Deliveries -->
+    <div class="dashboard-card">
+      <div class="dashboard-card-header">
+        <h3>تسليمات مشاريعك المخصصة والملفات النهائية</h3>
+      </div>
+      <div class="dashboard-card-body" style="padding: 24px;">
+        <div class="delivery-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;">
+          
+          <div class="invoice-card" style="border: 1px solid var(--border-light); background-color: var(--bg-primary); padding: 20px; border-radius: var(--radius-lg);">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+              <div>
+                <span class="badge-status completed" style="margin-bottom:8px;">مكتمل ومسلم</span>
+                <h4 style="font-size: 1rem; font-weight: 800; color: var(--text-primary);">منصة حجز الفنادق الفاخرة بالذكاء الاصطناعي</h4>
+                <p style="font-size: 0.775rem; color: var(--text-secondary); margin-top: 6px;">تاريخ التسليم: <strong class="en-nums">2026-05-11</strong> | المطور: <strong style="color:var(--primary);">م. سليم الهاشمي</strong></p>
+              </div>
+              <span class="en-nums" style="font-weight: 700; color: var(--text-muted); font-size: 0.8rem;">v1.0.0</span>
+            </div>
+
+            <div style="background-color: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 10px; margin-top: 14px; font-size: 0.75rem; line-height: 1.5;">
+              <strong>الملفات المرفقة المسلمة:</strong>
+              <div style="display:flex; flex-direction:column; gap:4px; margin-top:6px;">
+                <span>• كود المشروع الكامل: <a href="javascript:void(0)" onclick="simulateDownload('Hotel_Reservation_Source.zip')" style="color:var(--primary); font-weight:700;">Hotel_Reservation_Source.zip (42.8 MB)</a></span>
+                <span>• قاعدة البيانات: <a href="javascript:void(0)" onclick="simulateDownload('Database_Backup.sql')" style="color:var(--primary); font-weight:700;">Database_Backup.sql (1.2 MB)</a></span>
+                <span>• دليل التثبيت: <a href="javascript:void(0)" onclick="simulateDownload('Installation_Guide.md')" style="color:var(--primary); font-weight:700;">Installation_Guide.md (24 KB)</a></span>
+              </div>
+            </div>
+
+            <div style="margin-top: 16px; border-top:1px solid var(--border-light); padding-top:12px; font-size:0.775rem;">
+              <span>تقييمك للمطور:</span>
+              <span style="color:var(--warning); margin-right:6px;">★★★★★ 5/5</span>
+              <p style="font-style:italic; color:var(--text-secondary); margin-top:4px;">"كود نظيف جداً وتسليم سريع وخبير بالذكاء الاصطناعي."</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Download simulation widget -->
+  <div id="download-progress-bar" style="position: fixed; bottom: 30px; left: 30px; background: white; border: 1px solid var(--border-medium); border-radius: var(--radius-lg); padding: 20px; box-shadow: var(--shadow-xl); width: 320px; z-index: 1000; display: none;">
+    <h4 style="font-size:0.9rem; font-weight:800; color:var(--text-primary);" id="downloading-filename">جاري تحميل الملف...</h4>
+    <div style="width:100%; height:8px; background:#e2e8f0; border-radius:4px; overflow:hidden; margin-top:12px;">
+      <div id="progress-filler" style="width:0%; height:100%; background:var(--primary); transition: width 0.1s linear;"></div>
+    </div>
+    <div style="display:flex; justify-content:space-between; margin-top:8px; font-size:0.725rem; color:var(--text-secondary);">
+      <span id="progress-percentage" class="en-nums">0%</span>
+      <span>سرعة التحميل: 4.8 MB/s</span>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <svg class="logo-icon" width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 10L16 4L26 10V22L16 28L6 22V10Z" stroke="var(--primary)" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M16 4V28" stroke="var(--primary)" stroke-width="1.5" stroke-dasharray="3 3"/>
+            <path d="M11 11L16 14L21 11" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="logo-text">كودساينون<span class="logo-dot">.</span></span>
+        </a>
+        <p class="brand-desc">المنصة المتكاملة لشراء البرمجيات الجاهزة وطلب المشاريع المخصصة بجودة وأمان لا مثيل لهما.</p>
+      </div>
+      <div class="footer-links-grid">
+        <div class="footer-col">
+          <h5>المشاريع البرمجية</h5>
+          <ul>
+            <li><a href="submit-request.html">طلب مشروع خاص</a></li>
+            <li><a href="store.html">متجر الأكواد البرمجية</a></li>
+            <li><a href="admin-portal.html">لوحة الإدارة للتحكم</a></li>
+            <li><a href="index.html">معرض أعمال المنصة</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>المنتجات الرقمية</h5>
+          <ul>
+            <li><a href="store.html?cat=templates">قوالب ويب جاهزة</a></li>
+            <li><a href="store.html?cat=mobile">تطبيقات جوال كاملة</a></li>
+            <li><a href="store.html?cat=php">أنظمة إدارة شركات</a></li>
+            <li><a href="downloads.html">تحديثات وإصدارات المنتجات</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-container">
+        <p>© 2026 كودساينون (Codecynon). جميع الحقوق محفوظة لشركة التميز الرقمي.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Simulate file downloading progress bar
+    function simulateDownload(filename) {
+      const widget = document.getElementById('download-progress-bar');
+      const filenameLabel = document.getElementById('downloading-filename');
+      const progressFiller = document.getElementById('progress-filler');
+      const percentageLabel = document.getElementById('progress-percentage');
+
+      widget.style.display = 'block';
+      filenameLabel.textContent = `جاري تحميل: ${filename}`;
+      
+      let progress = 0;
+      progressFiller.style.width = '0%';
+      percentageLabel.textContent = '0%';
+
+      const interval = setInterval(() => {
+        progress += Math.floor(Math.random() * 8) + 4;
+        if (progress >= 100) {
+          progress = 100;
+          clearInterval(interval);
+          
+          progressFiller.style.width = '100%';
+          percentageLabel.textContent = '100% (اكتمل)';
+          filenameLabel.textContent = `✓ تم تحميل: ${filename}`;
+          
+          setTimeout(() => {
+            widget.style.display = 'none';
+            alert(`نجح التحميل! تم تنزيل حزمة الكود المصدري ${filename} إلى جهازك.`);
+          }, 1000);
+        } else {
+          progressFiller.style.width = `${progress}%`;
+          percentageLabel.textContent = `${progress}%`;
+        }
+      }, 100);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Get orders from StoreEngine
+      const orders = window.StoreEngine.getOrders();
+      const grid = document.getElementById('purchased-scripts-grid');
+
+      if (orders.length === 0) {
+        grid.style.gridTemplateColumns = "1fr";
+        grid.innerHTML = `
+          <div style="text-align:center; padding:40px; color:var(--text-muted); border:1px dashed var(--border-medium); border-radius:var(--radius-lg);">
+            <span style="font-size:3rem; display:block; margin-bottom:12px;">📂</span>
+            <p style="font-size:0.95rem; font-weight:700;">لم تقم بشراء أي أكواد برمجية جاهزة حتى الآن.</p>
+            <p style="font-size:0.85rem; margin-bottom:20px;">يمكنك تصفح متجر الأكواد وتطبيقات الجوال واقتناء المناسب لمشروعك.</p>
+            <a href="store.html" class="btn btn-primary" style="display:inline-flex;">تصفح متجر البرمجيات</a>
+          </div>
+        `;
+        return;
+      }
+
+      // 2. Render each order card dynamically
+      grid.innerHTML = orders.map(order => {
+        // Fetch full product details for meta values (size, version, author, file size)
+        const product = window.StoreEngine.getProductById(order.productId);
+        
+        const size = product ? product.size : "12.5 MB";
+        const version = product ? product.version : "v1.0.0";
+        const date = order.date;
+        const licenseKey = order.licenseKey || `CC-${order.productId.substring(0, 4).toUpperCase()}-${Math.floor(1000 + Math.random() * 9000)}-XXXX`;
+        const category = product ? product.category : "js";
+        
+        let categoryName = "قالب برمجى";
+        if (category === "php") categoryName = "نظام ERP / Laravel";
+        else if (category === "js") categoryName = "قالب Next.js جاهز";
+        else if (category === "mobile") categoryName = "تطبيق جوال Flutter/RN";
+        else if (category === "wp") categoryName = "قالب ووردبريس WooCommerce";
+        else if (category === "templates") categoryName = "قالب HTML/CSS";
+
+        // Generate download zip filename
+        const filename = product ? `${product.title.replace(/\s+/g, '_')}_${version}.zip` : `${order.productTitle.replace(/\s+/g, '_')}_v1.0.0.zip`;
+
+        return `
+          <div class="invoice-card" style="border: 1px solid var(--border-light); background-color: var(--bg-primary); padding: 20px; border-radius: var(--radius-lg); position: relative;">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+              <div>
+                <span class="badge-status new" style="background-color: var(--primary-light); color: var(--primary); font-weight:800; font-size:0.75rem; margin-bottom:8px;">${categoryName}</span>
+                <h4 style="font-size: 1.05rem; font-weight: 800; color: var(--text-primary); margin-top:4px;">${order.productTitle}</h4>
+                <p style="font-size: 0.775rem; color: var(--text-secondary); margin-top: 6px;">حجم التحميل: <strong class="en-nums">${size}</strong> | تاريخ الشراء: <strong class="en-nums">${date}</strong></p>
+              </div>
+              <span class="en-nums" style="font-weight: 700; color: var(--text-muted); font-size: 0.8rem;">${version}</span>
+            </div>
+            
+            <div style="background-color: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 10px; margin-top: 14px; font-size: 0.75rem;">
+              <span>مفتاح رخصة التنشيط: </span>
+              <strong class="en-nums" style="color:var(--primary); font-weight:700;">${licenseKey}</strong>
+              <button class="btn btn-sm" onclick="navigator.clipboard.writeText('${licenseKey}'); alert('تم نسخ مفتاح ترخيص التنشيط بنجاح!')" style="padding:2px 6px; float:left; font-size:0.7rem; border-color:var(--border-medium);">نسخ</button>
+            </div>
+
+            <div style="display:flex; gap:10px; margin-top:16px;">
+              <button class="btn btn-sm btn-primary" onclick="simulateDownload('${filename}')" style="flex-grow: 1; font-weight:700;">تحميل الكود (.zip)</button>
+              <button class="btn btn-sm btn-outline" onclick="alert('جاري فتح مستندات التثبيت والدعم الفني للمنتج...')">📄 دليل التثبيت والتوثيق</button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    });
+  </script>
+
+</body>
+</html>

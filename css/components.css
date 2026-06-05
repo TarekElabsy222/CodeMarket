@@ -1,0 +1,559 @@
+/* ==========================================================================
+   CODECYNON - INTERACTIVE COMPONENT STYLES
+   ========================================================================== */
+
+/* 1. Project Status Timelines */
+.status-timeline {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin: 30px 0;
+  padding: 0 10px;
+}
+
+.status-timeline::before {
+  content: '';
+  position: absolute;
+  top: 15px;
+  left: 20px;
+  right: 20px;
+  height: 2px;
+  background-color: var(--border-light);
+  z-index: 1;
+}
+
+.status-timeline-progress {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  height: 2px;
+  background-color: var(--success);
+  z-index: 2;
+  width: 0%;
+  transition: width var(--transition-slow) ease-in-out;
+}
+
+.timeline-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  position: relative;
+  z-index: 3;
+}
+
+.timeline-dot {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  background-color: var(--bg-primary);
+  border: 2px solid var(--border-medium);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 700;
+  font-family: var(--font-english);
+  transition: all var(--transition-normal);
+}
+
+.timeline-text {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.timeline-step.active .timeline-dot {
+  border-color: var(--primary);
+  background-color: var(--primary-light);
+  color: var(--primary);
+  transform: scale(1.1);
+  box-shadow: 0 0 10px var(--primary-glow);
+}
+
+.timeline-step.active .timeline-text {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.timeline-step.completed .timeline-dot {
+  border-color: var(--success);
+  background-color: var(--success);
+  color: #ffffff;
+}
+
+.timeline-step.completed .timeline-text {
+  color: var(--success);
+}
+
+/* Vertical Timeline for history details log */
+.vertical-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  padding-right: 20px;
+}
+
+.vertical-timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 6px;
+  width: 2px;
+  background-color: var(--border-light);
+}
+
+.vertical-timeline-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.vertical-timeline-item::before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  right: -19px;
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-full);
+  background-color: var(--border-medium);
+  border: 2px solid var(--bg-primary);
+  z-index: 2;
+}
+
+.vertical-timeline-item.active::before {
+  background-color: var(--primary);
+  box-shadow: 0 0 8px var(--primary-glow);
+}
+
+.v-time-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.v-time-date {
+  font-size: 0.725rem;
+  color: var(--text-muted);
+  font-family: var(--font-english);
+}
+
+/* Status Badges */
+.badge-status.new { background-color: var(--primary-light); color: var(--primary); }
+.badge-status.review { background-color: var(--info-glow); color: var(--info); }
+.badge-status.proposal { background-color: var(--warning-glow); color: var(--warning); }
+.badge-status.approved { background-color: var(--success-glow); color: var(--success); }
+.badge-status.development { background-color: var(--primary-light); color: var(--primary); }
+.badge-status.testing { background-color: var(--info-glow); color: var(--info); }
+.badge-status.ready { background-color: var(--success-glow); color: var(--success); }
+.badge-status.completed { background-color: var(--success-glow); color: var(--success); }
+.badge-status.cancelled { background-color: var(--danger-glow); color: var(--danger); }
+
+/* 2. Proposals Comparison List */
+.proposals-comparison-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.proposal-comparison-card {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  align-items: center;
+  gap: 24px;
+  transition: all var(--transition-normal);
+}
+
+.proposal-comparison-card:hover {
+  border-color: var(--primary);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.proposal-dev-details {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.dev-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  object-fit: cover;
+}
+
+.dev-info h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.dev-rating {
+  font-size: 0.8rem;
+  color: var(--warning);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.proposal-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.prop-lbl {
+  font-size: 0.775rem;
+  color: var(--text-muted);
+}
+
+.prop-val {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* 3. Real-Time Chat Workspace */
+.chat-pane {
+  display: flex;
+  flex-direction: column;
+  height: 540px;
+}
+
+.chat-header {
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.chat-user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.chat-username {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.chat-userstatus {
+  font-size: 0.75rem;
+  color: var(--success);
+}
+
+.chat-messages-container {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background-color: var(--bg-secondary);
+}
+
+.chat-bubble-wrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 70%;
+  gap: 6px;
+}
+
+.chat-bubble-wrapper.sent {
+  align-self: flex-start; /* Because of RTL: flex-start puts it on the right side if dir=rtl, wait! In RTL, flex-start is right, flex-end is left. Let's inspect: RTL makes row/row-reverse swapped, but align-self follows flow start. Let's make sure it's explicitly styled. */
+  align-items: flex-start;
+}
+
+.chat-bubble-wrapper.received {
+  align-self: flex-end;
+  align-items: flex-end;
+}
+
+.chat-bubble {
+  padding: 12px 16px;
+  border-radius: var(--radius-lg);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.chat-bubble-wrapper.sent .chat-bubble {
+  background-color: var(--primary);
+  color: white;
+  border-top-right-radius: 2px;
+}
+
+.chat-bubble-wrapper.received .chat-bubble {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-light);
+  border-top-left-radius: 2px;
+}
+
+.chat-meta {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-family: var(--font-english);
+}
+
+.chat-footer {
+  padding: 16px 24px;
+  border-top: 1px solid var(--border-light);
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.chat-input {
+  flex-grow: 1;
+  padding: 10px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+  font-size: 0.85rem;
+  background-color: var(--bg-secondary);
+}
+
+.chat-input:focus {
+  border-color: var(--primary);
+  background-color: var(--bg-primary);
+}
+
+/* 4. Cloud File Manager Explorer */
+.file-manager {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  border: 1px solid var(--border-light);
+  background-color: var(--bg-primary);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  min-height: 480px;
+}
+
+.file-manager-sidebar {
+  background-color: var(--bg-secondary);
+  border-left: 1px solid var(--border-light);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.file-folder-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.folder-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+  font-size: 0.825rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.folder-menu-item:hover, .folder-menu-item.active {
+  background-color: var(--primary-light);
+  color: var(--primary);
+}
+
+.folder-menu-item svg {
+  color: var(--text-muted);
+}
+
+.folder-menu-item.active svg {
+  color: var(--primary);
+}
+
+.file-manager-main {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.file-manager-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.file-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.file-card {
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  position: relative;
+  transition: all var(--transition-normal);
+  background-color: var(--bg-primary);
+}
+
+.file-card:hover {
+  border-color: var(--primary);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.file-card-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  background-color: var(--bg-secondary);
+  color: var(--text-secondary);
+}
+
+.file-card-icon.zip { background-color: #fee2e2; color: #ef4444; }
+.file-card-icon.pdf { background-color: #ffedd5; color: #f97316; }
+.file-card-icon.doc { background-color: #dbeafe; color: #3b82f6; }
+.file-card-icon.db { background-color: #dcfce7; color: #22c55e; }
+.file-card-icon.asset { background-color: #f3e8ff; color: #a855f7; }
+
+.file-card-name {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  word-break: break-all;
+  max-width: 100%;
+}
+
+.file-card-size {
+  font-size: 0.725rem;
+  color: var(--text-muted);
+  font-family: var(--font-english);
+}
+
+.file-card-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+/* File Activity Log widget */
+.activity-log {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.activity-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.activity-item:last-child {
+  border-bottom: none;
+}
+
+.activity-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Large Delivery Cards */
+.delivery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.delivery-card {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+}
+
+.delivery-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.delivery-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.delivery-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background-color: var(--primary-light);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.delivery-card-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.delivery-card-meta {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  font-size: 0.775rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border-light);
+  padding-top: 12px;
+}
+
+/* Responsive elements */
+@media (max-width: 768px) {
+  .file-manager {
+    grid-template-columns: 1fr;
+  }
+  .file-manager-sidebar {
+    border-left: none;
+    border-bottom: 1px solid var(--border-light);
+  }
+  .proposal-comparison-card {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    text-align: center;
+  }
+  .proposal-dev-details {
+    justify-content: center;
+  }
+}

@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>كودساينون | تقديم طلب مشروع جديد</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/forms.css">
+
+  <!-- E-commerce Store State Engine -->
+  <script src="js/store-engine.js"></script>
+</head>
+<body class="role-client-theme">
+
+  <!-- Header Navigation -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="logo-area">
+        <a href="index.html" class="logo">
+          <svg class="logo-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 10L16 4L26 10V22L16 28L6 22V10Z" stroke="var(--primary)" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M16 4V28" stroke="var(--primary)" stroke-width="1.5" stroke-dasharray="3 3"/>
+            <path d="M11 11L16 14L21 11" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="16" cy="19" r="3" fill="var(--primary)" />
+          </svg>
+          <span class="logo-text">كودساينون<span class="logo-dot">.</span></span>
+        </a>
+      </div>
+
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+          <li><a href="store.html" class="nav-link">المتجر</a></li>
+          <li><a href="admin-portal.html" class="nav-link">لوحة الإدارة</a></li>
+          <li><a href="downloads.html" class="nav-link">مركز التحميل</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Wishlist Button -->
+        <a href="cart.html#wishlist" class="icon-btn" style="position:relative; margin-left: 14px; font-size:1.3rem; text-decoration:none;" title="المفضلة">
+          ❤️
+          <span class="badge-count en-nums" id="header-fav-count" style="position:absolute; top:-8px; left:-8px; background-color:var(--danger); color:white; font-size:0.7rem; font-weight:800; border-radius:50%; width:18px; height:18px; display:none; align-items:center; justify-content:center;">0</span>
+        </a>
+        
+        <!-- Cart Button -->
+        <a href="cart.html" class="icon-btn" style="position:relative; margin-left: 20px; font-size:1.3rem; text-decoration:none;" title="سلة المشتريات">
+          🛒
+          <span class="badge-count en-nums" id="header-cart-count" style="position:absolute; top:-8px; left:-8px; background-color:var(--primary); color:white; font-size:0.7rem; font-weight:800; border-radius:50%; width:18px; height:18px; display:none; align-items:center; justify-content:center;">0</span>
+        </a>
+
+        <div class="user-profile-menu"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Form Area -->
+  <main id="app-root" style="padding: 60px 0;">
+    <div class="landing-wrapper fade-in">
+      <div class="form-wrapper">
+        <div style="text-align: center; margin-bottom: 30px;">
+          <h2 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 8px;">طلب مشروع برمجي مخصص</h2>
+          <p style="color: var(--text-secondary); font-size: 0.95rem;">املأ هذا النموذج لنقوم بطرح مشروعك لنخبة المطورين المعتمدين بالمنصة.</p>
+        </div>
+
+        <!-- Progress Indicator -->
+        <div class="step-indicator">
+          <div class="step-progress-line" id="progress-line"></div>
+          
+          <div class="step-node active" data-step="1">
+            <div class="step-circle">1</div>
+            <span class="step-label">نوع المشروع</span>
+          </div>
+          <div class="step-node" data-step="2">
+            <div class="step-circle">2</div>
+            <span class="step-label">تفاصيل النظام</span>
+          </div>
+          <div class="step-node" data-step="3">
+            <div class="step-circle">3</div>
+            <span class="step-label">الميزانية والوقت</span>
+          </div>
+          <div class="step-node" data-step="4">
+            <div class="step-circle">4</div>
+            <span class="step-label">الملفات المرفقة</span>
+          </div>
+          <div class="step-node" data-step="5">
+            <div class="step-circle">5</div>
+            <span class="step-label">المراجعة والاعتماد</span>
+          </div>
+        </div>
+
+        <form id="project-request-form" onsubmit="return false;">
+          
+          <!-- STEP 1 -->
+          <div class="wizard-step-panel active" id="wizard-step-1">
+            <div class="form-group">
+              <label for="proj-title">عنوان المشروع البرمجي</label>
+              <span class="label-desc">اختر عنواناً واضحاً وموجزاً يصف الفكرة (مثال: منصة حجوزات عيادات طبية)</span>
+              <input type="text" id="proj-title" class="form-control" placeholder="عنوان يوضح فكرة مشروعك..." value="نظام إدارة الموارد للمؤسسات المتوسطة (ERP)">
+            </div>
+            
+            <div class="form-group">
+              <label>تصنيف المشروع الأساسي</label>
+              <div class="type-grid">
+                <div class="type-option selected" data-cat="web-systems">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                  </svg>
+                  <span class="type-title">نظام ويب سحابي</span>
+                </div>
+                <div class="type-option" data-cat="mobile-apps">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                    <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                  </svg>
+                  <span class="type-title">تطبيق جوال ذكي</span>
+                </div>
+                <div class="type-option" data-cat="desktop-apps">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="4" width="18" height="12" rx="2" ry="2"></rect>
+                    <path d="M12 18V20"></path>
+                    <path d="M7 20H17"></path>
+                  </svg>
+                  <span class="type-title">برامج ديسكتوب</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-top: 20px;">
+              <label>نوع العمل المطلوب</label>
+              <select id="proj-type" class="form-control">
+                <option value="full-system" selected>بناء نظام متكامل وجديد بالكامل</option>
+                <option value="feature-addition">إضافة وتطوير ميزات على كود قائم</option>
+                <option value="bug-fix">إصلاح وحل مشاكل تقنية وأخطاء برمجية</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- STEP 2 -->
+          <div class="wizard-step-panel" id="wizard-step-2">
+            <div class="form-group">
+              <label for="proj-desc">وصف تفصيلي للنظام المقترح</label>
+              <span class="label-desc">اكتب بالتفصيل فكرة التطبيق والوظائف التي ترغب في تحقيقها</span>
+              <textarea id="proj-desc" class="form-control" placeholder="اشرح فكرة المشروع بدقة...">تطوير لوحة تحكم سحابية لإدارة الحسابات والمخازن وحضور الموظفين للمحلات التجارية الكبرى، وربطها بأنظمة المحاسبة السعودية المتوافقة مع هيئة الزكاة والضريبة والجمارك (فاتورة).</textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="proj-features">الميزات الأساسية والوظائف المطلوبة</label>
+              <span class="label-desc">ضع كل ميزة في سطر منفصل</span>
+              <textarea id="proj-features" class="form-control" placeholder="مثال:&#10;- ميزة 1&#10;- ميزة 2">- إصدار فواتير ضريبية إلكترونية&#10;- لوحة تحكم إحصائية للرؤساء&#10;- إدارة كاملة للمخازن والمنتجات&#10;- صلاحيات متقدمة للموظفين</textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="proj-audience">الجمهور والعملاء المستهدفين</label>
+              <textarea id="proj-audience" class="form-control" placeholder="صف جمهور النظام...">أصحاب الأعمال والمتاجر الكبرى والشركات المتوسطة</textarea>
+            </div>
+          </div>
+
+          <!-- STEP 3 -->
+          <div class="wizard-step-panel" id="wizard-step-3">
+            <div class="budget-options">
+              <div class="form-group">
+                <label for="proj-budget">نطاق الميزانية التقديرية (USD)</label>
+                <select id="proj-budget" class="form-control">
+                  <option value="500$ - 1,000$">$500 - $1,000</option>
+                  <option value="1,000$ - 3,000$">$1,000 - $3,000</option>
+                  <option value="3,000$ - 5,000$">$3,000 - $5,000</option>
+                  <option value="5,000$ - 7,000$" selected>$5,000 - $7,000</option>
+                  <option value="10,000$+">$10,000+</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="proj-deadline">وقت التسليم المتوقع</label>
+                <select id="proj-deadline" class="form-control">
+                  <option value="7 - 14 يوم">أسبوعين</option>
+                  <option value="30 يوم">شهر</option>
+                  <option value="45 يوم" selected>45 يوماً</option>
+                  <option value="60 يوم">شهرين</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-top: 20px;">
+              <label for="proj-priority">مستوى الأولوية والسرعة المطلوبة</label>
+              <select id="proj-priority" class="form-control">
+                <option value="low">منخفضة - السعر الأقل هو الأهم</option>
+                <option value="medium">متوسطة - موازنة بين السرعة والسعر</option>
+                <option value="high" selected>عالية - إنجاز سريع وأولوية قصوى</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- STEP 4 -->
+          <div class="wizard-step-panel" id="wizard-step-4">
+            <div class="form-group">
+              <label>المستندات، المخططات أو ملفات مرجعية</label>
+              <div class="upload-dropzone" id="file-dropzone" style="cursor: pointer;">
+                <svg class="upload-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="17 8 12 3 7 8"></polyline>
+                  <line x1="12" y1="3" x2="12" y2="15"></line>
+                </svg>
+                <span class="upload-text">اضغط هنا لإرفاق مستند الشروط التقنية أو الصور</span>
+                <span class="upload-desc">الملفات المتاحة: PDF, PNG, JPG, ZIP (حجم أقصى 25MB)</span>
+                <input type="file" id="dropzone-file-input" style="display:none;" multiple accept="image/*,application/pdf,application/zip">
+              </div>
+              <div class="selected-files-list" id="uploaded-files-list">
+                <!-- Selected files dynamically rendered here -->
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="proj-references">روابط لمواقع أو مشاريع ملهمة (References)</label>
+              <input type="text" id="proj-references" class="form-control" value="https://stripe.com/docs">
+            </div>
+
+            <div class="form-group">
+              <label for="proj-notes">ملاحظات وشروط إضافية للمطورين</label>
+              <textarea id="proj-notes" class="form-control" placeholder="اكتب أي ملاحظة إضافية تود مشاركتها...">أرجو الاهتمام الكامل بتجاوب لوحة التحكم مع واجهات الجوال وتوثيق طريقة التثبيت.</textarea>
+            </div>
+          </div>
+
+          <!-- STEP 5 -->
+          <div class="wizard-step-panel" id="wizard-step-5">
+            <h4 style="margin-bottom: 16px; font-size: 1.05rem; font-weight: 700; color: var(--primary);">مراجعة وتأكيد بيانات الطلب قبل النشر</h4>
+            
+            <div class="dashboard-card" style="border-radius: var(--radius-md);">
+              <div class="dashboard-card-body" style="padding: 20px; display: flex; flex-direction: column; gap: 10px;">
+                <div class="review-item">
+                  <div class="review-label">عنوان المشروع:</div>
+                  <div class="review-val" id="rev-title"></div>
+                </div>
+                <div class="review-item">
+                  <div class="review-label">التصنيف والنوع:</div>
+                  <div class="review-val" id="rev-cat-type"></div>
+                </div>
+                <div class="review-item" style="flex-direction: column; align-items: flex-start; gap: 4px;">
+                  <div class="review-label">الوصف الفني:</div>
+                  <div class="review-val" id="rev-desc" style="color: var(--text-secondary); line-height: 1.5;"></div>
+                </div>
+                <div class="review-item" style="flex-direction: column; align-items: flex-start; gap: 4px;">
+                  <div class="review-label">الميزات المطلوبة:</div>
+                  <div class="review-val" id="rev-features" style="color: var(--text-secondary); line-height: 1.5; white-space: pre-wrap;"></div>
+                </div>
+                <div class="review-item">
+                  <div class="review-label">الميزانية والوقت:</div>
+                  <div class="review-val" id="rev-budget-deadline"></div>
+                </div>
+                <div class="review-item">
+                  <div class="review-label">الملفات المرفقة:</div>
+                  <div class="review-val" id="rev-files">technical_specs.pdf (1.4 MB)</div>
+                </div>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 10px; align-items: flex-start; margin-top: 24px;">
+              <input type="checkbox" id="agree-terms" style="margin-top: 4px; width: 16px; height: 16px; cursor: pointer;" checked>
+              <label for="agree-terms" style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.5;">
+                أوافق على سياسة جودة البرمجيات المخصصة للمنصة، وتأكيد صحة البيانات الفنية الواردة في طلبي.
+              </label>
+            </div>
+          </div>
+
+          <!-- Wizard Buttons -->
+          <div class="wizard-buttons">
+            <button type="button" class="btn btn-outline" id="wizard-prev-btn" style="visibility: hidden;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+              الخطوة السابقة
+            </button>
+            <button type="button" class="btn btn-primary" id="wizard-next-btn">
+              الخطوة التالية
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+              </svg>
+            </button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    let currentStep = 1;
+    const totalSteps = 5;
+
+    const prevBtn = document.getElementById('wizard-prev-btn');
+    const nextBtn = document.getElementById('wizard-next-btn');
+
+    // Handle options selection in Step 1
+    const options = document.querySelectorAll('.type-option');
+    let selectedCat = 'web-systems';
+    options.forEach(opt => {
+      opt.addEventListener('click', () => {
+        options.forEach(o => o.classList.remove('selected'));
+        opt.classList.add('selected');
+        selectedCat = opt.getAttribute('data-cat');
+      });
+    });
+
+    function updateWizard() {
+      // Toggle panels visibility
+      for (let i = 1; i <= totalSteps; i++) {
+        const panel = document.getElementById(`wizard-step-${i}`);
+        if (panel) {
+          panel.classList.toggle('active', i === currentStep);
+        }
+      }
+
+      // Update Node indicators
+      const nodes = document.querySelectorAll('.step-node');
+      nodes.forEach((node, index) => {
+        const idx = index + 1;
+        node.classList.toggle('active', idx === currentStep);
+        node.classList.toggle('completed', idx < currentStep);
+      });
+
+      // Update progress line
+      const progressLine = document.getElementById('progress-line');
+      if (progressLine) {
+        progressLine.style.width = `${((currentStep - 1) / (totalSteps - 1)) * 100}%`;
+      }
+
+      // Buttons styling
+      prevBtn.style.visibility = currentStep === 1 ? 'hidden' : 'visible';
+      
+      if (currentStep === totalSteps) {
+        nextBtn.innerHTML = `تأكيد وإرسال الطلب ✓`;
+        nextBtn.className = "btn btn-secondary";
+      } else {
+        nextBtn.innerHTML = `الخطوة التالية 
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>`;
+        nextBtn.className = "btn btn-primary";
+      }
+
+      // Fill step 5 summary info
+      if (currentStep === 5) {
+        document.getElementById('rev-title').textContent = document.getElementById('proj-title').value || 'ERP System';
+        const typeSelect = document.getElementById('proj-type');
+        const typeText = typeSelect.options[typeSelect.selectedIndex].text;
+        document.getElementById('rev-cat-type').textContent = `${selectedCat === 'web-systems' ? 'نظام ويب سحابي' : 'تطبيق جوال'} • ${typeText}`;
+        document.getElementById('rev-desc').textContent = document.getElementById('proj-desc').value;
+        document.getElementById('rev-features').textContent = document.getElementById('proj-features').value;
+        
+        const budgetSelect = document.getElementById('proj-budget').value;
+        const deadlineSelect = document.getElementById('proj-deadline').value;
+        document.getElementById('rev-budget-deadline').textContent = `ميزانية ${budgetSelect} / تسليم خلال ${deadlineSelect}`;
+        
+        const revFiles = document.getElementById('rev-files');
+        if (revFiles) {
+          if (uploadedFiles.length > 0) {
+            revFiles.innerHTML = uploadedFiles.map(f => `<div style="font-size:0.8rem; color:var(--text-secondary);">📄 ${f.name} (${f.size})</div>`).join('');
+          } else {
+            revFiles.textContent = 'لا توجد ملفات مرفقة';
+          }
+        }
+      }
+    }
+
+    const fileDropzone = document.getElementById('file-dropzone');
+    const fileInput = document.getElementById('dropzone-file-input');
+    const filesList = document.getElementById('uploaded-files-list');
+    let uploadedFiles = [];
+
+    fileDropzone.addEventListener('click', () => {
+      fileInput.click();
+    });
+
+    fileInput.addEventListener('change', (e) => {
+      const files = e.target.files;
+      if (files && files.length > 0) {
+        for (let i = 0; i < files.length; i++) {
+          const file = files[i];
+          // Check if file is already added
+          if (uploadedFiles.some(f => f.name === file.name)) continue;
+
+          const sizeMB = (file.size / (1024 * 1024)).toFixed(2);
+          uploadedFiles.push({
+            name: file.name,
+            size: `${sizeMB} MB`
+          });
+        }
+        renderUploadedFiles();
+      }
+    });
+
+    function renderUploadedFiles() {
+      if (uploadedFiles.length === 0) {
+        filesList.innerHTML = '';
+        return;
+      }
+
+      filesList.innerHTML = uploadedFiles.map((f, idx) => `
+        <div class="selected-file-item" style="display:flex; justify-content:space-between; align-items:center; border:1px solid var(--border-light); padding:10px; border-radius:var(--radius-sm); margin-top:8px; background:var(--bg-secondary); width: 100%;">
+          <div class="file-info-group" style="display:flex; align-items:center; gap:8px;">
+            <span>📄</span>
+            <strong style="font-size:0.85rem; color:var(--text-primary);">${f.name}</strong>
+            <span style="color: var(--text-muted); font-size:0.75rem;">(${f.size})</span>
+          </div>
+          <button type="button" class="btn btn-sm" onclick="removeUploadedFile(${idx})" style="background:var(--danger); color:white; border:none; padding:4px 8px; font-size:0.75rem; border-radius:var(--radius-sm); font-weight:700;">حذف</button>
+        </div>
+      `).join('');
+    }
+
+    window.removeUploadedFile = function(idx) {
+      uploadedFiles.splice(idx, 1);
+      renderUploadedFiles();
+      // Sync review if we are on step 5
+      if (currentStep === 5) {
+        updateWizard();
+      }
+    };
+
+    function sendWhatsAppDetails() {
+      const phone = "201026342592";
+      const title = document.getElementById('proj-title').value;
+      const category = selectedCat === 'web-systems' ? 'نظام ويب سحابي' : selectedCat === 'mobile-apps' ? 'تطبيق جوال ذكي' : 'برنامج ديسكتوب';
+      const typeSelect = document.getElementById('proj-type');
+      const type = typeSelect.options[typeSelect.selectedIndex].text;
+      const desc = document.getElementById('proj-desc').value;
+      const features = document.getElementById('proj-features').value;
+      const budget = document.getElementById('proj-budget').value;
+      const deadline = document.getElementById('proj-deadline').value;
+      const prioritySelect = document.getElementById('proj-priority');
+      const priority = prioritySelect.options[prioritySelect.selectedIndex].text;
+      const references = document.getElementById('proj-references') ? document.getElementById('proj-references').value : '';
+      const notes = document.getElementById('proj-notes') ? document.getElementById('proj-notes').value : '';
+      
+      let msg = `*تفاصيل طلب مشروع جديد من كودساينون* 🚀\n\n`;
+      msg += `*عنوان المشروع:* ${title}\n`;
+      msg += `*التصنيف:* ${category}\n`;
+      msg += `*نوع العمل:* ${type}\n\n`;
+      msg += `*الوصف الفني:*\n${desc}\n\n`;
+      msg += `*الميزات المطلوبة:*\n${features}\n\n`;
+      msg += `*الميزانية التقديرية:* ${budget}\n`;
+      msg += `*وقت التسليم المتوقع:* ${deadline}\n`;
+      msg += `*مستوى الأولوية:* ${priority}\n`;
+      if (references) msg += `*روابط ملهمة:* ${references}\n`;
+      if (notes) msg += `*شروط وملاحظات إضافية:* ${notes}\n`;
+      
+      if (uploadedFiles.length > 0) {
+        const fileNames = uploadedFiles.map(f => f.name).join('، ');
+        msg += `*الملفات المرفقة:* ${fileNames}\n`;
+      } else {
+        msg += `*الملفات المرفقة:* لا توجد ملفات\n`;
+      }
+      
+      const waUrl = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+      window.open(waUrl, '_blank');
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentStep < totalSteps) {
+        currentStep++;
+        updateWizard();
+      } else {
+        // Send project details via WhatsApp
+        sendWhatsAppDetails();
+        
+        // Save pending toast
+        sessionStorage.setItem('pending_toast', JSON.stringify({
+          message: 'تم تقديم طلب مشروعك بنجاح! سيتم توجيهك الآن إلى مركز التحميل لمتابعة تسليماتك.',
+          type: 'success'
+        }));
+        
+        // Redirect
+        window.location.href = 'downloads.html';
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentStep > 1) {
+        currentStep--;
+        updateWizard();
+      }
+    });
+  </script>
+
+</body>
+</html>

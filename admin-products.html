@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>كودساينون | إدارة المنتجات البرمجية</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/dashboards.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/forms.css">
+
+  <!-- E-commerce Store State Engine -->
+  <script src="js/store-engine.js"></script>
+</head>
+<body class="dark-theme role-admin-theme">
+
+  <!-- Header Navigation -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="logo-area">
+        <a href="index.html" class="logo">
+          <svg class="logo-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 10L16 4L26 10V22L16 28L6 22V10Z" stroke="var(--primary)" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M16 4V28" stroke="var(--primary)" stroke-width="1.5" stroke-dasharray="3 3"/>
+            <path d="M11 11L16 14L21 11" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="16" cy="19" r="3" fill="var(--primary)" />
+          </svg>
+          <span class="logo-text">كودساينون<span class="logo-dot">.</span></span>
+        </a>
+      </div>
+
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+          <li><a href="store.html" class="nav-link">المتجر</a></li>
+          <li><a href="admin-portal.html" class="nav-link active">لوحة الإدارة</a></li>
+          <li><a href="downloads.html" class="nav-link">مركز التحميل</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Wishlist Button -->
+        <a href="cart.html#wishlist" class="icon-btn" style="position:relative; margin-left: 14px; font-size:1.3rem; text-decoration:none;" title="المفضلة">
+          ❤️
+          <span class="badge-count en-nums" id="header-fav-count" style="position:absolute; top:-8px; left:-8px; background-color:var(--danger); color:white; font-size:0.7rem; font-weight:800; border-radius:50%; width:18px; height:18px; display:none; align-items:center; justify-content:center;">0</span>
+        </a>
+        
+        <!-- Cart Button -->
+        <a href="cart.html" class="icon-btn" style="position:relative; margin-left: 20px; font-size:1.3rem; text-decoration:none;" title="سلة المشتريات">
+          🛒
+          <span class="badge-count en-nums" id="header-cart-count" style="position:absolute; top:-8px; left:-8px; background-color:var(--primary); color:white; font-size:0.7rem; font-weight:800; border-radius:50%; width:18px; height:18px; display:none; align-items:center; justify-content:center;">0</span>
+        </a>
+
+        <a href="submit-request.html" class="btn btn-primary" style="margin-left: 12px;">
+          اطلب مشروعك الخاص
+        </a>
+
+        <div class="user-profile-menu"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Shell Layout -->
+  <main id="app-root">
+    <div class="dashboard-shell fade-in">
+      
+      <!-- Sidebar Navigation -->
+      <aside class="dashboard-sidebar">
+        <div class="sidebar-header-info">
+          <div class="role-indicator admin" style="width:44px; height:44px; border-radius:var(--radius-md); display:flex; align-items:center; justify-content:center; background-color: var(--primary); color:white; font-size:1.4rem;">
+            ⚙️
+          </div>
+          <div class="sidebar-avatar-info">
+            <h4>إدارة كودساينون</h4>
+            <p>لوحة التحكم العامة</p>
+          </div>
+        </div>
+        <ul class="sidebar-menu">
+          <li>
+            <a href="admin-portal.html" class="sidebar-menu-item">
+              <span style="margin-left: 8px;">📊</span>
+              لوحة التحكم والأرباح
+            </a>
+          </li>
+          <li>
+            <a href="admin-products.html" class="sidebar-menu-item active">
+              <span style="margin-left: 8px;">📦</span>
+              المنتجات وإدارتها
+            </a>
+          </li>
+          <li>
+            <a href="admin-categories.html" class="sidebar-menu-item">
+              <span style="margin-left: 8px;">📂</span>
+              إدارة التصنيفات
+            </a>
+          </li>
+          <li>
+            <a href="admin-orders.html" class="sidebar-menu-item">
+              <span style="margin-left: 8px;">📜</span>
+              سجل الطلبيات
+            </a>
+          </li>
+          <li>
+            <a href="admin-users.html" class="sidebar-menu-item">
+              <span style="margin-left: 8px;">👥</span>
+              إدارة المستخدمين
+            </a>
+          </li>
+        </ul>
+      </aside>
+
+      <!-- Main Dashboard Content -->
+      <section class="dashboard-content">
+        <div class="dashboard-title-area">
+          <div>
+            <h2 id="tab-headline">إدارة وتعديل المنتجات البرمجية</h2>
+            <p class="dashboard-subtitle" id="tab-subtitle">إضافة منتجات جديدة، تعديل تفاصيل الأكواد والأسعار والملفات، أو حذف المنتجات من المتجر.</p>
+          </div>
+        </div>
+
+        <div id="subtab-content-root">
+          
+          <!-- Products CRUD Panel -->
+          <div class="subtab-panel active" id="panel-products-crud">
+            <!-- View 1: Products List Table -->
+            <div id="products-list-view">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary);">قائمة الأكواد والمنتجات بالسوق</h3>
+                <button class="btn btn-primary" id="btn-show-add-product-form">➕ إضافة منتج جديد</button>
+              </div>
+
+              <div class="dashboard-card">
+                <div class="dashboard-card-body" style="padding:0; overflow-x: auto;">
+                  <table class="project-table">
+                    <thead>
+                      <tr>
+                        <th>الرمز</th>
+                        <th>عنوان المنتج</th>
+                        <th>التصنيف</th>
+                        <th>السعر العادي</th>
+                        <th>السعر الممتد</th>
+                        <th>التنزيلات</th>
+                        <th>الإصدار</th>
+                        <th style="text-align:left;">إجراءات</th>
+                      </tr>
+                    </thead>
+                    <tbody id="products-table-body">
+                      <!-- Filled dynamically -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <!-- View 2: Add/Edit Product Form (Hidden by default) -->
+            <div id="product-form-view" style="display: none;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h3 id="product-form-title" style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary);">إضافة منتج برمجي جديد</h3>
+                <button class="btn btn-outline" id="btn-cancel-product-form">🔙 إلغاء والعودة للقائمة</button>
+              </div>
+
+              <div class="dashboard-card">
+                <div class="dashboard-card-body" style="padding:24px;">
+                  <form id="product-crud-form" onsubmit="return false;">
+                    <!-- Hidden inputs to track mode -->
+                    <input type="hidden" id="product-edit-id" value="">
+                    
+                    <div style="display:grid; grid-template-columns: 2fr 1fr; gap:16px; margin-bottom:16px;">
+                      <div class="form-group" style="margin-bottom:0;">
+                        <label>عنوان المنتج البرمجي</label>
+                        <input type="text" class="form-control" id="prod-title" placeholder="مثال: قالب متجر إلكتروني عصري - CodeStore Pro" required>
+                      </div>
+                      <div class="form-group" style="margin-bottom:0;">
+                        <label>تصنيف المنتج</label>
+                        <select class="form-control" id="prod-category" required>
+                          <!-- Loaded dynamically -->
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="form-group" style="margin-bottom:16px;">
+                      <label>وصف فرعي للمنتج (سطر واحد يصف الميزة الأساسية)</label>
+                      <input type="text" class="form-control" id="prod-subtitle" placeholder="مثال: متجر Next.js فائق السرعة، يدعم Stripe وسلة تسليم رقمي تلقائي." required>
+                    </div>
+
+                    <div style="display:grid; grid-template-columns: 1fr 1fr 1.2fr; gap:16px; margin-bottom:16px;">
+                      <div class="form-group" style="margin-bottom:0;">
+                        <label>سعر الرخصة العادية ($)</label>
+                        <input type="number" class="form-control" id="prod-price-reg" placeholder="مثال: 59" required>
+                      </div>
+                      <div class="form-group" style="margin-bottom:0;">
+                        <label>سعر الرخصة الممتدة ($)</label>
+                        <input type="number" class="form-control" id="prod-price-ext" placeholder="مثال: 249" required>
+                      </div>
+                      <div class="form-group" style="margin-bottom:0;">
+                        <label>الوسم الفني (Tech Tag) / الرمز</label>
+                        <input type="text" class="form-control" id="prod-icon" placeholder="مثال: ⚛️ أو 🐘 أو 📱" required>
+                      </div>
+                    </div>
+
+                    <div style="display:grid; grid-template-columns: 1fr 1.2fr 1.5fr; gap:16px; margin-bottom:16px;">
+                      <div class="form-group" style="margin-bottom:0;">
+                        <label>إصدار الكود الأولي</label>
+                        <input type="text" class="form-control" id="prod-version" value="v1.0.0" required>
+                      </div>
+                      <div class="form-group" style="margin-bottom:0;">
+                        <label>حجم حزمة التنزيل (.zip)</label>
+                        <input type="text" class="form-control" id="prod-size" placeholder="مثال: 12.8 MB" required>
+                      </div>
+                      <div class="form-group" style="margin-bottom:0;">
+                        <label>مطور الكود / المرجع</label>
+                        <input type="text" class="form-control" id="prod-author" value="م. عبدالمحسن التميمي (المسؤول)" required>
+                      </div>
+                    </div>
+
+                    <div class="form-group" style="margin-bottom:16px;">
+                      <label>الوسوم الفنية (Tags - تفصل بفواصل)</label>
+                      <input type="text" class="form-control" id="prod-tags" placeholder="Next.js 15, Tailwind, Stripe">
+                    </div>
+
+                    <div class="form-group" style="margin-bottom:16px;">
+                      <label>الوصف المفصل للمشروع والتقنيات المستخدمة</label>
+                      <textarea class="form-control" id="prod-description" rows="4" placeholder="اكتب وصفاً جذاباً يشمل تفاصيل الهيكل التنظيمي للملفات والتقنيات والمزايا البرمجية..." required style="resize:vertical;"></textarea>
+                    </div>
+
+                    <div class="form-group" style="margin-bottom:20px;">
+                      <label>المزايا الفنية والتقنيات المدعومة (ميزة واحدة في كل سطر)</label>
+                      <textarea class="form-control" id="prod-features" rows="4" placeholder="دعم كامل للغة العربية والاتجاه RTL&#10;تكامل كلي مع بوابة الدفع الشهيرة Stripe&#10;تصميم متجاوب بالكامل باستخدام Tailwind CSS" style="resize:vertical;"></textarea>
+                    </div>
+
+                    <button type="submit" id="btn-save-product" class="btn btn-primary" style="width: 100%; justify-content: center; font-weight:800; font-size:1rem;">🚀 حفظ ونشر المنتج</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div class="footer-bottom">
+      <div class="footer-bottom-container" style="text-align:center;">
+        <p>© 2026 كودساينون (Codecynon) لوحة الإدارة العامة. جميع الحقوق محفوظة لشركة التميز الرقمي.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ==========================================
+    // PRODUCTS CRUD SECTION
+    // ==========================================
+    const productsListView = document.getElementById('products-list-view');
+    const productFormView = document.getElementById('product-form-view');
+    const productCrudForm = document.getElementById('product-crud-form');
+    const productFormTitle = document.getElementById('product-form-title');
+    const productEditId = document.getElementById('product-edit-id');
+    const btnSaveProduct = document.getElementById('btn-save-product');
+
+    // Show Add Product Form
+    document.getElementById('btn-show-add-product-form').addEventListener('click', () => {
+      productCrudForm.reset();
+      productEditId.value = '';
+      productFormTitle.textContent = "إضافة منتج برمجي جديد للماركت";
+      btnSaveProduct.textContent = "🚀 نشر وإتاحة الكود البرمجي في المتجر فوراً";
+      
+      // Seed default developer and version
+      document.getElementById('prod-version').value = "v1.0.0";
+      document.getElementById('prod-author').value = "م. عبدالمحسن التميمي (المسؤول)";
+      
+      productsListView.style.display = 'none';
+      productFormView.style.display = 'block';
+    });
+
+    // Cancel Product Form
+    document.getElementById('btn-cancel-product-form').addEventListener('click', () => {
+      productsListView.style.display = 'block';
+      productFormView.style.display = 'none';
+    });
+
+    // Render Products Table
+    function renderProducts() {
+      const tableBody = document.getElementById('products-table-body');
+      const products = window.StoreEngine.getProducts();
+
+      if (products.length === 0) {
+        tableBody.innerHTML = `<tr><td colspan="8" style="text-align:center; padding: 20px;">لا يوجد منتجات في المتجر حالياً.</td></tr>`;
+        return;
+      }
+
+      tableBody.innerHTML = products.map(p => {
+        const catObj = window.StoreEngine.getCategories().find(c => c.id === p.category);
+        const catName = catObj ? catObj.name : p.category;
+        return `
+          <tr>
+            <td style="font-size:1.4rem;">${p.techIcon || '📦'}</td>
+            <td><strong>${p.title}</strong></td>
+            <td><span class="badge-status new">${catName}</span></td>
+            <td class="en-nums">$${p.priceRegular}</td>
+            <td class="en-nums">$${p.priceExtended}</td>
+            <td class="en-nums">${p.downloads || 0}</td>
+            <td class="en-nums">${p.version || 'v1.0.0'}</td>
+            <td>
+              <div style="display:flex; gap:8px;">
+                <button class="btn btn-sm btn-outline" onclick="editProduct('${p.id}')">تعديل</button>
+                <button class="btn btn-sm btn-outline" style="color:var(--danger); border-color:var(--danger);" onclick="deleteProduct('${p.id}')">حذف</button>
+              </div>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    // Delete Product
+    window.deleteProduct = function(id) {
+      if (confirm('هل أنت متأكد من حذف هذا المنتج نهائياً من المتجر؟')) {
+        window.StoreEngine.deleteProduct(id);
+        renderProducts();
+      }
+    };
+
+    // Edit Product Setup
+    window.editProduct = function(id) {
+      const p = window.StoreEngine.getProductById(id);
+      if (!p) return;
+
+      productEditId.value = p.id;
+      productFormTitle.textContent = `تعديل تفاصيل المنتج: ${p.title}`;
+      btnSaveProduct.textContent = "💾 حفظ تعديلات المنتج";
+
+      document.getElementById('prod-title').value = p.title;
+      document.getElementById('prod-category').value = p.category;
+      document.getElementById('prod-subtitle').value = p.subtitle;
+      document.getElementById('prod-price-reg').value = p.priceRegular;
+      document.getElementById('prod-price-ext').value = p.priceExtended;
+      document.getElementById('prod-icon').value = p.techIcon || '📦';
+      document.getElementById('prod-version').value = p.version || 'v1.0.0';
+      document.getElementById('prod-size').value = p.size || '10MB';
+      document.getElementById('prod-author').value = p.author || 'مطور مجهول';
+      document.getElementById('prod-tags').value = p.tags ? p.tags.join(', ') : '';
+      document.getElementById('prod-description').value = p.description || '';
+      document.getElementById('prod-features').value = p.features ? p.features.join('\n') : '';
+
+      productsListView.style.display = 'none';
+      productFormView.style.display = 'block';
+    };
+
+    // Product CRUD Form Submission
+    productCrudForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const title = document.getElementById('prod-title').value.trim();
+      const category = document.getElementById('prod-category').value;
+      const subtitle = document.getElementById('prod-subtitle').value.trim();
+      const priceReg = parseFloat(document.getElementById('prod-price-reg').value);
+      const priceExt = parseFloat(document.getElementById('prod-price-ext').value);
+      const icon = document.getElementById('prod-icon').value.trim();
+      const version = document.getElementById('prod-version').value.trim();
+      const size = document.getElementById('prod-size').value.trim();
+      const author = document.getElementById('prod-author').value.trim();
+      const tagsInput = document.getElementById('prod-tags').value;
+      const description = document.getElementById('prod-description').value.trim();
+      const featuresInput = document.getElementById('prod-features').value;
+
+      const tags = tagsInput ? tagsInput.split(',').map(t => t.trim()).filter(Boolean) : [];
+      const features = featuresInput ? featuresInput.split('\n').map(f => f.trim()).filter(Boolean) : [];
+
+      const editId = productEditId.value;
+      const dateStr = new Date().toISOString().split('T')[0];
+
+      if (editId) {
+        // Edit Mode
+        const updatedProductObj = {
+          title: title,
+          subtitle: subtitle,
+          category: category,
+          priceRegular: priceReg,
+          priceExtended: priceExt,
+          techIcon: icon || "📦",
+          size: size,
+          version: version,
+          updated: dateStr,
+          author: author,
+          tags: tags,
+          description: description,
+          features: features
+        };
+        window.StoreEngine.updateProduct(editId, updatedProductObj);
+        alert(`تم تعديل وحفظ بيانات المنتج "${title}" بنجاح! 💾`);
+      } else {
+        // Add Mode
+        const newId = 'prod-' + Date.now();
+        const newProductObj = {
+          id: newId,
+          title: title,
+          subtitle: subtitle,
+          category: category,
+          priceRegular: priceReg,
+          priceExtended: priceExt,
+          techIcon: icon || "📦",
+          size: size,
+          version: version,
+          published: dateStr,
+          updated: dateStr,
+          author: author,
+          downloads: 0,
+          rating: 5.00,
+          reviewsCount: 0,
+          tags: tags,
+          description: description,
+          features: features,
+          changelog: [
+            { ver: version, date: dateStr, note: "الإصدار الأولي للمنتج ونشره بالمنصة." }
+          ]
+        };
+        window.StoreEngine.addProduct(newProductObj);
+        alert(`تم إضافة ونشر المنتج البرمجي "${title}" بنجاح في المتجر! 🚀`);
+      }
+
+      // Return to List View
+      productsListView.style.display = 'block';
+      productFormView.style.display = 'none';
+      renderProducts();
+    });
+
+    // Populate Add Product Categories Dropdown on load
+    function populateCategoriesDropdown() {
+      const dropdown = document.getElementById('prod-category');
+      if (dropdown) {
+        const cats = window.StoreEngine.getCategories();
+        dropdown.innerHTML = cats.map(c => `<option value="${c.id}">${c.name}</option>`).join('');
+      }
+    }
+
+    // INITIALIZATION
+    document.addEventListener('DOMContentLoaded', () => {
+      populateCategoriesDropdown();
+      renderProducts();
+      
+      // Sync badges counts if any
+      window.StoreEngine.updateHeaderBadges();
+    });
+  </script>
+</body>
+</html>

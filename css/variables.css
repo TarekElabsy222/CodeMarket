@@ -1,0 +1,114 @@
+/* ==========================================================================
+   CODECYNON - DESIGN SYSTEM VARIABLES
+   ========================================================================== */
+
+:root {
+  /* HSL Palette - Premium Startup Design */
+  --primary-h: 243;
+  --primary-s: 75%;
+  --primary-l: 59%;
+  --primary: hsl(var(--primary-h), var(--primary-s), var(--primary-l)); /* Indigo */
+  --primary-hover: hsl(var(--primary-h), var(--primary-s), calc(var(--primary-l) - 8%));
+  --primary-light: hsl(var(--primary-h), var(--primary-s), 95%);
+  --primary-glow: hsla(var(--primary-h), var(--primary-s), var(--primary-l), 0.15);
+
+  --secondary-h: 215;
+  --secondary-s: 25%;
+  --secondary-l: 27%;
+  --secondary: hsl(var(--secondary-h), var(--secondary-s), var(--secondary-l)); /* Slate grey */
+  --secondary-hover: hsl(var(--secondary-h), var(--secondary-s), calc(var(--secondary-l) - 10%));
+
+  /* Status Colors */
+  --success: hsl(158, 64%, 42%);
+  --success-glow: hsla(158, 64%, 42%, 0.12);
+  
+  --warning: hsl(38, 92%, 50%);
+  --warning-glow: hsla(38, 92%, 50%, 0.12);
+  
+  --danger: hsl(350, 89%, 60%);
+  --danger-glow: hsla(350, 89%, 60%, 0.12);
+  
+  --info: hsl(199, 89%, 48%);
+  --info-glow: hsla(199, 89%, 48%, 0.12);
+
+  /* Neutrals (Light Mode Core) */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-tertiary: #f1f5f9;
+  
+  --text-primary: #0f172a;    /* Deep slate */
+  --text-secondary: #475569;  /* Gray body */
+  --text-muted: #94a3b8;      /* Light placeholder */
+  
+  --border-light: #e2e8f0;
+  --border-medium: #cbd5e1;
+  --border-focus: var(--primary);
+
+  /* Box Shadows - Linear/Stripe/Notion style elevation */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+  --shadow-glow: 0 0 15px var(--primary-glow);
+
+  /* Layout Tokens */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+  --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Fonts */
+  --font-arabic: 'Tajawal', sans-serif;
+  --font-english: 'Outfit', sans-serif;
+  
+  /* E-Commerce Hero Elements */
+  --hero-bg-gradient: linear-gradient(135deg, #ffffff 0%, #eef2ff 35%, #fdf2f8 70%, #f0fdf4 100%);
+  --mix-gradient-text: linear-gradient(135deg, hsl(243, 75%, 59%) 0%, #db2777 50%, #ea580c 100%);
+}
+
+/* Dark Theme Variables Override (Triggered on body.dark-theme) */
+body.dark-theme {
+  --primary-l: 64%; /* Slightly lighter for readability in dark mode */
+  --primary: hsl(var(--primary-h), var(--primary-s), var(--primary-l));
+  --primary-light: hsl(var(--primary-h), var(--primary-s), 15%);
+  --primary-glow: hsla(var(--primary-h), var(--primary-s), var(--primary-l), 0.25);
+
+  --bg-primary: #0b0f19;      /* Deep dark slate */
+  --bg-secondary: #111827;    /* Charcoal */
+  --bg-tertiary: #1f2937;     /* Lighter gray-black */
+  
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #64748b;
+  
+  --border-light: #1f2937;
+  --border-medium: #374151;
+  
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -4px rgba(0, 0, 0, 0.4);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+}
+
+/* Specific Role Brandings (For Client vs Dev Dashboards) */
+.role-client-theme {
+  --primary-h: 243;
+  --primary-s: 75%;
+  --primary-l: 59%;
+}
+
+.role-developer-theme {
+  --primary-h: 160;
+  --primary-s: 84%;
+  --primary-l: 39%; /* Emerald Theme */
+}
+
+.role-admin-theme {
+  --primary-h: 271;
+  --primary-s: 81%;
+  --primary-l: 56%; /* Purple Theme */
+}

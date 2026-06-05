@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>كودساينون | سوق البرمجيات والأكواد العربي</title>
+  <meta name="description" content="منصة كودساينون لشراء الأكواد البرمجية والحلول الرقمية الجاهزة من المطورين النخبة بالوطن العربي.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/landing.css">
+
+  <!-- E-commerce Store State Engine -->
+  <script src="js/store-engine.js"></script>
+</head>
+<body class="role-client-theme">
+
+  <!-- Header Navigation -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="logo-area">
+        <a href="index.html" class="logo">
+          <svg class="logo-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 10L16 4L26 10V22L16 28L6 22V10Z" stroke="var(--primary)" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M16 4V28" stroke="var(--primary)" stroke-width="1.5" stroke-dasharray="3 3"/>
+            <path d="M11 11L16 14L21 11" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="16" cy="19" r="3" fill="var(--primary)" />
+          </svg>
+          <span class="logo-text">كودساينون<span class="logo-dot">.</span></span>
+        </a>
+      </div>
+
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link active">الرئيسية</a></li>
+          <li><a href="store.html" class="nav-link">المتجر</a></li>
+          <li><a href="admin-portal.html" class="nav-link">لوحة الإدارة</a></li>
+          <li><a href="downloads.html" class="nav-link">مركز التحميل</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Wishlist Button -->
+        <a href="cart.html#wishlist" class="icon-btn" style="position:relative; margin-left: 14px; font-size:1.3rem; text-decoration:none;" title="المفضلة">
+          ❤️
+          <span class="badge-count en-nums" id="header-fav-count" style="position:absolute; top:-8px; left:-8px; background-color:var(--danger); color:white; font-size:0.7rem; font-weight:800; border-radius:50%; width:18px; height:18px; display:none; align-items:center; justify-content:center;">0</span>
+        </a>
+        
+        <!-- Cart Button -->
+        <a href="cart.html" class="icon-btn" style="position:relative; margin-left: 20px; font-size:1.3rem; text-decoration:none;" title="سلة المشتريات">
+          🛒
+          <span class="badge-count en-nums" id="header-cart-count" style="position:absolute; top:-8px; left:-8px; background-color:var(--primary); color:white; font-size:0.7rem; font-weight:800; border-radius:50%; width:18px; height:18px; display:none; align-items:center; justify-content:center;">0</span>
+        </a>
+
+        <a href="submit-request.html" class="btn btn-primary" style="margin-left: 12px;">
+          اطلب مشروعك الخاص
+        </a>
+
+        <div class="user-profile-menu"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main id="app-root">
+    <div class="landing-wrapper fade-in">
+      
+      <!-- Hero Section -->
+      <section class="hero-section">
+        <!-- Floating coding symbols/characters -->
+        <div class="hero-symbols-overlay">
+          <span class="floating-symbol symbol-1">&lt;/&gt;</span>
+          <span class="floating-symbol symbol-2">{ }</span>
+          <span class="floating-symbol symbol-3">[ ]</span>
+          <span class="floating-symbol symbol-4">#</span>
+          <span class="floating-symbol symbol-5">PHP</span>
+          <span class="floating-symbol symbol-6">JS</span>
+          <span class="floating-symbol symbol-7">&lt;div&gt;</span>
+          <span class="floating-symbol symbol-8">$</span>
+        </div>
+
+        <div class="hero-content">
+          <div class="hero-tag">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+            سوق البرمجيات والأكواد العربي رقم #1
+          </div>
+          <h1 class="hero-title">أكبر سوق عربي لبيع <span>الأكواد والبرمجيات الجاهزة</span></h1>
+          <p class="hero-desc">تصفح وحمّل مئات الحلول البرمجية الجاهزة، تطبيقات الجوال الكاملة، وقوالب المواقع، أو اطلب مشروعاً مخصصاً من المطورين النخبة بضمان مالي متكامل 100%.</p>
+          <div class="hero-ctas">
+            <a href="#store-catalog" class="btn btn-lg btn-primary">
+              تصفح متجر الأكواد
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="transform: rotate(180deg); margin-right: 6px;">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+              </svg>
+            </a>
+            <a href="submit-request.html" class="btn btn-lg btn-outline" style="border-color: var(--primary); color: var(--primary);">اطلب مشروعاً خاصاً</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Store Search Bar & Filters -->
+      <div class="store-search-container">
+        <input type="text" id="store-search-input" placeholder="ابحث عن: أكواد Laravel، تطبيقات Flutter، قوالب React، ووردبريس...">
+        <button class="btn btn-primary" id="store-search-btn">بحث في السوق</button>
+      </div>
+
+      <div class="category-filters-container">
+        <button class="category-filter-btn active" data-category="all">⚡ الكل</button>
+        <button class="category-filter-btn" data-category="php">🐘 PHP & Laravel</button>
+        <button class="category-filter-btn" data-category="js">📦 JS & Next.js</button>
+        <button class="category-filter-btn" data-category="mobile">📱 تطبيقات الجوال</button>
+        <button class="category-filter-btn" data-category="wp">🌐 WordPress</button>
+        <button class="category-filter-btn" data-category="templates">🎨 قوالب HTML/CSS</button>
+      </div>
+
+      <!-- Statistics Section -->
+      <section class="stats-section">
+        <div class="stat-card">
+          <div class="stat-number">+150</div>
+          <div class="stat-label">مشروعاً مخصصاً منفذاً</div>
+          <div class="stat-desc">تم تسليمها بنجاح للمؤسسات والشركات</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">4.92 / 5</div>
+          <div class="stat-label">تقييم رضا العملاء</div>
+          <div class="stat-desc">بناءً على مراجعات العملاء المستقلة</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">%98.4</div>
+          <div class="stat-label">الالتزام بمواعيد التسليم</div>
+          <div class="stat-desc">تطبيق شروط تسليم صارمة مع المطورين</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">24 ساعة</div>
+          <div class="stat-label">متوسط استجابة الدعم</div>
+          <div class="stat-desc">مهندسو دعم مخصصون لحل المشكلات</div>
+        </div>
+      </section>
+
+      <!-- Process Section -->
+      <section class="process-section">
+        <div class="section-header">
+          <span class="section-subtitle">كيف يعمل الموقع</span>
+          <h2 class="section-title">شراء وتنزيل الأكواد في خطوات بسيطة</h2>
+        </div>
+        
+        <div class="process-grid">
+          <div class="process-step">
+            <div class="step-num">1</div>
+            <h3 class="step-title">تصفح واكتشف</h3>
+            <p class="step-desc">ابحث في متجر البرمجيات عن الكود أو القالب البرمجي الذي يناسب احتياجات مشروعك من بين مئات الأكواد المميزة.</p>
+          </div>
+          <div class="process-step">
+            <div class="step-num">2</div>
+            <h3 class="step-title">الدفع الآمن</h3>
+            <p class="step-desc">اختر نوع الترخيص المناسب (عادي أو ممتد) وسدد القيمة فوراً وبأمان تام عبر وسائل الدفع المفضلة لديك.</p>
+          </div>
+          <div class="process-step">
+            <div class="step-num">3</div>
+            <h3 class="step-title">التحميل الفوري</h3>
+            <p class="step-desc">احصل على حزمة الكود المصدري المضغوطة (.zip) مع مفتاح رخصة التنشيط فوراً بعد إتمام عملية الدفع.</p>
+          </div>
+          <div class="process-step">
+            <div class="step-num">4</div>
+            <h3 class="step-title">التركيب والتشغيل</h3>
+            <p class="step-desc">اتبع دليل التثبيت والتوثيق المرفق خطوة بخطوة لبدء تشغيل النظام، مع توفر دعم فني عند الحاجة.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Benefits Section -->
+      <section class="benefits-section">
+        <div class="section-header">
+          <span class="section-subtitle">مزايا كودساينون</span>
+          <h2 class="section-title">لماذا تطلب مشروعك من خلالنا؟</h2>
+        </div>
+        
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+            </div>
+            <h4>نظام الضمان البرمجي</h4>
+            <p>أموالك بأمان تام. لا يتم تحويل المبلغ للمطور إلا بعد استلامك للمشروع كاملاً، وفحصه والتأكد من مطابقته للشروط.</p>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+              </svg>
+            </div>
+            <h4>مطورون معتمدون</h4>
+            <p>نحن لا نقبل سوى 3% من المطورين المتقدمين للمنصة بعد اختبارات برمجية دقيقة وفحص لسجل أعمالهم.</p>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
+            <h4>مراجعة جودة الأكواد</h4>
+            <p>يقوم خبراؤنا بمراجعة معمارية الكود وجودة التنفيذ للمشاريع المسلمة لضمان كود نظيف، آمن، وقابل للتوسع المستقبلي.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Store Catalog Section -->
+      <section class="portfolio-section" id="store-catalog">
+        <div class="section-header">
+          <span class="section-subtitle">متجر البرمجيات والأكواد</span>
+          <h2 class="section-title">حلول برمجية جاهزة مرخصة وقابلة للتحميل الفوري</h2>
+        </div>
+        
+        <div class="catalog-grid" id="catalog-products-grid">
+          <!-- Products will be dynamically rendered from StoreEngine -->
+        </div>
+      </section>
+
+      <!-- Testimonials -->
+      <section class="testimonials-section">
+        <div class="section-header">
+          <span class="section-subtitle">أراء شركاء النجاح</span>
+          <h2 class="section-title">ماذا يقول عملاؤنا عن تجاربهم؟</h2>
+        </div>
+        
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <p class="testimonial-quote">"تجربة تفوق الخيال! طلبنا تطوير نظام ERP لشركتنا وكنا متخوفين من تسريب البيانات أو تعطل المشروع. كودساينون وفرت لنا نظام حماية وضمان مالي فريد، والمطور سليم كان محترفاً جداً."</p>
+            <div class="testimonial-author">
+              <img class="author-avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&h=100&q=80" alt="العميل خالد القحطاني">
+              <div>
+                <h4 class="author-name">أ. خالد القحطاني</h4>
+                <p class="author-title">الرئيس التنفيذي، شركة روافد التقنية</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="testimonial-card">
+            <p class="testimonial-quote">"نموذج تقديم طلب المشروع كان واضحاً جداً وساعدنا على صياغة متطلباتنا التقنية بدقة. العروض التي تلقيناها كانت ذات جودة عالية والمقارنة بينها سهلة ومريحة. منصة رائعة فعلاً."</p>
+            <div class="testimonial-author">
+              <img class="author-avatar" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=100&h=100&q=80" alt="العميلة ياسمين العمري">
+              <div>
+                <h4 class="author-name">م. ياسمين العمري</h4>
+                <p class="author-title">مديرة المنتجات، متجر كاردس الفوري</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <p class="testimonial-quote">"تسليم الأكواد والملفات عبر مركز التحميل المنظم وفر علينا الكثير من العناء. استلمنا دليلاً كاملاً للتثبيت وربط قاعدة البيانات، والمطور كان يجيب على أسئلتنا بسرعة."</p>
+            <div class="testimonial-author">
+              <img class="author-avatar" src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=100&h=100&q=80" alt="العميل طارق الغامدي">
+              <div>
+                <h4 class="author-name">د. طارق الغامدي</h4>
+                <p class="author-title">عميد، كلية الاتصالات وتكنولوجيا المعلومات</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bottom CTA -->
+      <section class="bottom-cta">
+        <h3>هل أنت مستعد لبدء مشروعك الخاص؟</h3>
+        <p>لا تدع أفكارك حبراً على ورق. انضم الآن إلى مئات الشركات والمؤسسات التي طورت برمجياتها بأمان مع كودساينون.</p>
+        <a href="submit-request.html" class="btn btn-lg btn-primary" style="background-color: white; color: var(--secondary); border-color: white;">
+          اطلب مشروعك الخاص الآن
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+        </a>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <svg class="logo-icon" width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 10L16 4L26 10V22L16 28L6 22V10Z" stroke="var(--primary)" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M16 4V28" stroke="var(--primary)" stroke-width="1.5" stroke-dasharray="3 3"/>
+            <path d="M11 11L16 14L21 11" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="logo-text">كودساينون<span class="logo-dot">.</span></span>
+        </a>
+        <p class="brand-desc">المنصة المتكاملة لشراء البرمجيات الجاهزة وطلب المشاريع المخصصة بجودة وأمان لا مثيل لهما.</p>
+      </div>
+      
+      <div class="footer-links-grid">
+        <div class="footer-col">
+          <h5>المشاريع البرمجية</h5>
+          <ul>
+            <li><a href="submit-request.html">طلب مشروع خاص</a></li>
+            <li><a href="client-dashboard.html">لوحة التحكم للعملاء</a></li>
+            <li><a href="developer-dashboard.html">انضم كمطور برمجيات</a></li>
+            <li><a href="index.html">معرض أعمال المنصة</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>المنتجات الرقمية</h5>
+          <ul>
+            <li><a href="downloads.html">قوالب ويب جاهزة</a></li>
+            <li><a href="downloads.html">تتطبيقات جوال كاملة</a></li>
+            <li><a href="downloads.html">أنظمة إدارة شركات</a></li>
+            <li><a href="downloads.html">تحديثات وإصدارات المنتجات</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>الضمان والدعم</h5>
+          <ul>
+            <li><a href="index.html">سياسة الضمان والمستندات</a></li>
+            <li><a href="index.html">مركز المساعدة والتعليمات</a></li>
+            <li><a href="index.html">شروط الاستخدام والخصوصية</a></li>
+            <li><a href="index.html">تذكرة دعم فني</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-container">
+        <p>© 2026 كودساينون (Codecynon). جميع الحقوق محفوظة لشركة التميز الرقمي.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const searchInput = document.getElementById('store-search-input');
+      const searchBtn = document.getElementById('store-search-btn');
+      const filterBtns = document.querySelectorAll('.category-filter-btn');
+      const grid = document.getElementById('catalog-products-grid');
+
+      function renderProducts() {
+        const query = searchInput.value.toLowerCase().trim();
+        const activeBtn = document.querySelector('.category-filter-btn.active');
+        const activeCat = activeBtn ? activeBtn.getAttribute('data-category') : 'all';
+        
+        const products = window.StoreEngine.getProducts();
+        
+        // Filter
+        const filtered = products.filter(p => {
+          const matchesQuery = p.title.toLowerCase().includes(query) || p.subtitle.toLowerCase().includes(query);
+          const matchesCategory = activeCat === 'all' || p.category === activeCat;
+          return matchesQuery && matchesCategory;
+        });
+
+        if (filtered.length === 0) {
+          grid.innerHTML = `<div style="grid-column: 1 / -1; padding: 40px; text-align: center; color: var(--text-muted); font-size: 0.95rem;">لا توجد أكواد أو برمجيات مطابقة للبحث حالياً.</div>`;
+          return;
+        }
+
+        grid.innerHTML = filtered.map(p => {
+          const isFav = window.StoreEngine.isFavorite(p.id);
+          const iconColor = p.category === 'js' ? 'var(--primary-light)' : p.category === 'php' ? '#fee2e2' : p.category === 'mobile' ? '#e0f7fa' : p.category === 'wp' ? '#e0f2fe' : '#f0fdf4';
+          const iconTextColor = p.category === 'js' ? 'var(--primary)' : p.category === 'php' ? '#ef4444' : p.category === 'mobile' ? '#00acc1' : p.category === 'wp' ? '#21759b' : '#16a34a';
+
+          return `
+            <div class="product-card" data-cat="${p.category}">
+              <div class="product-card-preview">
+                <button class="icon-btn fav-btn" data-id="${p.id}" style="position: absolute; top: 12px; right: 12px; font-size: 1.25rem; background: white; border-radius: 50%; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-sm); border: none; cursor: pointer; z-index: 5;">
+                  ${isFav ? '❤️' : '🤍'}
+                </button>
+                <div class="product-icon-wrap" style="background-color: ${iconColor}; color: ${iconTextColor};">${p.techIcon || '💻'}</div>
+              </div>
+              <div class="product-card-body">
+                <h4 class="product-card-title">${p.title}</h4>
+                <p class="product-card-desc">${p.subtitle}</p>
+                <div class="product-card-tags">
+                  ${(p.tags || []).map(t => `<span class="product-tag">${t}</span>`).join('')}
+                </div>
+                <div class="product-card-meta">
+                  <span>★ ${(p.rating || 5.0).toFixed(2)} (${p.reviewsCount || 0} تقييم)</span>
+                  <span>📥 ${(p.downloads || 0).toLocaleString()} تنزيل</span>
+                </div>
+              </div>
+              <div class="product-card-footer">
+                <span class="product-price">$${p.priceRegular}</span>
+                <a href="product-details.html?id=${p.id}" class="btn btn-sm btn-primary">تفاصيل وشراء</a>
+              </div>
+            </div>
+          `;
+        }).join('');
+
+        // Wire favorite buttons
+        grid.querySelectorAll('.fav-btn').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const id = btn.getAttribute('data-id');
+            const added = window.StoreEngine.toggleFavorite(id);
+            btn.textContent = added ? '❤️' : '🤍';
+          });
+        });
+      }
+
+      // Filter button click event
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          renderProducts();
+        });
+      });
+
+      // Search events
+      searchBtn.addEventListener('click', renderProducts);
+      searchInput.addEventListener('input', renderProducts);
+
+      // Initial render
+      renderProducts();
+    });
+  </script>
+
+</body>
+</html>

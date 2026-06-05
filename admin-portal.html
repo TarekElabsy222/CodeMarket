@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>كودساينون | لوحة التحكم العامة للإدارة</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/dashboards.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/forms.css">
+
+  <!-- E-commerce Store State Engine -->
+  <script src="js/store-engine.js"></script>
+</head>
+<body class="dark-theme role-admin-theme">
+
+  <!-- Header Navigation -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="logo-area">
+        <a href="index.html" class="logo">
+          <svg class="logo-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 10L16 4L26 10V22L16 28L6 22V10Z" stroke="var(--primary)" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M16 4V28" stroke="var(--primary)" stroke-width="1.5" stroke-dasharray="3 3"/>
+            <path d="M11 11L16 14L21 11" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="16" cy="19" r="3" fill="var(--primary)" />
+          </svg>
+          <span class="logo-text">كودساينون<span class="logo-dot">.</span></span>
+        </a>
+      </div>
+
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+          <li><a href="store.html" class="nav-link">المتجر</a></li>
+          <li><a href="admin-portal.html" class="nav-link active">لوحة الإدارة</a></li>
+          <li><a href="downloads.html" class="nav-link">مركز التحميل</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Wishlist Button -->
+        <a href="cart.html#wishlist" class="icon-btn" style="position:relative; margin-left: 14px; font-size:1.3rem; text-decoration:none;" title="المفضلة">
+          ❤️
+          <span class="badge-count en-nums" id="header-fav-count" style="position:absolute; top:-8px; left:-8px; background-color:var(--danger); color:white; font-size:0.7rem; font-weight:800; border-radius:50%; width:18px; height:18px; display:none; align-items:center; justify-content:center;">0</span>
+        </a>
+        
+        <!-- Cart Button -->
+        <a href="cart.html" class="icon-btn" style="position:relative; margin-left: 20px; font-size:1.3rem; text-decoration:none;" title="سلة المشتريات">
+          🛒
+          <span class="badge-count en-nums" id="header-cart-count" style="position:absolute; top:-8px; left:-8px; background-color:var(--primary); color:white; font-size:0.7rem; font-weight:800; border-radius:50%; width:18px; height:18px; display:none; align-items:center; justify-content:center;">0</span>
+        </a>
+
+        <a href="submit-request.html" class="btn btn-primary" style="margin-left: 12px;">
+          اطلب مشروعك الخاص
+        </a>
+
+        <div class="user-profile-menu">
+          <a href="admin-portal.html" class="profile-trigger" style="border-radius: var(--radius-lg);">
+            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&h=100&q=80" alt="صورة الإدارة" class="user-avatar">
+            <div class="user-meta-header">
+              <span class="user-name">عبدالمحسن التميمي</span>
+              <span class="user-role">المدير المسؤول</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Shell Layout -->
+  <main id="app-root">
+    <div class="dashboard-shell fade-in">
+      
+      <!-- Sidebar Navigation -->
+      <aside class="dashboard-sidebar">
+        <div class="sidebar-header-info">
+          <div class="role-indicator admin" style="width:44px; height:44px; border-radius:var(--radius-md); display:flex; align-items:center; justify-content:center; background-color: var(--primary); color:white; font-size:1.4rem;">
+            ⚙️
+          </div>
+          <div class="sidebar-avatar-info">
+            <h4>إدارة كودساينون</h4>
+            <p>لوحة التحكم العامة</p>
+          </div>
+        </div>
+        <ul class="sidebar-menu">
+          <li>
+            <a href="admin-portal.html" class="sidebar-menu-item active">
+              <span style="margin-left: 8px;">📊</span>
+              لوحة التحكم والأرباح
+            </a>
+          </li>
+          <li>
+            <a href="admin-products.html" class="sidebar-menu-item">
+              <span style="margin-left: 8px;">📦</span>
+              المنتجات وإدارتها
+            </a>
+          </li>
+          <li>
+            <a href="admin-categories.html" class="sidebar-menu-item">
+              <span style="margin-left: 8px;">📂</span>
+              إدارة التصنيفات
+            </a>
+          </li>
+          <li>
+            <a href="admin-orders.html" class="sidebar-menu-item">
+              <span style="margin-left: 8px;">📜</span>
+              سجل الطلبيات
+            </a>
+          </li>
+          <li>
+            <a href="admin-users.html" class="sidebar-menu-item">
+              <span style="margin-left: 8px;">👥</span>
+              إدارة المستخدمين
+            </a>
+          </li>
+        </ul>
+      </aside>
+
+      <!-- Main Dashboard Content -->
+      <section class="dashboard-content">
+        <div class="dashboard-title-area">
+          <div>
+            <h2 id="tab-headline">لوحة التحكم العامة والتحليلات المالية</h2>
+            <p class="dashboard-subtitle" id="tab-subtitle">مرحباً بك في لوحة الإدارة لموقع كودساينون. استعرض المبيعات وإيرادات المنصة الفورية.</p>
+          </div>
+        </div>
+
+        <div id="subtab-content-root">
+          
+          <!-- Tab 1: Dashboard & Profits -->
+          <div class="subtab-panel active" id="panel-dashboard-profits">
+            <div class="metrics-grid">
+              <div class="metric-card">
+                <div class="metric-info">
+                  <span class="metric-label">إجمالي حجم مبيعات المنصة (GMV)</span>
+                  <span class="metric-value en-nums" id="metric-gmv">$0</span>
+                </div>
+                <div class="metric-icon-box" style="background-color: var(--primary-light); color: var(--primary);">📈</div>
+              </div>
+              
+              <div class="metric-card">
+                <div class="metric-info">
+                  <span class="metric-label">أرباح عمولات المنصة الصافية (10%)</span>
+                  <span class="metric-value en-nums" id="metric-commission">$0</span>
+                </div>
+                <div class="metric-icon-box" style="background-color: var(--success-glow); color: var(--success);">💰</div>
+              </div>
+
+              <div class="metric-card">
+                <div class="metric-info">
+                  <span class="metric-label">عدد الطلبيات الناجحة</span>
+                  <span class="metric-value en-nums" id="metric-orders-count">0</span>
+                </div>
+                <div class="metric-icon-box" style="background-color: var(--warning-glow); color: var(--warning);">🕒</div>
+              </div>
+            </div>
+
+            <!-- Dynamic revenue representation -->
+            <div class="dashboard-card" style="margin-top:30px;">
+              <div class="dashboard-card-header">
+                <h3>أرباح المبيعات مقارنة بالشهور الماضية</h3>
+              </div>
+              <div class="dashboard-card-body" style="text-align:center; padding: 40px 20px;">
+                <div style="display:flex; justify-content:space-around; align-items:flex-end; height:180px; padding-bottom:20px;">
+                  <div style="display:flex; flex-direction:column; align-items:center; gap:8px;">
+                    <div style="width:40px; height:80px; background:var(--border-medium); border-radius: var(--radius-sm) var(--radius-sm) 0 0;"></div>
+                    <span style="font-size:0.8rem; font-weight:700;">مارس ($2,400)</span>
+                  </div>
+                  <div style="display:flex; flex-direction:column; align-items:center; gap:8px;">
+                    <div style="width:40px; height:120px; background:var(--border-medium); border-radius: var(--radius-sm) var(--radius-sm) 0 0;"></div>
+                    <span style="font-size:0.8rem; font-weight:700;">أبريل ($3,100)</span>
+                  </div>
+                  <div style="display:flex; flex-direction:column; align-items:center; gap:8px;">
+                    <div id="chart-current-month-bar" style="width:40px; height:0px; background:var(--primary); border-radius: var(--radius-sm) var(--radius-sm) 0 0; transition: height 0.5s ease;"></div>
+                    <span style="font-size:0.8rem; font-weight:800; color:var(--primary);">الشهر الحالي (<span id="chart-current-month-label">$0</span>)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div class="footer-bottom">
+      <div class="footer-bottom-container" style="text-align:center;">
+        <p>© 2026 كودساينون (Codecynon) لوحة الإدارة العامة. جميع الحقوق محفوظة لشركة التميز الرقمي.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ==========================================
+    // FINANCIALS & CHART
+    // ==========================================
+    function renderFinancials() {
+      const orders = window.StoreEngine.getOrders();
+      const gmv = orders.reduce((sum, o) => sum + o.price, 0);
+      const commission = gmv * 0.10;
+
+      // Populate metrics label
+      document.getElementById('metric-gmv').textContent = `$${gmv.toLocaleString()}`;
+      document.getElementById('metric-commission').textContent = `$${commission.toLocaleString()}`;
+      document.getElementById('metric-orders-count').textContent = orders.length;
+
+      // Update current month bar in representation chart
+      const bar = document.getElementById('chart-current-month-bar');
+      const label = document.getElementById('chart-current-month-label');
+      if (bar && label) {
+        label.textContent = `$${gmv.toLocaleString()}`;
+
+        // Scale height based on GMV compared to prior months ($4000 = 160px height)
+        let calculatedHeight = (gmv / 4000) * 160;
+        if (calculatedHeight > 180) calculatedHeight = 180; // Limit
+        bar.style.height = `${calculatedHeight}px`;
+      }
+    }
+
+    // ==========================================
+    // INITIALIZATION
+    // ==========================================
+    document.addEventListener('DOMContentLoaded', () => {
+      renderFinancials();
+      
+      // Sync badges counts if any
+      window.StoreEngine.updateHeaderBadges();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>كودساينون | تصفح متجر الأكواد</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/landing.css">
+  <link rel="stylesheet" href="css/components.css">
+
+  <!-- Shared Store Engine -->
+  <script src="js/store-engine.js"></script>
+</head>
+<body class="role-client-theme">
+
+  <!-- Header Navigation -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="logo-area">
+        <a href="index.html" class="logo">
+          <svg class="logo-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 10L16 4L26 10V22L16 28L6 22V10Z" stroke="var(--primary)" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M16 4V28" stroke="var(--primary)" stroke-width="1.5" stroke-dasharray="3 3"/>
+            <path d="M11 11L16 14L21 11" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="16" cy="19" r="3" fill="var(--primary)" />
+          </svg>
+          <span class="logo-text">كودساينون<span class="logo-dot">.</span></span>
+        </a>
+      </div>
+
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+          <li><a href="store.html" class="nav-link active">المتجر</a></li>
+          <li><a href="admin-portal.html" class="nav-link">لوحة الإدارة</a></li>
+          <li><a href="downloads.html" class="nav-link">مركز التحميل</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Wishlist Button -->
+        <a href="cart.html#wishlist" class="icon-btn" style="position:relative; margin-left: 14px; font-size:1.3rem; text-decoration:none;" title="المفضلة">
+          ❤️
+          <span class="badge-count en-nums" id="header-fav-count" style="position:absolute; top:-8px; left:-8px; background-color:var(--danger); color:white; font-size:0.7rem; font-weight:800; border-radius:50%; width:18px; height:18px; display:none; align-items:center; justify-content:center;">0</span>
+        </a>
+        
+        <!-- Cart Button -->
+        <a href="cart.html" class="icon-btn" style="position:relative; margin-left: 20px; font-size:1.3rem; text-decoration:none;" title="سلة المشتريات">
+          🛒
+          <span class="badge-count en-nums" id="header-cart-count" style="position:absolute; top:-8px; left:-8px; background-color:var(--primary); color:white; font-size:0.7rem; font-weight:800; border-radius:50%; width:18px; height:18px; display:none; align-items:center; justify-content:center;">0</span>
+        </a>
+
+        <a href="submit-request.html" class="btn btn-primary" style="margin-left: 12px;">
+          اطلب مشروعك الخاص
+        </a>
+
+        <div class="user-profile-menu"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Store Layout Shell -->
+  <main class="landing-wrapper fade-in" style="margin-top: 40px; margin-bottom: 60px;">
+    
+    <!-- Title Area -->
+    <div style="border-bottom: 1px solid var(--border-light); padding-bottom: 20px; margin-bottom: 30px;">
+      <h1 style="font-size: 2rem; font-weight: 900; color: var(--text-primary);">تصفح المنتجات البرمجية والأكواد</h1>
+      <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 4px;">ابحث عن الأكواد والبرمجيات المناسبة لمشاريعك واستخدم الفلاتر المتطورة لتسريع البحث.</p>
+    </div>
+
+    <!-- Store Multi-column grid -->
+    <div class="product-details-container">
+      
+      <!-- Right Sidebar: Filters -->
+      <aside class="product-sidebar-panel" style="order: 2;">
+        
+        <!-- Filter Card -->
+        <div class="purchase-card" style="padding: 24px;">
+          <h3 style="font-weight: 800; color: var(--text-primary); font-size: 1.1rem; border-bottom: 1px solid var(--border-light); padding-bottom: 12px; margin-bottom: 20px; display:flex; justify-content:space-between; align-items:center;">
+            <span>فلاتر البحث</span>
+            <button id="reset-filters-btn" style="background:none; border:none; color:var(--primary); font-size:0.75rem; font-weight:700; cursor:pointer;">إعادة تعيين</button>
+          </h3>
+          
+          <!-- Search input -->
+          <div class="form-group" style="margin-bottom: 20px;">
+            <label style="font-weight:700;">البحث النصي</label>
+            <input type="text" id="filter-search-input" class="form-control" placeholder="ابحث باسم الكود أو الوصف..." style="padding: 10px; font-size:0.85rem;">
+          </div>
+
+          <!-- Category checklist -->
+          <div class="form-group" style="margin-bottom: 24px;">
+            <label style="font-weight:700; margin-bottom: 10px; display:block;">التصنيفات</label>
+            <div id="filter-categories-container" style="display:flex; flex-direction:column; gap:8px;">
+              <!-- Dynamically populated categories -->
+            </div>
+          </div>
+
+          <!-- Price range filter -->
+          <div class="form-group" style="margin-bottom: 24px;">
+            <label style="font-weight:700; display:flex; justify-content:space-between; margin-bottom:8px;">
+              <span>الحد الأقصى للسعر:</span>
+              <strong class="en-nums" id="price-slider-value" style="color:var(--primary); font-family:var(--font-english);">$500</strong>
+            </label>
+            <input type="range" id="filter-price-range" min="0" max="500" value="500" style="width:100%; cursor:pointer; accent-color:var(--primary);">
+            <div style="display:flex; justify-content:space-between; font-size:0.7rem; color:var(--text-muted); margin-top:4px;">
+              <span class="en-nums">$0</span>
+              <span class="en-nums">$500</span>
+            </div>
+          </div>
+
+          <!-- Star Ratings -->
+          <div class="form-group" style="margin-bottom: 10px;">
+            <label style="font-weight:700; margin-bottom: 10px; display:block;">تقييم المشترين</label>
+            <div style="display:flex; flex-direction:column; gap:8px; font-size:0.85rem;">
+              <label style="display:flex; align-items:center; gap:8px; cursor:pointer;">
+                <input type="radio" name="filter-rating" value="all" checked>
+                <span>الكل</span>
+              </label>
+              <label style="display:flex; align-items:center; gap:8px; cursor:pointer;">
+                <input type="radio" name="filter-rating" value="4">
+                <span style="color:var(--warning);">★★★★☆ وأعلى (4+)</span>
+              </label>
+              <label style="display:flex; align-items:center; gap:8px; cursor:pointer;">
+                <input type="radio" name="filter-rating" value="4.8">
+                <span style="color:var(--warning);">★★★★★ ممتازة (4.8+)</span>
+              </label>
+            </div>
+          </div>
+
+        </div>
+
+      </aside>
+
+      <!-- Left Main Panel: Products list -->
+      <section class="product-info-panel" style="order: 1;">
+        
+        <!-- Grid header actions -->
+        <div style="display:flex; justify-content:space-between; align-items:center; background-color:var(--bg-secondary); border:1px solid var(--border-light); padding:12px 20px; border-radius:var(--radius-md); margin-bottom:24px; flex-wrap:wrap; gap:12px;">
+          <div style="font-size:0.85rem; color:var(--text-secondary);">
+            تم العثور على: <strong id="results-count" class="en-nums" style="color:var(--primary);">0</strong> منتجات مطابقة.
+          </div>
+          
+          <div style="display:flex; align-items:center; gap:8px; font-size:0.85rem;">
+            <span>ترتيب حسب:</span>
+            <select id="sort-select" class="form-control" style="padding: 4px 10px; width: 160px; font-size: 0.8rem; background: white;">
+              <option value="downloads-desc">الأكثر تنزيلاً 📥</option>
+              <option value="price-asc">السعر: من الأقل للأعلى 📈</option>
+              <option value="price-desc">السعر: من الأعلى للأقل 📉</option>
+              <option value="rating-desc">الأعلى تقييماً ★</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Catalog Grid -->
+        <div class="catalog-grid" id="store-catalog-grid" style="grid-template-columns: repeat(2, 1fr); gap: 24px;">
+          <!-- Dynamically populated from JS -->
+        </div>
+
+      </section>
+
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <svg class="logo-icon" width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 10L16 4L26 10V22L16 28L6 22V10Z" stroke="var(--primary)" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M16 4V28" stroke="var(--primary)" stroke-width="1.5" stroke-dasharray="3 3"/>
+            <path d="M11 11L16 14L21 11" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="logo-text">كودساينون<span class="logo-dot">.</span></span>
+        </a>
+        <p class="brand-desc">المنصة المتكاملة لشراء البرمجيات الجاهزة وطلب المشاريع المخصصة بجودة وأمان لا مثيل لهما.</p>
+      </div>
+      <div class="footer-links-grid">
+        <div class="footer-col">
+          <h5>المشاريع البرمجية</h5>
+          <ul>
+            <li><a href="submit-request.html">طلب مشروع خاص</a></li>
+            <li><a href="store.html">متجر الأكواد</a></li>
+            <li><a href="admin-portal.html">لوحة الإدارة</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-container" style="text-align:center;">
+        <p>© 2026 كودساينون (Codecynon). جميع الحقوق محفوظة.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const searchInput = document.getElementById("filter-search-input");
+      const categoryContainer = document.getElementById("filter-categories-container");
+      const priceSlider = document.getElementById("filter-price-range");
+      const priceValue = document.getElementById("price-slider-value");
+      const sortSelect = document.getElementById("sort-select");
+      const resultsCount = document.getElementById("results-count");
+      const storeGrid = document.getElementById("store-catalog-grid");
+      const resetBtn = document.getElementById("reset-filters-btn");
+
+      // 1. Populate Category checkboxes
+      const categories = window.StoreEngine.getCategories();
+      categoryContainer.innerHTML = categories.map(c => `
+        <label style="display:flex; align-items:center; gap:8px; cursor:pointer; font-size:0.85rem;">
+          <input type="checkbox" class="filter-cat-checkbox" value="${c.id}" checked>
+          <span>${c.icon} ${c.name}</span>
+        </label>
+      `).join('');
+
+      // 2. Main Filter Logic
+      function filterAndRenderProducts() {
+        const query = searchInput.value.toLowerCase().trim();
+        const maxPrice = parseFloat(priceSlider.value);
+        priceValue.textContent = `$${maxPrice}`;
+
+        // Get checked categories
+        const checkedCheckboxes = document.querySelectorAll(".filter-cat-checkbox:checked");
+        const checkedCats = Array.from(checkedCheckboxes).map(cb => cb.value);
+
+        // Get selected rating threshold
+        const selectedRatingRadio = document.querySelector("input[name='filter-rating']:checked");
+        const ratingThreshold = selectedRatingRadio && selectedRatingRadio.value !== 'all' ? parseFloat(selectedRatingRadio.value) : 0;
+
+        // Fetch products
+        let products = window.StoreEngine.getProducts();
+
+        // Perform filters
+        let filtered = products.filter(p => {
+          const matchesQuery = p.title.toLowerCase().includes(query) || p.subtitle.toLowerCase().includes(query) || p.description.toLowerCase().includes(query);
+          const matchesCategory = checkedCats.includes(p.category);
+          const matchesPrice = p.priceRegular <= maxPrice;
+          const matchesRating = (p.rating || 5.0) >= ratingThreshold;
+
+          return matchesQuery && matchesCategory && matchesPrice && matchesRating;
+        });
+
+        // Perform sorting
+        const sortType = sortSelect.value;
+        if (sortType === "price-asc") {
+          filtered.sort((a, b) => a.priceRegular - b.priceRegular);
+        } else if (sortType === "price-desc") {
+          filtered.sort((a, b) => b.priceRegular - a.priceRegular);
+        } else if (sortType === "rating-desc") {
+          filtered.sort((a, b) => (b.rating || 5.0) - (a.rating || 5.0));
+        } else {
+          // downloads-desc (Default)
+          filtered.sort((a, b) => (b.downloads || 0) - (a.downloads || 0));
+        }
+
+        // Render results count
+        resultsCount.textContent = filtered.length;
+
+        // Render products
+        if (filtered.length === 0) {
+          storeGrid.innerHTML = `
+            <div style="grid-column:1/-1; padding:40px; text-align:center; color:var(--text-muted);">
+              لا توجد منتجات مطابقة للمواصفات البرمجية المحددة.
+            </div>
+          `;
+          return;
+        }
+
+        storeGrid.innerHTML = filtered.map(p => {
+          const isFav = window.StoreEngine.isFavorite(p.id);
+          const iconColor = p.category === 'js' ? 'var(--primary-light)' : p.category === 'php' ? '#fee2e2' : p.category === 'mobile' ? '#e0f7fa' : p.category === 'wp' ? '#e0f2fe' : '#f0fdf4';
+          const iconTextColor = p.category === 'js' ? 'var(--primary)' : p.category === 'php' ? '#ef4444' : p.category === 'mobile' ? '#00acc1' : p.category === 'wp' ? '#21759b' : '#16a34a';
+
+          return `
+            <div class="product-card">
+              <div class="product-card-preview">
+                <button class="icon-btn fav-btn" data-id="${p.id}" style="position: absolute; top: 12px; right: 12px; font-size: 1.25rem; background: white; border-radius: 50%; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-sm); border: none; cursor: pointer; z-index: 5;">
+                  ${isFav ? '❤️' : '🤍'}
+                </button>
+                <div class="product-icon-wrap" style="background-color: ${iconColor}; color: ${iconTextColor};">${p.techIcon || '💻'}</div>
+              </div>
+              <div class="product-card-body">
+                <h4 class="product-card-title">${p.title}</h4>
+                <p class="product-card-desc">${p.subtitle}</p>
+                <div class="product-card-tags">
+                  ${(p.tags || []).map(t => `<span class="product-tag">${t}</span>`).join('')}
+                </div>
+                <div class="product-card-meta">
+                  <span>★ ${(p.rating || 5.0).toFixed(2)} (${p.reviewsCount || 0} تقييم)</span>
+                  <span>📥 ${(p.downloads || 0).toLocaleString()} تنزيل</span>
+                </div>
+              </div>
+              <div class="product-card-footer">
+                <span class="product-price">$${p.priceRegular}</span>
+                <a href="product-details.html?id=${p.id}" class="btn btn-sm btn-primary">تفاصيل وشراء</a>
+              </div>
+            </div>
+          `;
+        }).join('');
+
+        // Wire favorite clicks
+        storeGrid.querySelectorAll(".fav-btn").forEach(btn => {
+          btn.addEventListener("click", (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const id = btn.getAttribute("data-id");
+            const added = window.StoreEngine.toggleFavorite(id);
+            btn.textContent = added ? '❤️' : '🤍';
+          });
+        });
+      }
+
+      // 3. Attach Event Listeners
+      searchInput.addEventListener("input", filterAndRenderProducts);
+      priceSlider.addEventListener("input", filterAndRenderProducts);
+      sortSelect.addEventListener("change", filterAndRenderProducts);
+      
+      document.querySelectorAll(".filter-cat-checkbox").forEach(cb => {
+        cb.addEventListener("change", filterAndRenderProducts);
+      });
+
+      document.querySelectorAll("input[name='filter-rating']").forEach(radio => {
+        radio.addEventListener("change", filterAndRenderProducts);
+      });
+
+      // Reset Button logic
+      resetBtn.addEventListener("click", () => {
+        searchInput.value = "";
+        priceSlider.value = 500;
+        document.querySelectorAll(".filter-cat-checkbox").forEach(cb => cb.checked = true);
+        document.querySelector("input[name='filter-rating'][value='all']").checked = true;
+        sortSelect.value = "downloads-desc";
+        filterAndRenderProducts();
+      });
+
+      // Initial Render call
+      filterAndRenderProducts();
+
+      // Since checkboxes are added dynamically, we need to wire them after setting innerHTML
+      const cbs = document.querySelectorAll(".filter-cat-checkbox");
+      cbs.forEach(cb => {
+        cb.addEventListener("change", filterAndRenderProducts);
+      });
+    });
+  </script>
+
+</body>
+</html>
