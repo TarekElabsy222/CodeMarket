@@ -1,223 +1,371 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>كودساينون | إدارة التصنيفات</title>
-  
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>كودساينون | إدارة التصنيفات</title>
 
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="css/variables.css">
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="css/dashboards.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/forms.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Tajawal:wght@300;400;500;700;800;900&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- E-commerce Store State Engine -->
-  <script src="js/store-engine.js"></script>
-</head>
-<body class="dark-theme role-admin-theme">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/dashboards.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/forms.css" />
 
-  <!-- Header Navigation -->
-  <header class="app-header">
-    <div class="header-container">
-      <div class="logo-area">
-        <a href="index.html" class="logo">
-          <svg class="logo-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M6 10L16 4L26 10V22L16 28L6 22V10Z" stroke="var(--primary)" stroke-width="2.5" stroke-linejoin="round"/>
-            <path d="M16 4V28" stroke="var(--primary)" stroke-width="1.5" stroke-dasharray="3 3"/>
-            <path d="M11 11L16 14L21 11" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <circle cx="16" cy="19" r="3" fill="var(--primary)" />
-          </svg>
-          <span class="logo-text">كودساينون<span class="logo-dot">.</span></span>
-        </a>
-      </div>
-
-      <nav class="main-nav">
-        <ul class="nav-links">
-          <li><a href="index.html" class="nav-link">الرئيسية</a></li>
-          <li><a href="store.html" class="nav-link">المتجر</a></li>
-          <li><a href="admin-portal.html" class="nav-link active">لوحة الإدارة</a></li>
-          <li><a href="downloads.html" class="nav-link">مركز التحميل</a></li>
-        </ul>
-      </nav>
-
-      <div class="header-actions">
-        <!-- Wishlist Button -->
-        <a href="cart.html#wishlist" class="icon-btn" style="position:relative; margin-left: 14px; font-size:1.3rem; text-decoration:none;" title="المفضلة">
-          ❤️
-          <span class="badge-count en-nums" id="header-fav-count" style="position:absolute; top:-8px; left:-8px; background-color:var(--danger); color:white; font-size:0.7rem; font-weight:800; border-radius:50%; width:18px; height:18px; display:none; align-items:center; justify-content:center;">0</span>
-        </a>
-        
-        <!-- Cart Button -->
-        <a href="cart.html" class="icon-btn" style="position:relative; margin-left: 20px; font-size:1.3rem; text-decoration:none;" title="سلة المشتريات">
-          🛒
-          <span class="badge-count en-nums" id="header-cart-count" style="position:absolute; top:-8px; left:-8px; background-color:var(--primary); color:white; font-size:0.7rem; font-weight:800; border-radius:50%; width:18px; height:18px; display:none; align-items:center; justify-content:center;">0</span>
-        </a>
-
-        <a href="submit-request.html" class="btn btn-primary" style="margin-left: 12px;">
-          اطلب مشروعك الخاص
-        </a>
-
-        <div class="user-profile-menu"></div>
-      </div>
-    </div>
-  </header>
-
-  <!-- Shell Layout -->
-  <main id="app-root">
-    <div class="dashboard-shell fade-in">
-      
-      <!-- Sidebar Navigation -->
-      <aside class="dashboard-sidebar">
-        <div class="sidebar-header-info">
-          <div class="role-indicator admin" style="width:44px; height:44px; border-radius:var(--radius-md); display:flex; align-items:center; justify-content:center; background-color: var(--primary); color:white; font-size:1.4rem;">
-            ⚙️
-          </div>
-          <div class="sidebar-avatar-info">
-            <h4>إدارة كودساينون</h4>
-            <p>لوحة التحكم العامة</p>
-          </div>
-        </div>
-        <ul class="sidebar-menu">
-          <li>
-            <a href="admin-portal.html" class="sidebar-menu-item">
-              <span style="margin-left: 8px;">📊</span>
-              لوحة التحكم والأرباح
-            </a>
-          </li>
-          <li>
-            <a href="admin-products.html" class="sidebar-menu-item">
-              <span style="margin-left: 8px;">📦</span>
-              المنتجات وإدارتها
-            </a>
-          </li>
-          <li>
-            <a href="admin-categories.html" class="sidebar-menu-item active">
-              <span style="margin-left: 8px;">📂</span>
-              إدارة التصنيفات
-            </a>
-          </li>
-          <li>
-            <a href="admin-orders.html" class="sidebar-menu-item">
-              <span style="margin-left: 8px;">📜</span>
-              سجل الطلبيات
-            </a>
-          </li>
-          <li>
-            <a href="admin-users.html" class="sidebar-menu-item">
-              <span style="margin-left: 8px;">👥</span>
-              إدارة المستخدمين
-            </a>
-          </li>
-        </ul>
-      </aside>
-
-      <!-- Main Dashboard Content -->
-      <section class="dashboard-content">
-        <div class="dashboard-title-area">
-          <div>
-            <h2 id="tab-headline">إدارة تصنيفات المنتجات</h2>
-            <p class="dashboard-subtitle" id="tab-subtitle">إضافة تصنيفات جديدة للمتجر أو تصفح وحذف التصنيفات البرمجية الحالية.</p>
-          </div>
+    <!-- E-commerce Store State Engine -->
+    <script src="js/store-engine.js"></script>
+  </head>
+  <body class="dark-theme role-admin-theme">
+    <!-- Header Navigation -->
+    <header class="app-header">
+      <div class="header-container">
+        <div class="logo-area">
+          <a href="index.html" class="logo">
+            <svg
+              class="logo-icon"
+              width="32"
+              height="32"
+              viewBox="0 0 32 32"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M6 10L16 4L26 10V22L16 28L6 22V10Z"
+                stroke="var(--primary)"
+                stroke-width="2.5"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M16 4V28"
+                stroke="var(--primary)"
+                stroke-width="1.5"
+                stroke-dasharray="3 3"
+              />
+              <path
+                d="M11 11L16 14L21 11"
+                stroke="var(--primary)"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <circle cx="16" cy="19" r="3" fill="var(--primary)" />
+            </svg>
+            <span class="logo-text"
+              >المهندس<span class="logo-dot">.</span></span
+            >
+          </a>
         </div>
 
-        <div id="subtab-content-root">
-          <div class="two-col-grid">
-            
-            <!-- Table View: List of Categories (2fr) -->
-            <div class="dashboard-card">
-              <div class="dashboard-card-header">
-                <h3>التصنيفات المتاحة في المتجر</h3>
+        <nav class="main-nav">
+          <ul class="nav-links">
+            <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+            <li><a href="store.html" class="nav-link">المتجر</a></li>
+            <li>
+              <a href="admin-portal.html" class="nav-link active"
+                >لوحة الإدارة</a
+              >
+            </li>
+            <li><a href="downloads.html" class="nav-link">مركز التحميل</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <!-- Wishlist Button -->
+          <a
+            href="cart.html#wishlist"
+            class="icon-btn"
+            style="
+              position: relative;
+              margin-left: 14px;
+              font-size: 1.3rem;
+              text-decoration: none;
+            "
+            title="المفضلة"
+          >
+            ❤️
+            <span
+              class="badge-count en-nums"
+              id="header-fav-count"
+              style="
+                position: absolute;
+                top: -8px;
+                left: -8px;
+                background-color: var(--danger);
+                color: white;
+                font-size: 0.7rem;
+                font-weight: 800;
+                border-radius: 50%;
+                width: 18px;
+                height: 18px;
+                display: none;
+                align-items: center;
+                justify-content: center;
+              "
+              >0</span
+            >
+          </a>
+
+          <!-- Cart Button -->
+          <a
+            href="cart.html"
+            class="icon-btn"
+            style="
+              position: relative;
+              margin-left: 20px;
+              font-size: 1.3rem;
+              text-decoration: none;
+            "
+            title="سلة المشتريات"
+          >
+            🛒
+            <span
+              class="badge-count en-nums"
+              id="header-cart-count"
+              style="
+                position: absolute;
+                top: -8px;
+                left: -8px;
+                background-color: var(--primary);
+                color: white;
+                font-size: 0.7rem;
+                font-weight: 800;
+                border-radius: 50%;
+                width: 18px;
+                height: 18px;
+                display: none;
+                align-items: center;
+                justify-content: center;
+              "
+              >0</span
+            >
+          </a>
+
+          <a
+            href="submit-request.html"
+            class="btn btn-primary"
+            style="margin-left: 12px"
+          >
+            اطلب مشروعك الخاص
+          </a>
+
+          <div class="user-profile-menu"></div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Shell Layout -->
+    <main id="app-root">
+      <div class="dashboard-shell fade-in">
+        <!-- Sidebar Navigation -->
+        <aside class="dashboard-sidebar">
+          <div class="sidebar-header-info">
+            <div
+              class="role-indicator admin"
+              style="
+                width: 44px;
+                height: 44px;
+                border-radius: var(--radius-md);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: var(--primary);
+                color: white;
+                font-size: 1.4rem;
+              "
+            >
+              ⚙️
+            </div>
+            <div class="sidebar-avatar-info">
+              <h4>إدارة كودساينون</h4>
+              <p>لوحة التحكم العامة</p>
+            </div>
+          </div>
+          <ul class="sidebar-menu">
+            <li>
+              <a href="admin-portal.html" class="sidebar-menu-item">
+                <span style="margin-left: 8px">📊</span>
+                لوحة التحكم والأرباح
+              </a>
+            </li>
+            <li>
+              <a href="admin-products.html" class="sidebar-menu-item">
+                <span style="margin-left: 8px">📦</span>
+                المنتجات وإدارتها
+              </a>
+            </li>
+            <li>
+              <a href="admin-categories.html" class="sidebar-menu-item active">
+                <span style="margin-left: 8px">📂</span>
+                إدارة التصنيفات
+              </a>
+            </li>
+            <li>
+              <a href="admin-orders.html" class="sidebar-menu-item">
+                <span style="margin-left: 8px">📜</span>
+                سجل الطلبيات
+              </a>
+            </li>
+            <li>
+              <a href="admin-users.html" class="sidebar-menu-item">
+                <span style="margin-left: 8px">👥</span>
+                إدارة المستخدمين
+              </a>
+            </li>
+          </ul>
+        </aside>
+
+        <!-- Main Dashboard Content -->
+        <section class="dashboard-content">
+          <div class="dashboard-title-area">
+            <div>
+              <h2 id="tab-headline">إدارة تصنيفات المنتجات</h2>
+              <p class="dashboard-subtitle" id="tab-subtitle">
+                إضافة تصنيفات جديدة للمتجر أو تصفح وحذف التصنيفات البرمجية
+                الحالية.
+              </p>
+            </div>
+          </div>
+
+          <div id="subtab-content-root">
+            <div class="two-col-grid">
+              <!-- Table View: List of Categories (2fr) -->
+              <div class="dashboard-card">
+                <div class="dashboard-card-header">
+                  <h3>التصنيفات المتاحة في المتجر</h3>
+                </div>
+                <div
+                  class="dashboard-card-body"
+                  style="padding: 0; overflow-x: auto"
+                >
+                  <table class="project-table">
+                    <thead>
+                      <tr>
+                        <th>الرمز</th>
+                        <th>المعرف الفريد (Slug)</th>
+                        <th>اسم التصنيف</th>
+                        <th>عدد المنتجات المرتبطة</th>
+                        <th style="text-align: left">إجراءات</th>
+                      </tr>
+                    </thead>
+                    <tbody id="categories-table-body">
+                      <!-- Loaded dynamically -->
+                    </tbody>
+                  </table>
+                </div>
               </div>
-              <div class="dashboard-card-body" style="padding:0; overflow-x: auto;">
-                <table class="project-table">
-                  <thead>
-                    <tr>
-                      <th>الرمز</th>
-                      <th>المعرف الفريد (Slug)</th>
-                      <th>اسم التصنيف</th>
-                      <th>عدد المنتجات المرتبطة</th>
-                      <th style="text-align:left;">إجراءات</th>
-                    </tr>
-                  </thead>
-                  <tbody id="categories-table-body">
-                    <!-- Loaded dynamically -->
-                  </tbody>
-                </table>
+
+              <!-- Form View: Add Category (1fr) -->
+              <div class="dashboard-card">
+                <div class="dashboard-card-header">
+                  <h3>إضافة تصنيف جديد</h3>
+                </div>
+                <div class="dashboard-card-body">
+                  <form id="category-crud-form" onsubmit="return false;">
+                    <div class="form-group">
+                      <label>الاسم الظاهر للتصنيف</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="cat-name"
+                        placeholder="مثال: Python & Django"
+                        required
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label
+                        >المعرف الفريد (Slug - بالأحرف الإنجليزية
+                        الصغيرة)</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="cat-id"
+                        placeholder="مثال: python"
+                        pattern="[a-z0-9\-]+"
+                        title="يرجى كتابة أحرف إنجليزية صغيرة وأرقام وفواصل فقط بدون مسافات"
+                        required
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label>رمز تعبيري مميز (Emoji)</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="cat-icon"
+                        placeholder="مثال: 🐍"
+                        required
+                      />
+                    </div>
+                    <button
+                      type="submit"
+                      class="btn btn-primary"
+                      style="
+                        width: 100%;
+                        justify-content: center;
+                        margin-top: 20px;
+                        font-weight: 700;
+                      "
+                    >
+                      ➕ إضافة التصنيف للمتجر
+                    </button>
+                  </form>
+                </div>
               </div>
             </div>
-
-            <!-- Form View: Add Category (1fr) -->
-            <div class="dashboard-card">
-              <div class="dashboard-card-header">
-                <h3>إضافة تصنيف جديد</h3>
-              </div>
-              <div class="dashboard-card-body">
-                <form id="category-crud-form" onsubmit="return false;">
-                  <div class="form-group">
-                    <label>الاسم الظاهر للتصنيف</label>
-                    <input type="text" class="form-control" id="cat-name" placeholder="مثال: Python & Django" required>
-                  </div>
-                  <div class="form-group">
-                    <label>المعرف الفريد (Slug - بالأحرف الإنجليزية الصغيرة)</label>
-                    <input type="text" class="form-control" id="cat-id" placeholder="مثال: python" pattern="[a-z0-9\-]+" title="يرجى كتابة أحرف إنجليزية صغيرة وأرقام وفواصل فقط بدون مسافات" required>
-                  </div>
-                  <div class="form-group">
-                    <label>رمز تعبيري مميز (Emoji)</label>
-                    <input type="text" class="form-control" id="cat-icon" placeholder="مثال: 🐍" required>
-                  </div>
-                  <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; margin-top:20px; font-weight:700;">
-                    ➕ إضافة التصنيف للمتجر
-                  </button>
-                </form>
-              </div>
-            </div>
-
           </div>
-        </div>
-      </section>
-
-    </div>
-  </main>
-
-  <!-- Footer -->
-  <footer class="app-footer">
-    <div class="footer-bottom">
-      <div class="footer-bottom-container" style="text-align:center;">
-        <p>© 2026 كودساينون (Codecynon) لوحة الإدارة العامة. جميع الحقوق محفوظة لشركة التميز الرقمي.</p>
+        </section>
       </div>
-    </div>
-  </footer>
+    </main>
 
-  <script>
-    // ==========================================
-    // CATEGORIES MANAGEMENT
-    // ==========================================
-    const categoryCrudForm = document.getElementById('category-crud-form');
-    const categoriesTableBody = document.getElementById('categories-table-body');
+    <!-- Footer -->
+    <footer class="app-footer">
+      <div class="footer-bottom">
+        <div class="footer-bottom-container" style="text-align: center">
+          <p>
+            © 2026 كودساينون (Codecynon) لوحة الإدارة العامة. جميع الحقوق محفوظة
+            لشركة التميز الرقمي.
+          </p>
+        </div>
+      </div>
+    </footer>
 
-    // Render Categories
-    function renderCategories() {
-      const categories = window.StoreEngine.getCategories();
-      const products = window.StoreEngine.getProducts();
+    <script>
+      // ==========================================
+      // CATEGORIES MANAGEMENT
+      // ==========================================
+      const categoryCrudForm = document.getElementById("category-crud-form");
+      const categoriesTableBody = document.getElementById(
+        "categories-table-body",
+      );
 
-      if (categories.length === 0) {
-        categoriesTableBody.innerHTML = `<tr><td colspan="5" style="text-align:center; padding: 20px;">لا توجد تصنيفات متاحة حالياً.</td></tr>`;
-        return;
-      }
+      // Render Categories
+      function renderCategories() {
+        const categories = window.StoreEngine.getCategories();
+        const products = window.StoreEngine.getProducts();
 
-      categoriesTableBody.innerHTML = categories.map(cat => {
-        // Calculate count of products belonging to this category
-        const prodCount = products.filter(p => p.category === cat.id).length;
-        
-        return `
+        if (categories.length === 0) {
+          categoriesTableBody.innerHTML = `<tr><td colspan="5" style="text-align:center; padding: 20px;">لا توجد تصنيفات متاحة حالياً.</td></tr>`;
+          return;
+        }
+
+        categoriesTableBody.innerHTML = categories
+          .map((cat) => {
+            // Calculate count of products belonging to this category
+            const prodCount = products.filter(
+              (p) => p.category === cat.id,
+            ).length;
+
+            return `
           <tr>
-            <td style="font-size:1.5rem;">${cat.icon || '📂'}</td>
+            <td style="font-size:1.5rem;">${cat.icon || "📂"}</td>
             <td><code class="en-nums">${cat.id}</code></td>
             <td><strong>${cat.name}</strong></td>
             <td><span class="badge-status new en-nums">${prodCount} منتج</span></td>
@@ -226,55 +374,60 @@
             </td>
           </tr>
         `;
-      }).join('');
-    }
-
-    // Delete Category
-    window.deleteCategory = function(id, count) {
-      let confirmMessage = 'هل أنت متأكد من حذف هذا التصنيف نهائياً؟';
-      if (count > 0) {
-        confirmMessage = `تنبيه: هذا التصنيف يحتوي على (${count}) منتج(منتجات) مرتبطة به! حذفه قد يجعل المنتجات بدون تصنيف صحيح. هل أنت متأكد من الحذف على أي حال؟`;
+          })
+          .join("");
       }
-      
-      if (confirm(confirmMessage)) {
-        window.StoreEngine.deleteCategory(id);
-        alert('تم حذف التصنيف بنجاح! 📂');
+
+      // Delete Category
+      window.deleteCategory = function (id, count) {
+        let confirmMessage = "هل أنت متأكد من حذف هذا التصنيف نهائياً؟";
+        if (count > 0) {
+          confirmMessage = `تنبيه: هذا التصنيف يحتوي على (${count}) منتج(منتجات) مرتبطة به! حذفه قد يجعل المنتجات بدون تصنيف صحيح. هل أنت متأكد من الحذف على أي حال؟`;
+        }
+
+        if (confirm(confirmMessage)) {
+          window.StoreEngine.deleteCategory(id);
+          alert("تم حذف التصنيف بنجاح! 📂");
+          renderCategories();
+        }
+      };
+
+      // Add Category Form Submit
+      categoryCrudForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const name = document.getElementById("cat-name").value.trim();
+        const id = document.getElementById("cat-id").value.trim().toLowerCase();
+        const icon = document.getElementById("cat-icon").value.trim();
+
+        // Check if slug already exists
+        const existing = window.StoreEngine.getCategories().some(
+          (c) => c.id === id,
+        );
+        if (existing) {
+          alert(
+            "خطأ: هذا المعرف الفريد (Slug) مستخدم بالفعل لتصنيف آخر. يرجى اختيار معرف مميز.",
+          );
+          return;
+        }
+
+        const success = window.StoreEngine.addCategory({ id, name, icon });
+        if (success) {
+          alert(`تم إضافة التصنيف الجديد "${name}" بنجاح! 🎉`);
+          categoryCrudForm.reset();
+          renderCategories();
+        } else {
+          alert("فشل إضافة التصنيف. يرجى التحقق من المدخلات.");
+        }
+      });
+
+      // INITIALIZATION
+      document.addEventListener("DOMContentLoaded", () => {
         renderCategories();
-      }
-    };
 
-    // Add Category Form Submit
-    categoryCrudForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      const name = document.getElementById('cat-name').value.trim();
-      const id = document.getElementById('cat-id').value.trim().toLowerCase();
-      const icon = document.getElementById('cat-icon').value.trim();
-
-      // Check if slug already exists
-      const existing = window.StoreEngine.getCategories().some(c => c.id === id);
-      if (existing) {
-        alert('خطأ: هذا المعرف الفريد (Slug) مستخدم بالفعل لتصنيف آخر. يرجى اختيار معرف مميز.');
-        return;
-      }
-
-      const success = window.StoreEngine.addCategory({ id, name, icon });
-      if (success) {
-        alert(`تم إضافة التصنيف الجديد "${name}" بنجاح! 🎉`);
-        categoryCrudForm.reset();
-        renderCategories();
-      } else {
-        alert('فشل إضافة التصنيف. يرجى التحقق من المدخلات.');
-      }
-    });
-
-    // INITIALIZATION
-    document.addEventListener('DOMContentLoaded', () => {
-      renderCategories();
-      
-      // Sync badges counts if any
-      window.StoreEngine.updateHeaderBadges();
-    });
-  </script>
-</body>
+        // Sync badges counts if any
+        window.StoreEngine.updateHeaderBadges();
+      });
+    </script>
+  </body>
 </html>
